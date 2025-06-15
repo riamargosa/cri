@@ -39,8 +39,6 @@
       margin-bottom: 0px;
       line-height: 20px;  
       color: black;  
-     
-
     }
      
 .whatsapp-container {
@@ -157,12 +155,34 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 40px;
+      gap: 20px;
       margin-top: 40px;
       
       flex-wrap: wrap;
     }
-    footer {
+    
+/* Posicionamento do contêiner do banner */
+.banner_ri {
+    position: absolute; /* Essencial para usar top e left */
+    left: 7px; /* 30px da borda esquerda */
+    top: 112px; /* 300px do topo da página (ou do elemento pai posicionado) */
+    z-index: 10; /* Opcional: Garante que o banner fique por cima de outros elementos se houver sobreposição */
+    /* Remova qualquer width/height aqui se a imagem for a única coisa controlando o tamanho do div */
+}
+
+/* Tamanho da imagem DENTRO do banner_ri */
+.banner_ri img {
+    width: 150px; /* Defina a largura que você quer para a imagem */
+    height: 518px; /* Defina a altura que você quer para a imagem */
+    object-fit: cover; /* Faz a imagem preencher o espaço, cortando se necessário */
+    display: block; /* Garante que não haja espaços extras ao redor da imagem */
+}
+
+
+
+
+
+footer {
       position: fixed;
       bottom: 0;
       width: 100%;
@@ -225,7 +245,7 @@
   </header>
   <nav>
     <ul>
-      <li><a href="#">Início</a></li>
+      <li><a href="index.html">Início</a></li>
       <li>
         <a href="#">Serviços</a>
         <ul>
@@ -266,29 +286,16 @@
       <li><a href="#">Fale conosco</a></li>
     </ul>
   </nav>
-  <div class="carousel-container">
-    <a href="https://www.tjba.jus.br/corregedoria/area-legal-amargosa-e-a-4a-comarca-a-receber-projeto-da-cci/" target="_blank">
-    <img src="G:\Meu Drive\CRIAMARGOSA\CRIAMARGOSA\01 ADM CRI AMARGOSA\TIMBRAGEM\WEB SITES\RIAMARGOSA 2025\imagens\Amargosa Reurb7.png" class="carousel-image active" alt="Amargosa Reurb6">
-    </a>
-  </div>
+  
 
   <main>
-    <p class="selecionar-cartorio">Acesso Rápido</p>
-    <div class="cards-container">
-      <div class="container-ri" onclick="window.location.href='ri.html'">
-        <img src="https://ridigital.org.br/assets/img/servicos-icones/certidao-codhab.svg" alt="Registro de Imóveis" width="100">
-        <p>Cartório de Registro de Imóveis</p>
-      </div>
-      <div class="container-td">
-        <img src="https://ridigital.org.br/assets/img/servicos-icones/certidao-digital.svg" alt="Titulos e documentos" width="100">
-        <p>Cartório de Títulos e Documentos</p>
-      </div>
-      <div class="container-pj">
-        <img src="https://ridigital.org.br/assets/img/servicos-icones/regularizacao-fundiaria.svg" alt="Pessoa Jurídica" width="100">
-        <p>Cartório de Pessoa Jurídica</p>
-      </div>
-    </div>
-  </main>
+    <div class="banner_ri">
+            <img src="imagens/banner_ri.png" alt="Banner Registro de Imóveis">
+        </div>
+    <p class="selecionar-cartorio">Serviços Disponíveis</p>
+    
+     
+  </main>
   <footer>
     <div class="footer-left">
       <img src="G:\Meu Drive\CRIAMARGOSA\CRIAMARGOSA\01 ADM CRI AMARGOSA\TIMBRAGEM\WEB SITES\RIAMARGOSA 2025\imagens\logotjba.png" alt="Logotipo TJBA" class="footer-logo">
