@@ -178,7 +178,18 @@
     display: block; /* Garante que não haja espaços extras ao redor da imagem */
 }
 
+.icones-linha {
+  position: relative; /* ou absolute, conforme seu layout */
+}
 
+/* Define altura/top igual para todos */
+.icone-posicionado {
+  position: absolute;
+  top: 650px;
+  /* O left varia conforme cada ícone (via style inline ou classe separada) */
+  width: 50px;   /* exemplo de tamanho */
+  height: 50px;  /* exemplo de tamanho */
+}
 
 
 
@@ -293,7 +304,11 @@ footer {
             <img src="imagens/banner_ri.png" alt="Banner Registro de Imóveis">
         </div>
     <p class="selecionar-cartorio">Serviços Disponíveis</p>
-    
+   <div class="icones-linha">
+  <img src="imagens/ic_cd.png" class="icone-posicionado" style="left:300px;" alt="Ícone 1">
+  <img src="imagens/ic_dn.png" class="icone-posicionado" style="left:400px;" alt="Ícone 2">
+   
+</div> 
      
   </main>
   <footer>
