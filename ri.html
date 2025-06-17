@@ -177,7 +177,11 @@
     object-fit: cover; /* Faz a imagem preencher o espaço, cortando se necessário */
     display: block; /* Garante que não haja espaços extras ao redor da imagem */
 }
-
+.servicos-disponiveis {
+  position: absolute; /* ou relative, dependendo do layout */
+  top:300px;
+  left: 650px;
+}
 .icones-linha {
   position: relative; /* ou absolute, conforme seu layout */
   top: 450px;
@@ -304,7 +308,9 @@ footer {
     <div class="banner_ri">
             <img src="imagens/banner_ri.png" alt="Banner Registro de Imóveis">
         </div>
-    <p class="selecionar-cartorio">Serviços Disponíveis</p>
+    <div class="servicos-disponiveis">
+    Serviços Disponíveis
+    </div>
    <div class="icones-linha">
   <img src="imagens/ic_cd.png" class="icone-posicionado" style="left:300px;" alt="Ícone 1">
   <img src="imagens/ic_dn.png" class="icone-posicionado" style="left:600px;" alt="Ícone 2">
