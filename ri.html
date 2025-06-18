@@ -183,13 +183,20 @@
   top: 450px;
 }
 
-/* Define altura/top igual para todos */
-.icone-posicionado {
+.icones-servicos {
+  position: relative;
+  margin-top: 20px; /* 20px abaixo do texto */
+  height: 100px; /* ajuste conforme o tamanho das imagens */
+}
+
+.icone-servico {
   position: absolute;
-  top: 50px;
-  left: 650px;/* O left varia conforme cada ícone (via style inline ou classe separada) */
-  width: 150px;   /* exemplo de tamanho */
-  height: 150px;  /* exemplo de tamanho */
+  left: 350px; /* 350px da borda esquerda */
+  /* Se quiser as imagens uma ao lado da outra, pode ajustar o left do segundo */
+}
+
+.icone-servico + .icone-servico {
+  left: 410px; /* Por exemplo, 60px à direita da primeira */
 }
 
 
@@ -306,11 +313,11 @@ footer {
         </div>
     <p class="selecionar-cartorio">Serviços Disponíveis</p>
     
-   <div class="icones-linha">
-  <img src="imagens/ic_cd.png" class="icone-posicionado" style="left:300px;" alt="Ícone 1">
-  <img src="imagens/ic_dn.png" class="icone-posicionado" style="left:600px;" alt="Ícone 2">
-   
-</div> 
+   <p class="selecionar-cartorio">Serviços Disponíveis</p>
+   <div class="icones-servicos">
+   <img src="imagens/icri_cd.png" alt="Ícone CD" class="icone-servico">
+   <img src="imagens/icri_dn.png" alt="Ícone DN" class="icone-servico">
+   </div>
      
   </main>
   <footer>
