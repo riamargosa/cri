@@ -1,320 +1,320 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Cartório de Registro de Imóveis de Amargosa/BA</title>
- 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: Arial, sans-serif;
-      color: #fff;
-      background-image: url('imagens/fv.png');
-      min-height: 100vh;
-      padding-bottom: 60px;
-    }
-    header {
-      display: flex;
-      align-items: flex-start;
-      padding: 2px;
-      background-color: white;
-    }
-    header img {
-      width: 90pt;
-      height: 40pt;
-    }
-    .header-text {
-      margin-left: 15px;
-      color: black;  
-    }
-    .header-text h1 {
-      font-family: 'Felix Titling', sans-serif;
-      font-weight: bold;
-      font-size: 12px;
-      margin-top: 1px;
-      margin-bottom: 0px;
-      line-height: 20px;  
-      color: black;  
-    }
-     
-.whatsapp-container {
-  display: flex;
-  align-items: center; /* Mantém alinhamento vertical */
-  position: absolute;
-  top: 12px;
-  right: 50px; /* Define a distância da borda direita */
-}
+    <meta charset="UTF-8">
+    <title>Cartório de Registro de Imóveis de Amargosa/BA</title>
 
-.whatsapp-logo {
-  width: 30px;
-  height: 30px;
-  margin-right: 10px; /* Espaço entre o ícone e o telefone */
-  margin-top: 1px;
-}
+    <style>
+        /* --- Reset Básico e Estilos Gerais --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
- 
-.address, .whatsapp-text {
-  font-size: 11px; /* Define um tamanho uniforme */
-  font-family: Arial, sans-serif; /* Mantém a mesma fonte */
-  color: black; /* Padroniza a cor do texto */
-}
+        body {
+            font-family: Arial, sans-serif;
+            color: #fff;
+            background-image: url('imagens/fv.png');
+            min-height: 100vh;
+            padding-bottom: 60px; /* Espaço para o rodapé fixo */
+            position: relative; /* Essencial para posicionamento absoluto dentro do body */
+        }
 
+        /* --- Cabeçalho --- */
+        header {
+            display: flex;
+            align-items: flex-start; /* Alinha o conteúdo ao topo */
+            padding: 2px;
+            background-color: white;
+            position: relative; /* Para posicionar o WhatsApp em relação ao header */
+        }
 
-     
-    nav {
-      background: #3A4B3A; 
-      padding: 10px;
-      font-family: "Arial", sans-serif;
-      font-size: 18pt;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: flex-end;
-    }
-    nav ul li {
-      position: relative;
-      margin: 0 25px;
-    }
-    nav ul li a {
-      text-decoration: none;
-      color: #fff;
-      font-weight: bold;
-      font-size: 16px;
-      transition: color 0.3s ease;
-    }
-    nav ul li a:hover {
-      color: #ddd;
-    }
-    nav ul li ul {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: rgba(0, 0, 0, 0.8);
-      list-style: none;
-      padding: 15px;
-      font-size: 10px;
-      text-align: left;
-      line-height: 1.8; /* Aumenta o espaçamento entre as linhas */
-    }
+        header img {
+            width: 90pt;
+            height: 40pt;
+        }
 
- 
+        .header-text {
+            margin-left: 15px;
+            color: black;
+        }
 
-    nav ul li:hover ul {
-      display: block;
-    }
-    nav ul li ul li a {
-      font-weight: normal;
-      font-size: 10px;
-      white-space: nowrap;
-      display: block;
-    }
-     
-    main {
-      padding: 20px;
-    }
-    .selecionar-cartorio {
-      font-family: "Felix Titling", sans-serif;
-      font-size: 20pt;
-      text-align: center;
-      margin-top: 10px;
-      color: #3A4B3A;
-      font-weight: bold;
-    }
-    
- 
- .container-ri, .container-pj, .container-td {
-  width: 250px;
-  height: 200px;
-  margin-left: 10px;
-  text-align: center;
-  margin-bottom: 15px;
-  color: #3A4B3A;
-}
+        .header-text h1 {
+            font-family: 'Felix Titling', sans-serif;
+            font-weight: bold;
+            font-size: 12px;
+            margin-top: 1px;
+            margin-bottom: 0; /* Removido espaçamento extra */
+            line-height: 20px;
+            color: black;
+        }
 
- 
-    .cards-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-      margin-top: 40px;
-      
-      flex-wrap: wrap;
-    }
-    
-/* Posicionamento do contêiner do banner */
-.banner_ri {
-    position: absolute; /* Essencial para usar top e left */
-    left: 7px; /* 30px da borda esquerda */
-    top: 112px; /* 300px do topo da página (ou do elemento pai posicionado) */
-    z-index: 10; /* Opcional: Garante que o banner fique por cima de outros elementos se houver sobreposição */
-    /* Remova qualquer width/height aqui se a imagem for a única coisa controlando o tamanho do div */
-}
+        .whatsapp-container {
+            display: flex;
+            align-items: center;
+            position: absolute; /* Posiciona em relação ao header */
+            top: 12px;
+            right: 50px;
+        }
 
-/* Tamanho da imagem DENTRO do banner_ri */
-.banner_ri img {
-    width: 150px; /* Defina a largura que você quer para a imagem */
-    height: 518px; /* Defina a altura que você quer para a imagem */
-    object-fit: cover; /* Faz a imagem preencher o espaço, cortando se necessário */
-    display: block; /* Garante que não haja espaços extras ao redor da imagem */
-}
- 
- 
+        .whatsapp-logo {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
 
-.icones-servicos {
-  position: relative;
-  margin-top: 20px; /* 20px abaixo do texto */
-  height: 100px; /* ajuste conforme o tamanho das imagens */
-}
+        .address, .whatsapp-text {
+            font-size: 11px;
+            font-family: Arial, sans-serif;
+            color: black;
+        }
 
-.icone-servico {
-  position: absolute;
-  left: 350px; /* 350px da borda esquerda */
-  /* Se quiser as imagens uma ao lado da outra, pode ajustar o left do segundo */
-  width: 200px;
-  height: 200px;
-}
+        /* --- Navegação --- */
+        nav {
+            background: #3A4B3A;
+            padding: 10px;
+            font-family: "Arial", sans-serif;
+        }
 
-.icone-servico + .icone-servico {
-  left: 50px; /* Por exemplo, 60px à direita da primeira */
-}
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+        }
 
+        nav ul li {
+            position: relative;
+            margin: 0 25px;
+        }
 
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
 
-footer {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      color: white;
-      font-size: 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      line-height: 1.4;
-    }
-    .footer-left {
-      display: flex;
-      align-items: center; /* Alinha a imagem com o texto */
-      text-align: left;
-      padding-top: 5px;
-    }
-    .footer-left p {
-    margin-top: 0; /* Remove qualquer espaçamento extra */
-    }
-    .footer-right {
-      text-align: right;
-    }
-    .footer-logo {
-    width: 25pt;
-    height: 30pt; /* Mantém proporção correta */
-    margin-top: 0; 
-    margin-right: 10px; /* Adiciona espaço entre o logo e o texto */
-    }
+        nav ul li a:hover {
+            color: #ddd;
+        }
 
+        /* Dropdown Menu */
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(0, 0, 0, 0.8);
+            list-style: none;
+            padding: 15px;
+            font-size: 10px;
+            text-align: left;
+            line-height: 1.8;
+            min-width: 200px; /* Adicionado para evitar quebrar o texto */
+            z-index: 100; /* Garante que o menu esteja acima de outros elementos */
+        }
 
-    .privacy-link {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .privacy-link:hover {
-      text-decoration: underline;
-    }
-  </style>
+        nav ul li:hover ul {
+            display: block;
+        }
 
+        nav ul li ul li a {
+            font-weight: normal;
+            font-size: 10px;
+            white-space: nowrap;
+            display: block;
+        }
 
+        /* --- Conteúdo Principal (Main) --- */
+        main {
+            padding: 20px;
+            position: relative; /* Pode ser útil se houver elementos posicionados dentro de main */
+            z-index: 1; /* Garante que o conteúdo main fique acima do banner se houver sobreposição */
+        }
+
+        .banner_ri {
+            position: absolute;
+            left: 7px;
+            top: 10px; /* Mantém a posição do banner */
+            z-index: 10;
+        }
+
+        .banner_ri img {
+            max-width: 22%; /* Define o tamanho máximo da imagem */
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        .selecionar-cartorio {
+            font-family: "Felix Titling", sans-serif;
+            font-size: 20pt;
+            text-align: center;
+            margin-top: 10px; /* Mantido para espaçamento do elemento anterior no fluxo normal */
+            color: #3A4B3A;
+            font-weight: bold;
+            /* Removido top/left/position se não for absoluto */
+        }
+
+        /* Contêiner para os ícones icri_cd e icri_dn - usando Flexbox para alinhamento */
+        .icones-servicos-container {
+            position: absolute; /* Posiciona o grupo de ícones */
+            top: 60px; /* Distância do topo */
+            left: 180px; /* Distância da esquerda */
+            display: flex; /* Habilita Flexbox para alinhar os ícones lado a lado */
+            gap: 15px; /* Espaçamento entre os ícones */
+            /* Removido background-color, border-radius, font-family, font-size, color, etc. daqui, pois são estilos do DIV que foram sobrescritos pelas IMGs. */
+        }
+
+        .icone-servico {
+            width: 130px; /* Tamanho para cada ícone individual (ajuste conforme necessário) */
+            height: 130px; /* Mantém a proporção */
+            /* Removido position: absolute, top, left aqui, pois já está no .icones-servicos-container */
+        }
+
+        .icone-servico img {
+            width: 100%; /* Faz a imagem preencher o contêiner .icone-servico */
+            height: 100%;
+            object-fit: contain; /* Garante que a imagem se ajuste sem cortar */
+        }
+
+        /* --- Rodapé --- */
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            font-size: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            line-height: 1.4;
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
+            text-align: left;
+            padding-top: 5px;
+        }
+
+        .footer-left p { /* Este seletor p dentro de footer-left não parece ser usado no HTML */
+            margin-top: 0;
+        }
+
+        .footer-right {
+            text-align: right;
+        }
+
+        .footer-logo {
+            width: 25pt;
+            height: 30pt;
+            margin-top: 0;
+            margin-right: 10px;
+        }
+
+        .privacy-link {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .privacy-link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <img src="imagens\ritdpj.png" alt="Logotipo Cartório ">
-    <div class="header-text">
-      <h1>Cartório de Registro de Imóveis de Amargosa/BA</h1>
-      <p class="address">Rua Moreira Coelho, 183 - Centro - Amargosa/BA</p>
-      <p class="address">Horário de Atendimento: Das 8:00h às 14:00h</p>
-    </div>
-    <div class="whatsapp-container">
-      <a href="whatsapp://send?phone=+5575983237595">
-  <img src="imagens/wapp.png" alt="WhatsApp" class="whatsapp-logo">
-</a>
-      <p class="whatsapp-text">(75) 98323-7595</p>
-    </div>
+    <header>
+        <img src="imagens/ritdpj.png" alt="Logotipo Cartório">
+        <div class="header-text">
+            <h1>Cartório de Registro de Imóveis de Amargosa/BA</h1>
+            <p class="address">Rua Moreira Coelho, 183 - Centro - Amargosa/BA</p>
+            <p class="address">Horário de Atendimento: Das 8:00h às 14:00h</p>
+        </div>
+        <div class="whatsapp-container">
+            <a href="whatsapp://send?phone=+5575983237595">
+                <img src="imagens/wapp.png" alt="WhatsApp" class="whatsapp-logo">
+            </a>
+            <p class="whatsapp-text">(75) 98323-7595</p>
+        </div>
+    </header>
 
-  </header>
-  <nav>
-    <ul>
-      <li><a href="index.html">Início</a></li>
-      <li>
-        <a href="#">Serviços</a>
+    <nav>
         <ul>
-          <li><a href="https://eselo.tjba.jus.br/#tab1" target="_blank">Emissão de DAJE</a></li>
-          <li><a href="https://www.tjba.jus.br/portal/wp-content/uploads/2023/05/Arquivo-1-Formulario_requerimento_restituicao_taxas_cartorarias.pdf">Restituição de Valores - Formulário</a></li>
-          <li><a href="https://www.tjba.jus.br/portal/restituicao-de-daje-para-o-contribuinte/" target="_blank">Restituição de Valores - Instruções</a></li>
-          <li><a href="https://indisponibilidade.onr.org.br/home/relatoriogratuito" target="_blank">Consulta Indisponibilidade com Certificado Digital</a></li> 
-          <li><a href="https://amargosa.saatri.com.br/Imobiliario" target="_blank">Prefeitura Amargosa - IPTU</a></li>
-          <li><a href="https://amargosa.1doc.com.br/b.php?pg=o/central_servicos&tab=categoria&filter=01JG4MYPBGY7B5BDP79EA7FW3Z">Certidões Digitais Municipais</a></li>
-          <li><a href="https://sncr.serpro.gov.br/ccir/emissao;jsessionid=xkazl2oxlVXwhcMUoSqgUi2V.ccir4?windowId=5ad">Certificado de Cadastro de Imóvel Rural - CCIR </a></li>
-          <li><a href="https://solucoes.receita.fazenda.gov.br/Servicos/certidaointernet/ITR/EmitirPGFN">Certidao ITR - Imóveis Rurais </a></li>
+            <li><a href="index.html">Início</a></li>
+            <li>
+                <a href="#">Serviços</a>
+                <ul>
+                    <li><a href="https://eselo.tjba.jus.br/#tab1" target="_blank">Emissão de DAJE</a></li>
+                    <li><a href="https://www.tjba.jus.br/portal/wp-content/uploads/2023/05/Arquivo-1-Formulario_requerimento_restituicao_taxas_cartorarias.pdf">Restituição de Valores - Formulário</a></li>
+                    <li><a href="https://www.tjba.jus.br/portal/restituicao-de-daje-para-o-contribuinte/" target="_blank">Restituição de Valores - Instruções</a></li>
+                    <li><a href="https://indisponibilidade.onr.org.br/home/relatoriogratuito" target="_blank">Consulta Indisponibilidade com Certificado Digital</a></li>
+                    <li><a href="https://amargosa.saatri.com.br/Imobiliario" target="_blank">Prefeitura Amargosa - IPTU</a></li>
+                    <li><a href="https://amargosa.1doc.com.br/b.php?pg=o/central_servicos&tab=categoria&filter=01JG4MYPBGY7B5BDP79EA7FW3Z">Certidões Digitais Municipais</a></li>
+                    <li><a href="https://sncr.serpro.gov.br/ccir/emissao;jsessionid=xkazl2oxlVXwhcMUoSqgUi2V.ccir4?windowId=5ad">Certificado de Cadastro de Imóvel Rural - CCIR </a></li>
+                    <li><a href="https://solucoes.receita.fazenda.gov.br/Servicos/certidaointernet/ITR/EmitirPGFN">Certidao ITR - Imóveis Rurais </a></li>
+                </ul>
+            </li>
+            <li><a href="https://www.tjba.jus.br/extrajudicial/tabelas-de-custas/" target="_blank">Tabelas e Taxas</a></li>
+            <li><a href="#">Legislação</a>
+                <ul>
+                    <li><a href="https://www.planalto.gov.br/ccivil_03/leis/l6015compilada.htm#(%20*%20)" target="_blank">Lei de Registros Públicos</a></li>
+                    <li><a href="https://www.cnj.jus.br/wp-content/uploads/2023/09/codigo-nacional-de-normas-da-corregedoria-nacional-de-justica-v6b-31-08-2023-1.pdf" target="_blank">Código Nacional de Normas</a></li>
+                    <li><a href="https://www.tjba.jus.br/extrajudicial/wp-content/uploads/2023/09/CNP-2023-Codigo-de-Normas-e-Procedimentos-dos-Servicos-Notariais-de-Registro-do-Estado-da-Bahia.pdf" target="_blank">Código Normas TJ Bahia</a></li>
+                    <li><a href="https://www.planalto.gov.br/ccivil_03/leis/L6766compilado.htm" target="_blank">Lei do Parcelamento do Solo</a></li>
+                    <li><a href="https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14711.htm" target="_blank">Marco Legal das Garantias</a></li>
+                    <li><a href="https://www.planalto.gov.br/ccivil_03/leis/L4591compilado.htm" target="_blank">Incorporação Imobiliária</a></li>
+                    <li><a href="https://www.planalto.gov.br/ccivil_03/decreto/2002/D4449compilado.htm" target="_blank">Georreferenciamento</a></li>
+                    <li><a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2017/lei/l13465.htm" target="_blank">Regularização Fundiária - REURB</a></li>
+                    <li><a href="http://leismunicipa.is/14r45" target="_blank">Plano Diretor Amargosa - LC nº 40/23</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Links Úteis</a>
+                <ul>
+                    <li><a href="https://www.registrodeimoveis.org.br/" target="_blank">ONR - Registro de Imoveis do Brasil</a></li>
+                    <li><a href="https://onrtdpj.org.br/">ONR - Títulos e Documentos e Pessoas Jurídicas</a></li>
+                    <li><a href="https://www.ibge.gov.br/estatisticas/economicas/precos-e-custos/9270-sistema-nacional-de-pesquisa-de-custos-e-indices-da-construcao-civil.html" target="_blank">Tabela SINAPI - Valor m2 construção</a></li>
+                    <li><a href="https://www.ba.gov.br/juceb/">Junta Comercial do Estado da Bahia</a></li>
+                    <li><a href="https://www.tjba.jus.br/juceb/">Tribunal de Justiça do Estado da Bahia</a></li>
+                </ul>
+            </li>
+            <li><a href="https://www.cnj.jus.br/corregedoria/justica_aberta/?" target="_blank">Transparencia</a></li>
+            <li><a href="#">Fale conosco</a></li>
         </ul>
-      </li>
-      <li><a href="https://www.tjba.jus.br/extrajudicial/tabelas-de-custas/" target="_blank">Tabelas e Taxas</a></li>
-      <li><a href="#">Legislação</a>
-         <ul>
-          <li><a href="https://www.planalto.gov.br/ccivil_03/leis/l6015compilada.htm#(%20*%20)" target="_blank">Lei de Registros Públicos</a></li>
-          <li><a href="https://www.cnj.jus.br/wp-content/uploads/2023/09/codigo-nacional-de-normas-da-corregedoria-nacional-de-justica-v6b-31-08-2023-1.pdf" target="_blank">Código Nacional de Normas</a></li>
-          <li><a href="https://www.tjba.jus.br/extrajudicial/wp-content/uploads/2023/09/CNP-2023-Codigo-de-Normas-e-Procedimentos-dos-Servicos-Notariais-de-Registro-do-Estado-da-Bahia.pdf" target="_blank">Código Normas TJ Bahia</a></li>
-          <li><a href="https://www.planalto.gov.br/ccivil_03/leis/L6766compilado.htm" target="_blank">Lei do Parcelamento do Solo</a></li>
-          <li><a href="https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14711.htm" target="_blank">Marco Legal das Garantias</a></li>
-          <li><a href="https://www.planalto.gov.br/ccivil_03/leis/L4591compilado.htm" target="_blank">Incorporação Imobiliária</a></li>
-          <li><a href="https://www.planalto.gov.br/ccivil_03/decreto/2002/D4449compilado.htm" target="_blank">Georreferenciamento</a></li>
-          <li><a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2017/lei/l13465.htm" target="_blank">Regularização Fundiária - REURB</a></li>
-          <li><a href="http://leismunicipa.is/14r45" target="_blank">Plano Diretor Amargosa - LC nº 40/23</a></li>
-        </ul>
-      </li>
-      <li><a href="#">Links Úteis</a>
-          <ul>
-          <li><a href="https://www.registrodeimoveis.org.br/" target="_blank">ONR - Registro de Imoveis do Brasil</a></li>
-          <li><a href="https://onrtdpj.org.br/">ONR - Títulos e Documentos e Pessoas Jurídicas</a></li>
-          <li><a href="https://www.ibge.gov.br/estatisticas/economicas/precos-e-custos/9270-sistema-nacional-de-pesquisa-de-custos-e-indices-da-construcao-civil.html" target="_blank">Tabela SINAPI - Valor m2 construção</a></li>
-           <li><a href="https://www.ba.gov.br/juceb/">Junta Comercial do Estado da Bahia</a></li>
-           <li><a href="https://www.tjba.jus.br/juceb/">Tribunal de Justiça do Estado da Bahia</a></li>
-          </ul>
-      </li>
-      <li><a href="https://www.cnj.jus.br/corregedoria/justica_aberta/?" target="_blank">Transparencia</a></li>
-      <li><a href="#">Fale conosco</a></li>
-    </ul>
-  </nav>
-  
+    </nav>
 
-  <main>
-    <div class="banner_ri">
+    <main>
+        <div class="banner_ri">
             <img src="imagens/banner_ri.png" alt="Banner Registro de Imóveis">
         </div>
-    <p class="selecionar-cartorio">Serviços Disponíveis</p>
-   <div class="icones-servicos">
-   <img src="imagens/icri_cd.png" alt="Ícone CD" class="icone-servico">
-   <img src="imagens/icri_dn.png" alt="Ícone DN" class="icone-servico">
-   </div>
-     
-  </main>
-  <footer>
-    <div class="footer-left">
-      <img src="imagens\logotjba.png" alt="Logotipo TJBA" class="footer-logo">
-      Cartório de Registro de Imóveis, Hipotecas, Títulos e documentos da Circunscrição de Amargosa - Estado da Bahia.
-      <br>Rua Moreira Coelho, 183 - Centro - Amargosa/BA - Fone (75) 98323.7595 - Email: riamargosa@gmail.com.
-      <br>© 2025 por André Perez.</br>
-    </div>
-    <div class="footer-right">
-      <a href="https://drive.google.com/file/d/1XFvQGVBeIYVQVUK8pXK6__FyZfBUgnMA/view?usp=sharing" 
-         target="_blank" class="privacy-link">Termo de Privacidade</a>
-    </div>
-  </footer>
-  <script>
-     
+        <p class="selecionar-cartorio">Serviços Disponíveis</p>
+
+        <div class="icones-servicos-container">
+            <div class="icone-servico">
+                <img src="imagens/icri_cd.png" alt="Ícone Certidão Digital">
+            </div>
+            <div class="icone-servico">
+                <img src="imagens/icri_dn.png" alt="Ícone Dúvidas e Notificações">
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-left">
+            <img src="imagens/logotjba.png" alt="Logotipo TJBA" class="footer-logo">
+            Cartório de Registro de Imóveis, Hipotecas, Títulos e documentos da Circunscrição de Amargosa - Estado da Bahia.
+            <br>Rua Moreira Coelho, 183 - Centro - Amargosa/BA - Fone (75) 98323.7595 - Email: riamargosa@gmail.com.
+            <br>© 2025 por André Perez.</br>
+        </div>
+        <div class="footer-right">
+            <a href="https://drive.google.com/file/d/1XFvQGVBeIYVQVUK8pXK6__FyZfBUgnMA/view?usp=sharing"
+               target="_blank" class="privacy-link">Termo de Privacidade</a>
+        </div>
+    </footer>
+</body>
+</html>
