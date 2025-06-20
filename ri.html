@@ -45,7 +45,7 @@
             font-weight: bold;
             font-size: 12px;
             margin-top: 1px;
-            margin-bottom: 0; /* Removido espaçamento extra */
+            margin-bottom: 0;
             line-height: 20px;
             color: black;
         }
@@ -53,7 +53,7 @@
         .whatsapp-container {
             display: flex;
             align-items: center;
-            position: absolute; /* Posiciona em relação ao header */
+            position: absolute;
             top: 12px;
             right: 50px;
         }
@@ -112,8 +112,8 @@
             font-size: 10px;
             text-align: left;
             line-height: 1.8;
-            min-width: 200px; /* Adicionado para evitar quebrar o texto */
-            z-index: 100; /* Garante que o menu esteja acima de outros elementos */
+            min-width: 200px;
+            z-index: 100;
         }
 
         nav ul li:hover ul {
@@ -130,19 +130,19 @@
         /* --- Conteúdo Principal (Main) --- */
         main {
             padding: 20px;
-            position: relative; /* Pode ser útil se houver elementos posicionados dentro de main */
-            z-index: 1; /* Garante que o conteúdo main fique acima do banner se houver sobreposição */
+            position: relative; /* Mantém position: relative para aninhar elementos absolutos */
+            z-index: 1;
         }
 
         .banner_ri {
             position: absolute;
             left: 7px;
-            top: 10px; /* Mantém a posição do banner */
+            top: 10px;
             z-index: 10;
         }
 
         .banner_ri img {
-            max-width: 22%; /* Define o tamanho máximo da imagem */
+            max-width: 22%;
             height: auto;
             display: block;
             object-fit: cover;
@@ -152,32 +152,34 @@
             font-family: "Felix Titling", sans-serif;
             font-size: 20pt;
             text-align: center;
-            margin-top: 10px; /* Mantido para espaçamento do elemento anterior no fluxo normal */
+            margin-top: 10px;
             color: #3A4B3A;
             font-weight: bold;
-            /* Removido top/left/position se não for absoluto */
+            /* Se for absolute, remova margin-top e adicione top/left/position: absolute */
         }
 
         /* Contêiner para os ícones icri_cd e icri_dn - usando Flexbox para alinhamento */
         .icones-servicos-container {
-            position: absolute; /* Posiciona o grupo de ícones */
-            top: 60px; /* Distância do topo */
-            left: 180px; /* Distância da esquerda */
-            display: flex; /* Habilita Flexbox para alinhar os ícones lado a lado */
-            gap: 15px; /* Espaçamento entre os ícones */
-            /* Removido background-color, border-radius, font-family, font-size, color, etc. daqui, pois são estilos do DIV que foram sobrescritos pelas IMGs. */
+            position: absolute;
+            /* Ajustado top e left para posicioná-los abaixo do banner e do título, e garantir que estejam clicáveis */
+            top: 100px; /* Ajuste este valor para mover os ícones para baixo */
+            left: 180px; /* Ajuste este valor para mover os ícones horizontalmente */
+            display: flex;
+            gap: 15px;
+            z-index: 20; /* Aumenta o z-index para garantir que os ícones estejam acima de outros elementos */
         }
 
         .icone-servico {
-            width: 130px; /* Tamanho para cada ícone individual (ajuste conforme necessário) */
-            height: 130px; /* Mantém a proporção */
-            /* Removido position: absolute, top, left aqui, pois já está no .icones-servicos-container */
+            width: 130px;
+            height: 130px;
+            /* Adicione uma cor de fundo temporária para depuração se precisar */
+            /* background-color: rgba(255, 0, 0, 0.2); */
         }
 
         .icone-servico img {
-            width: 100%; /* Faz a imagem preencher o contêiner .icone-servico */
+            width: 100%;
             height: 100%;
-            object-fit: contain; /* Garante que a imagem se ajuste sem cortar */
+            object-fit: contain;
         }
 
         /* --- Rodapé --- */
@@ -202,7 +204,7 @@
             padding-top: 5px;
         }
 
-        .footer-left p { /* Este seletor p dentro de footer-left não parece ser usado no HTML */
+        .footer-left p {
             margin-top: 0;
         }
 
@@ -296,7 +298,9 @@
 
         <div class="icones-servicos-container">
             <div class="icone-servico">
-                <img src="imagens/icri_cd.png" alt="Ícone Certidão Digital">
+                <a href="https://ridigital.org.br/CertidaoDigital/frmPedidosCertidao.aspx?from=menu&digital=1" target="_blank">
+                    <img src="imagens/icri_cd.png" alt="Ícone Certidão Digital">
+                </a>
             </div>
             <div class="icone-servico">
                 <img src="imagens/icri_dn.png" alt="Ícone Dúvidas e Notificações">
