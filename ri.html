@@ -152,12 +152,13 @@
             font-family: "Felix Titling", sans-serif;
             font-size: 20pt;
             text-align: center;
-            margin-top: 10px;
-            left: 70px;
+            margin-top: 25px;
+            position: absolute; /* Adicione ou certifique-se de que está aqui */
+            left: 600px; /* <--- Mude para 650px */
+            top: 10px; /* Você pode ajustar o 'top' para posicionar verticalmente */
             color: #3A4B3A;
-            font-weight: bold;
-            /* Se for absolute, remova margin-top e adicione top/left/position: absolute */
-        }
+           font-weight: bold;
+ }
 
         /* Contêiner para os ícones icri_cd e icri_dn - usando Flexbox para alinhamento */
         .icones-servicos-container {
@@ -379,6 +380,7 @@ function fecharModal() {
             <div class="icone-servico">
                 <a href="https:" target="_blank">
                 <img src="imagens/icri_rq.png" alt="Ícone Requerimentos">
+                </a>
             </div>
             <div class="icone-servico">
                 <a href="https://ridigital.org.br/eProtocolo/DefaultAC.aspx" target="_blank">
@@ -410,9 +412,21 @@ function fecharModal() {
             </div>
             <div class="icone-servico">
                 <a href="https://www.registrodeimoveis.org.br/diario-registral" target="_blank">
-                    <img src="imagens/icri_ee.png" alt="Ícone Certidão Digital">
+                    <img src="imagens/icri_ee.png" alt="Ícone Edital Eletronico">
                 </a>
             </div>
+            <div class="icone-servico">
+                <a href="https://amargosa.saatri.com.br/Certidao/Emitir?Pint_TipoCertidao=2&Pbol_ComMenuEsquerdo=true" target="_blank">
+                    <img src="imagens/icri_ip.png" alt="Ícone Certidão IPTU">
+                </a>
+            </div>
+            <div class="icone-servico">
+                <a href="https://amargosa.1doc.com.br/b.php?pg=o/central_servicos&tab=categoria&filter=01JG4MYPBGY7B5BDP79EA7FW3Z" target="_blank">
+                    <img src="imagens/icri_cm.png" alt="Ícone Certidões Municipais">
+                </a>
+            </div>
+
+
 
 
         </div>
