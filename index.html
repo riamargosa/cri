@@ -203,13 +203,57 @@
     .privacy-link:hover {
       text-decoration: underline;
     }
+
+    .cookie-consent {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+}
+
+.cookie-consent p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.cookie-consent .cookie-link {
+    color: #87CEEB; /* Azul claro para o link "Saiba mais" */
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.cookie-consent .cookie-link:hover {
+    text-decoration: underline;
+}
+
+.cookie-consent .cookie-button {
+    background-color: #4CAF50; /* Verde para o botão "Aceitar" */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    margin-left: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.cookie-consent .cookie-button:hover {
+    background-color: #45a049;
+}
   </style>
 
 
 </head>
 <body>
   <header>
-    <img src="imagens\ritdpj.png" alt="Logotipo Cartório ">
+    <img src="G:\Meu Drive\CRIAMARGOSA\CRIAMARGOSA\01 ADM CRI AMARGOSA\TIMBRAGEM\WEB SITES\RIAMARGOSA 2025\imagens\ritdpj.png" alt="Logotipo Cartório ">
     <div class="header-text">
       <h1>Cartório de Registro de Imóveis de Amargosa/BA</h1>
       <p class="address">Rua Moreira Coelho, 183 - Centro - Amargosa/BA</p>
@@ -232,7 +276,7 @@
           <li><a href="https://eselo.tjba.jus.br/#tab1" target="_blank">Emissão de DAJE</a></li>
           <li><a href="https://www.tjba.jus.br/portal/wp-content/uploads/2023/05/Arquivo-1-Formulario_requerimento_restituicao_taxas_cartorarias.pdf">Restituição de Valores - Formulário</a></li>
           <li><a href="https://www.tjba.jus.br/portal/restituicao-de-daje-para-o-contribuinte/" target="_blank">Restituição de Valores - Instruções</a></li>
-          <li><a href="https://indisponibilidade.onr.org.br/" target="_blank">Consulta Indisponibilidade com Certificado Digital</a></li> 
+          <li><a href="https://indisponibilidade.onr.org.br/home/relatoriogratuito" target="_blank">Consulta Indisponibilidade com Certificado Digital</a></li> 
           <li><a href="https://amargosa.saatri.com.br/Imobiliario" target="_blank">Prefeitura Amargosa - IPTU</a></li>
           <li><a href="https://amargosa.1doc.com.br/b.php?pg=o/central_servicos&tab=categoria&filter=01JG4MYPBGY7B5BDP79EA7FW3Z">Certidões Digitais Municipais</a></li>
           <li><a href="https://sncr.serpro.gov.br/ccir/emissao;jsessionid=xkazl2oxlVXwhcMUoSqgUi2V.ccir4?windowId=5ad">Certificado de Cadastro de Imóvel Rural - CCIR </a></li>
@@ -268,7 +312,7 @@
   </nav>
   <div class="carousel-container">
     <a href="https://www.tjba.jus.br/corregedoria/area-legal-amargosa-e-a-4a-comarca-a-receber-projeto-da-cci/" target="_blank">
-    <img src="imagens\Amargosa Reurb7.png" class="carousel-image active" alt="Amargosa Reurb6">
+    <img src="G:\Meu Drive\CRIAMARGOSA\CRIAMARGOSA\01 ADM CRI AMARGOSA\TIMBRAGEM\WEB SITES\RIAMARGOSA 2025\imagens\Amargosa Reurb7.png" class="carousel-image active" alt="Amargosa Reurb6">
     </a>
   </div>
 
@@ -288,10 +332,17 @@
         <p>Cartório de Pessoa Jurídica</p>
       </div>
     </div>
+
+
+    <div id="cookieConsent" class="cookie-consent">
+    <p>Este site usa cookies para garantir que você obtenha a melhor experiência em nosso site. <a href="https://drive.google.com/file/d/1XFvQGVBeIYVQVUK8pXK6__FyZfBUgnMA/view?usp=sharing"      class="cookie-link">Saiba mais</a>. <button id="acceptCookies" class="cookie-button">Aceitar</button></p>
+    </div>
+
+    <script src="script.js"></script>
   </main>
   <footer>
     <div class="footer-left">
-      <img src="imagens\logotjba.png" alt="Logotipo TJBA" class="footer-logo">
+      <img src="G:\Meu Drive\CRIAMARGOSA\CRIAMARGOSA\01 ADM CRI AMARGOSA\TIMBRAGEM\WEB SITES\RIAMARGOSA 2025\imagens\logotjba.png" alt="Logotipo TJBA" class="footer-logo">
       Cartório de Registro de Imóveis, Hipotecas, Títulos e documentos da Circunscrição de Amargosa - Estado da Bahia.
       <br>Rua Moreira Coelho, 183 - Centro - Amargosa/BA - Fone (75) 98323.7595 - Email: riamargosa@gmail.com.
       <br>© 2025 por André Perez.</br>
