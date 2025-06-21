@@ -182,6 +182,17 @@
             height: 100%;
             object-fit: contain;
         }
+        
+            .icones-servicos-container2 {
+            position: absolute;
+            /* Ajustado top e left para posicioná-los abaixo do banner e do título, e garantir que estejam clicáveis */
+            top: 150px; /* Ajuste este valor para mover os ícones para baixo */
+            left: 00px; /* Ajuste este valor para mover os ícones horizontalmente */
+            display: flex;
+            gap: 15px;
+            z-index: 20; /* Aumenta o z-index para garantir que os ícones estejam acima de outros elementos */
+        }
+
 
         /* --- Rodapé --- */
         footer {
@@ -230,6 +241,21 @@
             text-decoration: underline;
         }
     </style>
+
+<script>
+function abrirModal() {
+  document.getElementById("meuModal").style.display = "flex";
+}
+function fecharModal() {
+  document.getElementById("meuModal").style.display = "none";
+}
+</script>
+
+
+
+
+
+
 </head>
 <body>
     <header>
@@ -303,15 +329,60 @@
                     <img src="imagens/icri_cd.png" alt="Ícone Certidão Digital">
                 </a>
             </div>
+
             <div class="icone-servico">
-                <img src="imagens/icri_dn.png" alt="Ícone Documentos Necessários">
+                 <a href="javascript:void(0);" onclick="abrirModal()">
+                 <img src="imagens/icri_dn.png" alt="Ícone Documentos Necessários">
+                 </a>
+
+                  <div id="meuModal" style="display:none; /* Inicia oculto */
+                         position:fixed;
+                         top:0;
+                         left:0;
+                         width:100%;
+                         height:100%;
+                         background-color:rgba(0,0,0,0.6);
+                         z-index:1000;
+                         justify-content:center; /* Para centralizar o conteúdo do modal */
+                         align-items:center;">
+    <div style="background:#fff;
+                padding:20px;
+                border-radius:10px;
+                max-width:90%;
+                max-height:90%;
+                position:relative; /* Necessário para posicionar o botão fechar */
+                box-sizing: border-box; /* Garante que padding não estoure o tamanho */
+                display: flex; /* Permite centralizar o iframe se ele for menor */
+                flex-direction: column; /* Coloca o botão e o iframe em coluna */
+                overflow: hidden;">
+        <span onclick="fecharModal()" style="position:absolute;
+                                            top:10px;
+                                            right:15px;
+                                            cursor:pointer;
+                                            font-size:25px; /* Tamanho um pouco maior para visibilidade */
+                                            color:#333; /* Cor mais visível */
+                                            font-weight:bold; /* Mais destaque */
+                                            z-index:1001; /* Garante que fique acima do iframe */
+                                            ">
+            &times;
+        </span>
+        
+        <iframe src="https://drive.google.com/embeddedfolderview?id=174cDNoQLnQ6D2j4L0Lk1EzYKabPSwjPp#list"
+                width="450px" /* Ocupa 100% da largura do contêiner do modal */
+                height="calc(600 - 30px)" /* Ajusta altura para considerar o espaço do botão */
+                frameborder="0"
+                style="margin-top: 20px;"> </iframe>
+    </div>
+</div>
+ 
             </div>
             <div class="icone-servico">
+                <a href="https:" target="_blank">
                 <img src="imagens/icri_rq.png" alt="Ícone Requerimentos">
             </div>
             <div class="icone-servico">
                 <a href="https://ridigital.org.br/eProtocolo/DefaultAC.aspx" target="_blank">
-                <img src="imagens/icri_ep.png" alt="Ícone Dúvidas e Notificações">
+                <img src="imagens/icri_ep.png" alt="Ícone E-Prot">
                 </a>
             </div>
             <div class="icone-servico">
@@ -331,6 +402,20 @@
                 </a>
             </div>
 
+        <div class="icones-servicos-container2">
+            <div class="icone-servico">
+                <a href="https://mapa.onr.org.br/" target="_blank">
+                    <img src="imagens/icri_mr.png" alt="Ícone Certidão Digital">
+                </a>
+            </div>
+            <div class="icone-servico">
+                <a href="https://www.registrodeimoveis.org.br/diario-registral" target="_blank">
+                    <img src="imagens/icri_ee.png" alt="Ícone Certidão Digital">
+                </a>
+            </div>
+
+
+        </div>
 
 
 
