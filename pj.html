@@ -1,0 +1,463 @@
+ <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cartório de Registro de Imóveis de Amargosa/BA</title>
+
+    <style>
+        /* --- Reset Básico e Estilos Gerais --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #fff;
+            background-image: url('imagens/fv.png');
+            min-height: 100vh;
+            padding-bottom: 60px; /* Espaço para o rodapé fixo */
+            position: relative; /* Essencial para posicionamento absoluto dentro do body */
+        }
+
+        /* --- Cabeçalho --- */
+        header {
+            display: flex;
+            align-items: flex-start; /* Alinha o conteúdo ao topo */
+            padding: 2px;
+            background-color: white;
+            position: relative; /* Para posicionar o WhatsApp em relação ao header */
+        }
+
+        header img {
+            width: 90pt;
+            height: 40pt;
+        }
+
+        .header-text {
+            margin-left: 15px;
+            color: black;
+        }
+
+        .header-text h1 {
+            font-family: 'Felix Titling', sans-serif;
+            font-weight: bold;
+            font-size: 12px;
+            margin-top: 1px;
+            margin-bottom: 0;
+            line-height: 20px;
+            color: black;
+        }
+
+        .whatsapp-container {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            top: 12px;
+            right: 50px;
+        }
+
+        .whatsapp-logo {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .address, .whatsapp-text {
+            font-size: 11px;
+            font-family: Arial, sans-serif;
+            color: black;
+        }
+
+        /* --- Navegação --- */
+        nav {
+            background: #3A4B3A;
+            padding: 10px;
+            font-family: "Arial", sans-serif;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        nav ul li {
+            position: relative;
+            margin: 0 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ddd;
+        }
+
+        /* Dropdown Menu */
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(0, 0, 0, 0.8);
+            list-style: none;
+            padding: 15px;
+            font-size: 10px;
+            text-align: left;
+            line-height: 1.8;
+            min-width: 200px;
+            z-index: 100;
+        }
+
+        nav ul li:hover ul {
+            display: block;
+        }
+
+        nav ul li ul li a {
+            font-weight: normal;
+            font-size: 10px;
+            white-space: nowrap;
+            display: block;
+        }
+
+        /* --- Conteúdo Principal (Main) --- */
+        main {
+            padding: 20px;
+            position: relative; /* Mantém position: relative para aninhar elementos absolutos */
+            z-index: 1;
+        }
+
+        .banner_pj {
+            position: absolute;
+            left: 7px;
+            top: 10px;
+            z-index: 10;
+        }
+
+        .banner_pj img {
+            max-width: 148px;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        .selecionar-cartorio {
+            font-family: "Felix Titling", sans-serif;
+            font-size: 20pt;
+            text-align: center;
+            margin-top: 25px;
+            position: absolute; /* Adicione ou certifique-se de que está aqui */
+            left: 600px; /* <--- Mude para 650px */
+            top: 10px; /* Você pode ajustar o 'top' para posicionar verticalmente */
+            color: #3A4B3A;
+            font-weight: bold;
+        }
+
+        /* Contêiner para os ícones icri_cd e icri_dn - usando Flexbox para alinhamento */
+        .icones-servicos-container {
+            position: absolute;
+            /* Ajustado top e left para posicioná-los abaixo do banner e do título, e garantir que estejam clicáveis */
+            top: 100px; /* Ajuste este valor para mover os ícones para baixo */
+            left: 180px; /* Ajuste este valor para mover os ícones horizontalmente */
+            display: flex;
+            gap: 15px;
+            z-index: 20; /* Aumenta o z-index para garantir que os ícones estejam acima de outros elementos */
+        }
+
+        .icone-servico {
+            width: 130px;
+            height: 130px;
+            /* Adicione uma cor de fundo temporária para depuração se precisar */
+            /* background-color: rgba(255, 0, 0, 0.2); */
+        }
+
+        .icone-servico img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .icones-servicos-container2 {
+            position: absolute;
+            /* Ajustado top e left para posicioná-los abaixo do banner e do título, e garantir que estejam clicáveis */
+            top: 250px; /* Ajuste este valor para mover os ícones para baixo */
+            left: 180px; /* Ajuste este valor para mover os ícones horizontalmente */
+            display: flex;
+            gap: 15px;
+             
+        }
+
+        /* Estilos para os modais */
+        .modal {
+            display: none; /* Inicia oculto */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+            justify-content: center; /* Para centralizar o conteúdo do modal */
+            align-items: center;
+        }
+
+        .modal-content {
+            background:#fff;
+            padding:20px;
+            border-radius:10px;
+            max-width:90%;
+            max-height:90%;
+            position:relative; /* Necessário para posicionar o botão fechar */
+            box-sizing: border-box; /* Garante que padding não estoure o tamanho */
+            display: flex; /* Permite centralizar o iframe se ele for menor */
+            flex-direction: column; /* Coloca o botão e o iframe em coluna */
+            overflow: hidden;
+        }
+
+        .close-button {
+            position:absolute;
+            top:10px;
+            right:15px;
+            cursor:pointer;
+            font-size:25px; /* Tamanho um pouco maior para visibilidade */
+            color:#333; /* Cor mais visível */
+            font-weight:bold; /* Mais destaque */
+            z-index:1001; /* Garante que fique acima do iframe */
+        }
+
+
+        /* --- Rodapé --- */
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            font-size: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            line-height: 1.4;
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
+            text-align: left;
+            padding-top: 5px;
+        }
+
+        .footer-left p {
+            margin-top: 0;
+        }
+
+        .footer-right {
+            text-align: right;
+        }
+
+        .footer-logo {
+            width: 25pt;
+            height: 30pt;
+            margin-top: 0;
+            margin-right: 10px;
+        }
+
+        .privacy-link {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .privacy-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+<script>
+    // Funções para abrir e fechar modais específicos
+    function abrirModal(modalId) {
+        document.getElementById(modalId).style.display = "flex";
+    }
+    function fecharModal(modalId) {
+        document.getElementById(modalId).style.display = "none";
+    }
+</script>
+
+</head>
+<body>
+    <header>
+        <img src="imagens/ritdpj.png" alt="Logotipo Cartório">
+        <div class="header-text">
+            <h1>Cartório de Registro de Imóveis de Amargosa/BA</h1>
+            <p class="address">Rua Moreira Coelho, 183 - Centro - Amargosa/BA</p>
+            <p class="address">Horário de Atendimento: Das 8:00h às 14:00h</p>
+        </div>
+        <div class="whatsapp-container">
+            <a href="whatsapp://send?phone=+5575983237595" target="_blank">
+                <img src="imagens/wapp.png" alt="WhatsApp" class="whatsapp-logo">
+            </a>
+            <p class="whatsapp-text">(75) 98323-7595</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="https://www.tjba.jus.br/extrajudicial/tabelas-de-custas/" target="_blank">Tabelas e Taxas</a></li>
+            <li><a href="#">Legislação</a>
+                <ul>
+                    <li><a href="https://www.planalto.gov.br/ccivil_03/leis/l6015compilada.htm#(%20*%20)" target="_blank">Lei de Registros Públicos</a></li>
+                    <li><a href="https://www.cnj.jus.br/wp-content/uploads/2023/09/codigo-nacional-de-normas-da-corregedoria-nacional-de-justica-v6b-31-08-2023-1.pdf" target="_blank">Código Nacional de Normas</a></li>
+                    <li><a href="https://www.tjba.jus.br/extrajudicial/wp-content/uploads/2023/09/CNP-2023-Codigo-de-Normas-e-Procedimentos-dos-Servicos-Notariais-de-Registro-do-Estado-da-Bahia.pdf" target="_blank">Código Normas TJ Bahia</a></li>
+                    <li><a href="https://www.planalto.gov.br/ccivil_03/leis/L6766compilado.htm" target="_blank">Lei do Parcelamento do Solo</a></li>
+                    <li><a href="https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14711.htm" target="_blank">Marco Legal das Garantias</a></li>
+                    <li><a href="https://www.planalto.gov.br/ccivil_03/leis/L4591compilado.htm" target="_blank">Incorporação Imobiliária</a></li>
+                    <li><a href="https://www.planalto.gov.br/ccivil_03/decreto/2002/D4449compilado.htm" target="_blank">Georreferenciamento</a></li>
+                    <li><a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2017/lei/l13465.htm" target="_blank">Regularização Fundiária - REURB</a></li>
+                    <li><a href="http://leismunicipa.is/14r45" target="_blank">Plano Diretor Amargosa - LC nº 40/23</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Links Úteis</a>
+                <ul>
+                    <li><a href="https://www.registrodeimoveis.org.br/" target="_blank">ONR - Registro de Imoveis do Brasil</a></li>
+                    <li><a href="https://onrtdpj.org.br/" target="_blank">ONR - Títulos e Documentos e Pessoas Jurídicas</a></li>
+                    <li><a href="https://www.ibge.gov.br/estatisticas/economicas/precos-e-custos/9270-sistema-nacional-de-pesquisa-de-custos-e-indices-da-construcao-civil.html" target="_blank">Tabela SINAPI - Valor m2 construção</a></li>
+                    <li><a href="https://www.ba.gov.br/juceb/" target="_blank">Junta Comercial do Estado da Bahia</a></li>
+                    <li><a href="https://www.tjba.jus.br/juceb/" target="_blank">Tribunal de Justiça do Estado da Bahia</a></li>
+                </ul>
+            </li>
+            <li><a href="https://www.cnj.jus.br/corregedoria/justica_aberta/?" target="_blank">Transparencia</a></li>
+            <li><a href="#">Fale conosco</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="banner_pj">
+            <img src="imagens/banner_pj.png" alt="Banner Registro de Imóveis">
+        </div>
+        <p class="selecionar-cartorio">Serviços Disponíveis</p>
+
+        <div class="icones-servicos-container">
+            <div class="icone-servico">
+                <a href="https://ridigital.org.br/CertidaoDigital/frmPedidosCertidao.aspx?from=menu&digital=1" target="_blank">
+                    <img src="imagens/icpj_pc.png" alt="Ícone Certidão Digital">
+                </a>
+            </div>
+
+            <div class="icone-servico">
+                <a href="javascript:void(0);" onclick="abrirModal('modalDN')">
+                    <img src="imagens/icpj_dn.png" alt="Ícone Documentos Necessários">
+                </a>
+            </div>
+            <div id="modalDN" class="modal">
+                <div class="modal-content">
+                    <span class="close-button" onclick="fecharModal('modalDN')">&times;</span>
+                    <iframe src="https://drive.google.com/embeddedfolderview?id=174cDNoQLnQ6D2j4L0Lk1EzYKabPSwjPp#list"
+                        width="450px" height="calc(600px - 30px)" frameborder="0" style="margin-top: 20px;">
+                    </iframe>
+                </div>
+            </div>
+
+            <div class="icone-servico">
+                <a href="javascript:void(0);" onclick="abrirModal('modalRQ')">
+                    <img src="imagens/icpj_rq.png" alt="Ícone Requerimentos">
+                </a>
+            </div>
+            <div id="modalRQ" class="modal">
+                <div class="modal-content">
+                    <span class="close-button" onclick="fecharModal('modalRQ')">&times;</span>
+                    <iframe src="https://drive.google.com/embeddedfolderview?id=1edqbXJXY_zr5107Y_nCBjYnhB1y74Bzs#list"
+                        width="450px" height="calc(600px - 30px)" frameborder="0" style="margin-top: 20px;">
+                    </iframe>
+                </div>
+            </div>
+
+            <div class="icone-servico">
+                <a href="https://ridigital.org.br/eProtocolo/DefaultAC.aspx" target="_blank">
+                    <img src="imagens/icri_ep.png" alt="Ícone E-Prot">
+                </a>
+            </div>
+            <div class="icone-servico">
+                <img src="imagens/icri_cl.png" alt="Ícone Dúvidas e Notificações">
+            </div>
+            <div class="icone-servico">
+                <img src="imagens/icri_ue.png" alt="Ícone Dúvidas e Notificações">
+            </div>
+            <div class="icone-servico">
+                <a href="https://ridigital.org.br/VisualizarMatricula/DefaultVM.aspx?from=menu" target="_blank">
+                    <img src="imagens/icri_vm.png" alt="Ícone Visualizar Matriculas">
+                </a>
+            </div>
+            <div class="icone-servico">
+                <a href="https://ridigital.org.br/CE/DefaultCE.aspx" target="_blank">
+                    <img src="imagens/icri_pq.png" alt="Ícone Pesquisa Qualificada">
+                </a>
+            </div>
+        </div>
+
+        <div class="icones-servicos-container2">
+            <div class="icone-servico">
+                <a href="https://mapa.onr.org.br/" target="_blank">
+                    <img src="imagens/icri_mr.png" alt="Ícone Certidão Digital">
+                </a>
+            </div>
+            <div class="icone-servico">
+                <a href="https://www.registrodeimoveis.org.br/diario-registral" target="_blank">
+                    <img src="imagens/icri_ee.png" alt="Ícone Edital Eletronico">
+                </a>
+            </div>
+            <div class="icone-servico">
+                <a href="https://amargosa.saatri.com.br/Certidao/Emitir?Pint_TipoCertidao=2&Pbol_ComMenuEsquerdo=true" target="_blank">
+                    <img src="imagens/icri_ip.png" alt="Ícone Certidão IPTU">
+                </a>
+            </div>
+            <div class="icone-servico">
+                <a href="https://amargosa.1doc.com.br/b.php?pg=o/central_servicos&tab=categoria&filter=01JG4MYPBGY7B5BDP79EA7FW3Z" target="_blank">
+                    <img src="imagens/icri_cm.png" alt="Ícone Certidões Municipais">
+                </a>
+            </div>
+            <div class="icone-servico">
+                <a href="https://sncr.serpro.gov.br/ccir/emissao?windowId=a98" target="_blank">
+                    <img src="imagens/icri_cc.png" alt="Ícone Certidões Municipais">
+                </a>
+            </div>
+            <div class="icone-servico">
+                <a href="https://solucoes.receita.fazenda.gov.br/Servicos/certidaointernet/ITR/EmitirPGFN" target="_blank">
+                    <img src="imagens/icri_ci.png" alt="Ícone Certidões Municipais">
+                </a>
+            </div>
+            <div class="icone-servico">
+                <a href="https://ridigital.org.br/LoginGeral.aspx?from=mre" target="_blank">
+                    <img src="imagens/icri_mr.png" alt="Ícone Certidões Municipais">
+                </a>
+            </div>
+            <div class="icone-servico">
+                <a href="https://indisponibilidade.onr.org.br/home/relatoriogratuito" target="_blank">
+                    <img src="imagens/icri_ib.png" alt="Ícone Certidões Municipais">
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-left">
+            <img src="imagens/logotjba.png" alt="Logotipo TJBA" class="footer-logo">
+            Cartório de Registro de Imóveis, Hipotecas, Títulos e documentos da Circunscrição de Amargosa - Estado da Bahia.
+            <br>Rua Moreira Coelho, 183 - Centro - Amargosa/BA - Fone (75) 98323.7595 - Email: riamargosa@gmail.com.
+            <br>© 2025 por André Perez.</br>
+        </div>
+        <div class="footer-right">
+            <a href="https://drive.google.com/file/d/1XFvQGVBeIYVQVUK8pXK6__FyZfBUgnMA/view?usp=sharing"
+                target="_blank" class="privacy-link">Termo de Privacidade</a>
+        </div>
+    </footer>
+</body>
+</html>
