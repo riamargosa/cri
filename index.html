@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cartório de Registro de Imóveis de Amargosa/BA</title>
+  <title>Cartório de Registro de Imóveis, RTD e RCPJ de Amargosa/BA</title>
   
   <script src="https://cdn.tailwindcss.com"></script>
   
@@ -15,20 +15,20 @@
     body {
       font-family: 'Inter', sans-serif;
     }
-    h1, h2, h3, .font-title {
+    h1, h2, h3, h4, .font-title {
       font-family: 'Montserrat', sans-serif;
     }
-    /* Estilização customizada para imagens de fundo locais */
-    .bg-hero {
-      background-image: linear-gradient(rgba(11, 25, 44, 0.85), rgba(11, 25, 44, 0.9)), url('imagens/fv.png');
+    /* Efeito de gradiente para o fundo da Hero Section utilizando o Verde Oliva */
+    .bg-hero-oliva {
+      background-image: linear-gradient(rgba(42, 59, 42, 0.92), rgba(26, 38, 26, 0.96)), url('imagens/fv.png');
       background-size: cover;
       background-position: center;
     }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-800 flex flex-col min-height-screen pb-24">
+<body class="bg-[#F4F5F4] text-slate-800 flex flex-col min-h-screen">
 
-  <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+  <header class="bg-white border-b border-slate-200 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center gap-4">
       
       <div class="flex items-center gap-4 w-full md:w-auto">
@@ -42,219 +42,220 @@
 
       <div class="flex items-center gap-6 w-full md:w-auto justify-between md:justify-end">
         <div class="text-left md:text-right hidden sm:block">
-          <p class="text-xs font-medium text-slate-700">Atendimento</p>
+          <p class="text-xs font-medium text-slate-700">Atendimento Presencial</p>
           <p class="text-[11px] text-slate-500">Segunda a Sexta • 08:00h às 14:00h</p>
         </div>
         
         <a href="https://wa.me/5575983237595" target="_blank" class="flex items-center gap-2 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-4 py-2 rounded-lg transition-all">
           <img src="imagens/wapp.png" alt="WhatsApp" class="w-5 h-5">
           <div class="text-left">
-            <p class="text-[10px] uppercase font-bold text-emerald-600 tracking-wider">Fale Conosco</p>
-            <p class="text-xs font-bold text-emerald-800">(75) 98189-1987</p>
+            <p class="text-[10px] uppercase font-bold text-emerald-600 tracking-wider">Suporte Digital</p>
+            <p class="text-xs font-bold text-emerald-800">(75) 98323-7595</p>
           </div>
         </a>
       </div>
     </div>
 
-    <nav class="bg-slate-900 text-white">
+    <nav class="bg-[#2A3B2A] text-white">
       <div class="max-w-7xl mx-auto px-4">
         <ul class="flex flex-wrap items-center justify-start py-1">
           <li>
-            <a href="#" class="block px-4 py-3 text-sm font-medium hover:text-cyan-400 transition-colors">Início</a>
+            <a href="#" class="block px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors">Início</a>
           </li>
           <li>
-            <a href="https://www.tjba.jus.br/extrajudicial/tabelas-de-custas/" target="_blank" class="block px-4 py-3 text-sm font-medium hover:text-cyan-400 transition-colors">Tabelas e Taxas</a>
+            <a href="https://www.tjba.jus.br/extrajudicial/tabelas-de-custas/" target="_blank" class="block px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors">Tabelas e Taxas</a>
           </li>
           
           <li class="relative group">
-            <button class="flex items-center gap-1 px-4 py-3 text-sm font-medium hover:text-cyan-400 transition-colors focus:outline-none">
+            <button class="flex items-center gap-1 px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors focus:outline-none">
               Legislação 
               <svg class="w-4 h-4 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
-            <ul class="absolute left-0 hidden group-hover:block bg-slate-800 text-slate-200 w-72 rounded-b-lg shadow-xl py-2 border-t-2 border-cyan-500">
-              <li><a href="https://www.planalto.gov.br/ccivil_03/leis/l6015compilada.htm" target="_blank" class="block px-4 py-2 text-xs hover:bg-slate-700 hover:text-white transition-colors">Lei de Registros Públicos (LRP)</a></li>
-              <li><a href="https://www.cnj.jus.br/wp-content/uploads/2023/09/codigo-nacional-de-normas-da-corregedoria-nacional-de-justica-v6b-31-08-2023-1.pdf" target="_blank" class="block px-4 py-2 text-xs hover:bg-slate-700 hover:text-white transition-colors">Código Nacional de Normas – CNJ</a></li>
-              <li><a href="https://www.tjba.jus.br/extrajudicial/wp-content/uploads/2023/09/CNP-2023-Codigo-de-Normas-e-Procedimentos-dos-Servicos-Notariais-de-Registro-do-Estado-da-Bahia.pdf" target="_blank" class="block px-4 py-2 text-xs hover:bg-slate-700 hover:text-white transition-colors">Código de Normas – TJ Bahia</a></li>
-              <li><a href="https://www.planalto.gov.br/ccivil_03/leis/L6766compilado.htm" target="_blank" class="block px-4 py-2 text-xs hover:bg-slate-700 hover:text-white transition-colors">Lei do Parcelamento do Solo</a></li>
-              <li><a href="https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14711.htm" target="_blank" class="block px-4 py-2 text-xs hover:bg-slate-700 hover:text-white transition-colors">Marco Legal das Garantias</a></li>
-              <li><a href="https://www.planalto.gov.br/ccivil_03/leis/L4591compilado.htm" target="_blank" class="block px-4 py-2 text-xs hover:bg-slate-700 hover:text-white transition-colors">Incorporação Imobiliária</a></li>
-              <li><a href="https://www.planalto.gov.br/ccivil_03/decreto/2002/D4449compilado.htm" target="_blank" class="block px-4 py-2 text-xs hover:bg-slate-700 hover:text-white transition-colors">Regulamentação Georreferenciamento</a></li>
-              <li><a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2017/lei/l13465.htm" target="_blank" class="block px-4 py-2 text-xs hover:bg-slate-700 hover:text-white transition-colors">Regularização Fundiária – REURB</a></li>
+            <ul class="absolute left-0 hidden group-hover:block bg-[#1A261A] text-slate-200 w-72 rounded-b-lg shadow-xl py-2 border-t-2 border-[#C5A059] z-50">
+              <li><a href="https://www.planalto.gov.br/ccivil_03/leis/l6015compilada.htm" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Lei de Registros Públicos (LRP)</a></li>
+              <li><a href="https://www.cnj.jus.br/wp-content/uploads/2023/09/codigo-nacional-de-normas-da-corregedoria-nacional-de-justica-v6b-31-08-2023-1.pdf" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Código Nacional de Normas – CNJ</a></li>
+              <li><a href="https://www.tjba.jus.br/extrajudicial/wp-content/uploads/2023/09/CNP-2023-Codigo-de-Normas-e-Procedimentos-dos-Servicos-Notariais-de-Registro-do-Estado-da-Bahia.pdf" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Código de Normas – TJ Bahia</a></li>
+              <li><a href="https://www.planalto.gov.br/ccivil_03/leis/L6766compilado.htm" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Lei do Parcelamento do Solo</a></li>
+              <li><a href="https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14711.htm" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Marco Legal das Garantias</a></li>
+              <li><a href="https://www.planalto.gov.br/ccivil_03/leis/L4591compilado.htm" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Incorporação Imobiliária</a></li>
+              <li><a href="https://www.planalto.gov.br/ccivil_03/decreto/2002/D4449compilado.htm" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Regulamentação Georreferenciamento</a></li>
+              <li><a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2017/lei/l13465.htm" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Regularização Fundiária – REURB</a></li>
               <li class="border-t border-slate-700 my-1"></li>
-              <li><a href="http://leismunicipa.is/14r45" target="_blank" class="block px-4 py-2 text-xs hover:bg-slate-700 text-amber-400 hover:text-white transition-colors">Plano Diretor de Amargosa (LC 40/23)</a></li>
+              <li><a href="http://leismunicipa.is/14r45" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] text-[#C5A059] hover:text-white transition-colors">Plano Diretor de Amargosa (LC 40/23)</a></li>
             </ul>
           </li>
 
           <li class="relative group">
-            <button class="flex items-center gap-1 px-4 py-3 text-sm font-medium hover:text-cyan-400 transition-colors focus:outline-none">
+            <button class="flex items-center gap-1 px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors focus:outline-none">
               Links Úteis 
               <svg class="w-4 h-4 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
-            <ul class="absolute left-0 hidden group-hover:block bg-slate-800 text-slate-200 w-72 rounded-b-lg shadow-xl py-2 border-t-2 border-cyan-500">
-              <li><a href="https://www.registrodeimoveis.org.br/" target="_blank" class="block px-4 py-2 text-xs hover:bg-slate-700 hover:text-white transition-colors">ONR – Registro de Imóveis do Brasil</a></li>
-              <li><a href="https://onrtdpj.org.br/" target="_blank" class="block px-4 py-2 text-xs hover:bg-slate-700 hover:text-white transition-colors">IRTDPJBrasil – Títulos, Documentos e PJ</a></li>
-              <li><a href="https://www.ibge.gov.br/estatisticas/economicas/precos-e-custos/9270-sistema-nacional-de-pesquisa-de-custos-e-indices-da-construcao-civil.html" target="_blank" class="block px-4 py-2 text-xs hover:bg-slate-700 hover:text-white transition-colors">Tabela SINAPI (Custo de Construção)</a></li>
-              <li><a href="https://www.ba.gov.br/juceb/" target="_blank" class="block px-4 py-2 text-xs hover:bg-slate-700 hover:text-white transition-colors">JUCEB – Junta Comercial da Bahia</a></li>
-              <li><a href="https://www.tjba.jus.br/" target="_blank" class="block px-4 py-2 text-xs hover:bg-slate-700 hover:text-white transition-colors">Portal do TJBA</a></li>
+            <ul class="absolute left-0 hidden group-hover:block bg-[#1A261A] text-slate-200 w-72 rounded-b-lg shadow-xl py-2 border-t-2 border-[#C5A059] z-50">
+              <li><a href="https://www.registrodeimoveis.org.br/" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">ONR – Registro de Imóveis do Brasil</a></li>
+              <li><a href="https://onrtdpj.org.br/" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">IRTDPJBrasil – Títulos, Documentos e PJ</a></li>
+              <li><a href="https://www.ibge.gov.br/estatisticas/economicas/precos-e-custos/9270-sistema-nacional-de-pesquisa-de-custos-e-indices-da-construcao-civil.html" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Tabela SINAPI (Custo de Construção)</a></li>
+              <li><a href="https://www.ba.gov.br/juceb/" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">JUCEB – Junta Comercial da Bahia</a></li>
+              <li><a href="https://www.tjba.jus.br/" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Portal do TJBA</a></li>
             </ul>
           </li>
 
           <li>
-            <a href="https://www.cnj.jus.br/corregedoria/justica_aberta/?" target="_blank" class="block px-4 py-3 text-sm font-medium hover:text-cyan-400 transition-colors">Transparência</a>
+            <a href="https://www.cnj.jus.br/corregedoria/justica_aberta/?" target="_blank" class="block px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors">Transparência</a>
           </li>
           <li>
-            <a href="#" class="block px-4 py-3 text-sm font-medium hover:text-cyan-400 transition-colors">Fale Conosco</a>
+            <a href="#" class="block px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors">Fale Conosco</a>
           </li>
         </ul>
       </div>
     </nav>
-  </header>
 
-  <section class="bg-hero text-white py-16 px-4 text-center shadow-inner relative">
-    <div class="max-w-4xl mx-auto">
-      <span class="bg-cyan-500/20 text-cyan-300 text-xs uppercase font-bold tracking-widest px-3 py-1 rounded-full border border-cyan-500/30">Plataforma Digital RITDPJ Amargosa</span>
-      <h2 class="text-2xl md:text-4xl font-bold mt-4 mb-3 tracking-tight">Segurança jurídica e inovação digital para o seu patrimônio e seus negócios.</h2>
-      <p class="text-sm md:text-base text-slate-300 max-w-2xl mx-auto mb-8 font-light">Acesse serviços, consulte legislações ou solucione atos registrais diretamente da Serventia de Amargosa.</p>
-      
-      <div class="bg-white p-2 rounded-xl shadow-2xl max-w-2xl mx-auto flex flex-col sm:flex-row gap-2">
-        <div class="flex items-center gap-2 px-3 py-2 text-slate-400 flex-grow">
-          <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-          <input type="text" placeholder="O que você precisa hoje? (Ex: Registrar Imóvel, REURB, Ata...)" class="w-full text-sm text-slate-800 placeholder-slate-400 focus:outline-none">
+    <div class="bg-hero-oliva text-white py-10 px-4 text-center shadow-inner relative">
+      <div class="max-w-4xl mx-auto">
+        <span class="bg-[#C5A059]/20 text-[#C5A059] text-xs uppercase font-bold tracking-widest px-3 py-1 rounded-full border border-[#C5A059]/40">Plataforma Digital Oficial</span>
+        <h2 class="text-2xl md:text-4xl font-bold mt-4 mb-3 tracking-tight">Segurança jurídica e inovação digital para o seu patrimônio e seus negócios.</h2>
+        <p class="text-sm md:text-base text-slate-300 max-w-2xl mx-auto mb-8 font-light">Consulte procedimentos, legislações ou acesse atos extrajudiciais com total clareza.</p>
+        
+        <div class="bg-white p-2 rounded-xl shadow-2xl max-w-2xl mx-auto flex flex-col sm:flex-row gap-2">
+          <div class="flex items-center gap-2 px-3 py-2 text-slate-400 flex-grow">
+            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            <input type="text" placeholder="O que você precisa hoje? (Ex: Registrar Imóvel, Regularizar Empresa, REURB...)" class="w-full text-sm text-slate-800 placeholder-slate-400 focus:outline-none">
+          </div>
+          <button class="bg-[#3A4B3A] hover:bg-[#2A3B2A] text-white font-semibold text-sm px-6 py-3 rounded-lg transition-colors whitespace-nowrap">Buscar Orientação</button>
         </div>
-        <button class="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm px-6 py-3 rounded-lg transition-colors whitespace-nowrap">Buscar Orientação</button>
       </div>
     </div>
-  </section>
+  </header>
 
   <div class="max-w-7xl mx-auto px-4 mt-6">
     <a href="https://www.tjba.jus.br/corregedoria/area-legal-amargosa-e-a-4a-comarca-a-receber-projeto-da-cci/" target="_blank" class="block overflow-hidden rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-      <img src="imagens/Amargosa Reurb7.png" class="w-full h-[230px] object-cover" alt="Amargosa Regularização Fundiária">
+      <img src="imagens/Amargosa Reurb7.png" class="w-full h-[230px] object-cover" alt="Regularização Fundiária Amargosa">
     </a>
   </div>
 
-  <main class="max-w-7xl mx-auto px-4 mt-12 flex-grow">
-    <div class="text-center mb-8">
-      <h3 class="text-xl font-bold tracking-tight text-slate-900 uppercase">Especialidades Registrais</h3>
-      <p class="text-xs text-slate-500 mt-1">Selecione a frente jurídica correspondente ao seu ato para instruções detalhadas</p>
-    </div>
+  <main class="max-w-7xl mx-auto px-4 mt-12 flex-grow w-full mb-16">
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-      
-      <div onclick="window.location.href='ri.html'" class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all cursor-pointer group flex flex-col justify-between">
-        <div>
-          <div class="bg-slate-50 w-16 h-16 rounded-lg flex items-center justify-center mb-4 group-hover:bg-cyan-50 transition-colors">
-            <img src="https://ridigital.org.br/assets/img/servicos-icones/certidao-codhab.svg" alt="Registro de Imóveis" class="w-10 h-10">
-          </div>
-          <h4 class="text-base font-bold text-slate-900 group-hover:text-cyan-600 transition-colors">Registro de Imóveis</h4>
-          <p class="text-xs text-slate-500 mt-2 font-medium">Proteja a propriedade do seu imóvel.</p>
-          <p class="text-[11px] text-slate-400 mt-3 leading-relaxed">Qualificação e atos de Compra e Venda, Doações, Alienação Fiduciária, Georreferenciamento (SIG-RI) e REURB.</p>
-        </div>
-        <span class="text-xs font-bold text-slate-900 mt-4 flex items-center gap-1 group-hover:text-cyan-600">Acessar Especialidade →</span>
+    <section class="mb-16">
+      <div class="text-center mb-8">
+        <h3 class="text-xl font-bold tracking-tight text-slate-900 uppercase">Especialidades Registrais</h3>
+        <p class="text-xs text-slate-500 mt-1">Selecione a competência correspondente ao seu ato para instruções e serviços</p>
       </div>
 
-      <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all cursor-pointer group flex flex-col justify-between">
-        <div>
-          <div class="bg-slate-50 w-16 h-16 rounded-lg flex items-center justify-center mb-4 group-hover:bg-cyan-50 transition-colors">
-            <img src="https://ridigital.org.br/assets/img/servicos-icones/certidao-digital.svg" alt="Títulos e Documentos" class="w-10 h-10">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        
+        <div onclick="window.location.href='ri.html'" class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all cursor-pointer group flex flex-col justify-between">
+          <div>
+            <div class="bg-slate-50 w-16 h-16 rounded-lg flex items-center justify-center mb-4 group-hover:bg-[#3A4B3A]/10 transition-colors">
+              <img src="https://ridigital.org.br/assets/img/servicos-icones/certidao-codhab.svg" alt="Registro de Imóveis" class="w-10 h-10">
+            </div>
+            <h4 class="text-base font-bold text-slate-900 group-hover:text-[#3A4B3A] transition-colors">Registro de Imóveis</h4>
+            <p class="text-xs text-[#C5A059] mt-2 font-semibold">Proteja a propriedade do seu imóvel.</p>
+            <p class="text-[11px] text-slate-400 mt-3 leading-relaxed">Qualificação de Compra e Venda, Doações, Alienação Fiduciária, Georreferenciamento (SIG-RI) e Regularização Fundiária (REURB).</p>
           </div>
-          <h4 class="text-base font-bold text-slate-900 group-hover:text-cyan-600 transition-colors">Títulos e Documentos</h4>
-          <p class="text-xs text-slate-500 mt-2 font-medium">Garanta validade jurídica e eficácia contra terceiros.</p>
-          <p class="text-[11px] text-slate-400 mt-3 leading-relaxed">Notificações Extrajudiciais, registro de contratos de parceria, união estável e conservação perpétua de documentos.</p>
+          <span class="text-xs font-bold text-slate-900 mt-4 flex items-center gap-1 group-hover:text-[#C5A059]">Acessar Especialidade →</span>
         </div>
-        <span class="text-xs font-bold text-slate-900 mt-4 flex items-center gap-1 group-hover:text-cyan-600">Acessar Especialidade →</span>
-      </div>
 
-      <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all cursor-pointer group flex flex-col justify-between">
-        <div>
-          <div class="bg-slate-50 w-16 h-16 rounded-lg flex items-center justify-center mb-4 group-hover:bg-cyan-50 transition-colors">
-            <img src="https://ridigital.org.br/assets/img/servicos-icones/regularizacao-fundiaria.svg" alt="Pessoa Jurídica" class="w-10 h-10">
+        <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all cursor-pointer group flex flex-col justify-between">
+          <div>
+            <div class="bg-slate-50 w-16 h-16 rounded-lg flex items-center justify-center mb-4 group-hover:bg-[#3A4B3A]/10 transition-colors">
+              <img src="https://ridigital.org.br/assets/img/servicos-icones/certidao-digital.svg" alt="Títulos e Documentos" class="w-10 h-10">
+            </div>
+            <h4 class="text-base font-bold text-slate-900 group-hover:text-[#3A4B3A] transition-colors">Títulos e Documentos</h4>
+            <p class="text-xs text-[#C5A059] mt-2 font-semibold">Garanta validade jurídica e eficácia contra terceiros.</p>
+            <p class="text-[11px] text-slate-400 mt-3 leading-relaxed">Notificações Extrajudiciais, registro de contratos de parceria, união estável e conservação perpétua de documentos importantes.</p>
           </div>
-          <h4 class="text-base font-bold text-slate-900 group-hover:text-cyan-600 transition-colors">Civil de Pessoas Jurídicas</h4>
-          <p class="text-xs text-slate-500 mt-2 font-medium">Dê vida jurídica e regularize a sua organização.</p>
-          <p class="text-[11px] text-slate-400 mt-3 leading-relaxed">Constituição, alteração estatutária e dissolução de Associações, Sociedades Simples, Sindicatos, Ongs e Fundações.</p>
+          <span class="text-xs font-bold text-slate-900 mt-4 flex items-center gap-1 group-hover:text-[#C5A059]">Acessar Especialidade →</span>
         </div>
-        <span class="text-xs font-bold text-slate-900 mt-4 flex items-center gap-1 group-hover:text-cyan-600">Acessar Especialidade →</span>
+
+        <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all cursor-pointer group flex flex-col justify-between">
+          <div>
+            <div class="bg-slate-50 w-16 h-16 rounded-lg flex items-center justify-center mb-4 group-hover:bg-[#3A4B3A]/10 transition-colors">
+              <img src="https://ridigital.org.br/assets/img/servicos-icones/regularizacao-fundiaria.svg" alt="Pessoa Jurídica" class="w-10 h-10">
+            </div>
+            <h4 class="text-base font-bold text-slate-900 group-hover:text-[#3A4B3A] transition-colors">Civil de Pessoas Jurídicas</h4>
+            <p class="text-xs text-[#C5A059] mt-2 font-semibold">Dê personalidade jurídica e regularize a sua organização.</p>
+            <p class="text-[11px] text-slate-400 mt-3 leading-relaxed">Inscrição e alterações de Associações, Sociedades Simples, Sindicatos, Entidades Filantrópicas e Fundações.</p>
+          </div>
+          <span class="text-xs font-bold text-slate-900 mt-4 flex items-center gap-1 group-hover:text-[#C5A059]">Acessar Especialidade →</span>
+        </div>
+
       </div>
+    </section>
 
-    </div>
-
-    <section class="mt-16 bg-white border border-slate-200 rounded-xl p-6 max-w-6xl mx-auto shadow-sm">
+    <section class="mb-16 bg-white border border-slate-200 rounded-xl p-6 max-w-6xl mx-auto shadow-sm">
       <div class="mb-6">
         <h3 class="text-lg font-bold text-slate-900">Guia Prático e Didático do Usuário</h3>
-        <p class="text-xs text-slate-500">Esclarecendo trâmites complexos em roteiros fáceis de compreender</p>
+        <p class="text-xs text-slate-500">Esclarecendo fluxos administrativos e legais de forma simplificada</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         
         <div class="bg-slate-50 rounded-lg p-5 border border-slate-100">
           <div class="flex items-center gap-2 mb-3">
-            <span class="bg-cyan-600 text-white font-bold text-xs px-2 py-0.5 rounded">Roteiro</span>
-            <h4 class="text-sm font-bold text-slate-900">Como registrar imóvel obtido via REURB</h4>
+            <span class="bg-[#3A4B3A] text-white font-bold text-[10px] uppercase px-2 py-0.5 rounded">Imóveis</span>
+            <h4 class="text-sm font-bold text-slate-900">Como registrar título obtido por REURB</h4>
           </div>
-          <p class="text-xs text-slate-600 mb-4 leading-relaxed">O registro depende do envio da Certidão de Regularização Fundiária (CRF) emitida pela Prefeitura Municipal de Amargosa.</p>
+          <p class="text-xs text-slate-600 mb-4 leading-relaxed">A regularização depende do envio da Certidão de Regularização Fundiária (CRF) emitida de forma oficial pela Prefeitura Municipal.</p>
           <ul class="space-y-2 text-[11px] text-slate-500">
-            <li class="flex items-start gap-2"><strong class="text-slate-700">1. Emissão Municipal:</strong> A prefeitura aprova o projeto e emite a CRF.</li>
-            <li class="flex items-start gap-2"><strong class="text-slate-700">2. Qualificação Subjetiva:</strong> A CRF deve vir com a qualificação completa dos beneficiários (Exigência do Art. 41 da Lei 13.465/17).</li>
-            <li class="flex items-start gap-2"><strong class="text-slate-700">3. Abertura de Matrícula:</strong> O cartório qualifica o título e abre a matrícula individualizada do morador.</li>
+            <li class="flex items-start gap-2"><strong class="text-slate-700">1. Homologação Municipal:</strong> O município aprova o projeto urbanístico e expede a CRF.</li>
+            <li class="flex items-start gap-2"><strong class="text-slate-700">2. Qualificação Subjetiva:</strong> A certidão deve obrigatoriamente conter a qualificação completa dos beneficiários (Art. 41, Lei 13.465/17).</li>
+            <li class="flex items-start gap-2"><strong class="text-slate-700">3. Fólio Real:</strong> O cartório examina a legalidade e efetua a abertura da matrícula individual sem custos na REURB-S.</li>
           </ul>
         </div>
 
         <div class="bg-slate-50 rounded-lg p-5 border border-slate-100">
           <div class="flex items-center gap-2 mb-3">
-            <span class="bg-indigo-600 text-white font-bold text-xs px-2 py-0.5 rounded">RTD</span>
+            <span class="bg-[#3A4B3A] text-white font-bold text-[10px] uppercase px-2 py-0.5 rounded">Documentos</span>
             <h4 class="text-sm font-bold text-slate-900">Como realizar uma Notificação Extrajudicial</h4>
           </div>
-          <p class="text-xs text-slate-600 mb-4 leading-relaxed">Utilizado para constituir devedores em mora, solicitar desocupação de imóveis ou fazer requerimentos formais.</p>
+          <p class="text-xs text-slate-600 mb-4 leading-relaxed">Mecanismo oficial para constituir devedores em mora, solicitar desocupação de imóveis ou fazer cobranças formais.</p>
           <ul class="space-y-2 text-[11px] text-slate-500">
-            <li class="flex items-start gap-2"><strong class="text-slate-700">1. Título Físico/Digital:</strong> Apresentação do requerimento em três vias assinado pelo notificante.</li>
-            <li class="flex items-start gap-2"><strong class="text-slate-700">2. Diligência do Oficial:</strong> O escrevente do cartório vai ao endereço do notificado colher a assinatura de ciência.</li>
-            <li class="flex items-start gap-2"><strong class="text-slate-700">3. Certidão de Fé Pública:</strong> O cartório entrega a certidão comprovando que o destinatário recebeu o documento.</li>
+            <li class="flex items-start gap-2"><strong class="text-slate-700">1. Apresentação:</strong> O notificante apresenta o documento assinado em três vias perante o Oficial de RTD.</li>
+            <li class="flex items-start gap-2"><strong class="text-slate-700">2. Diligência Oficial:</strong> O escrevente desloca-se até o endereço indicado para colher a ciência do notificado.</li>
+            <li class="flex items-start gap-2"><strong class="text-slate-700">3. Certidão de Fé Pública:</strong> Finalizado o ato, emite-se a certidão atestando o recebimento ou a recusa jurídica.</li>
           </ul>
         </div>
 
       </div>
     </section>
 
-    <section class="mt-12 bg-slate-900 text-white p-8 rounded-xl max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+    <section class="bg-[#2A3B2A] text-white p-8 rounded-xl max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
       <div class="max-w-xl">
         <h4 class="text-lg font-bold">Solicite certidões e envie títulos online</h4>
-        <p class="text-xs text-slate-400 mt-1 leading-relaxed">Não é necessário deslocar-se até o balcão. Através dos operadores nacionais integrados, você solicita serviços registrais com total validade jurídica sem sair de casa.</p>
+        <p class="text-xs text-slate-300 mt-1 leading-relaxed">Evite deslocamentos desnecessários ao balcão. Através dos operadores eletrônicos nacionais regulamentados pelo CNJ, você solicita serviços com total validade jurídica diretamente de sua residência ou escritório.</p>
       </div>
       <div class="flex flex-wrap gap-4 w-full md:w-auto justify-start md:justify-end">
-        <a href="https://www.registrodeimoveis.org.br/" target="_blank" class="bg-slate-800 text-white-900 hover:bg-slate-700 text-xs font-bold px-4 py-2.5 rounded-lg border border-slate-700 transition-colors">Acessar SAEC (Imóveis)</a>
-        <a href="https://onrtdpj.org.br/" target="_blank" class="bg-slate-800 text-white hover:bg-slate-700 text-xs font-bold px-4 py-2.5 rounded-lg border border-slate-700 transition-colors">Acessar RTDPJBrasil (Documentos/PJ)</a>
+        <a href="https://www.registrodeimoveis.org.br/" target="_blank" class="bg-white text-slate-900 hover:bg-slate-100 text-xs font-bold px-4 py-2.5 rounded-lg border border-white transition-colors">Acessar SAEC (Imóveis)</a>
+        <a href="https://onrtdpj.org.br/" target="_blank" class="bg-transparent text-white hover:bg-white/10 text-xs font-bold px-4 py-2.5 rounded-lg border border-white/30 transition-colors">Acessar RTDPJBrasil (RTD/PJ)</a>
       </div>
     </section>
 
   </main>
-
-  <div id="cookieConsent" class="cookie-consent fixed bottom-0 left-0 w-full bg-slate-900 text-slate-200 border-t border-slate-800 p-4 shadow-2xl z-50 flex flex-col sm:flex-row justify-between items-center gap-4 hidden">
-    <p class="text-xs text-center sm:text-left">Este site utiliza cookies para garantir a conformidade técnica com a LGPD e otimizar a sua experiência de navegação. <a href="https://drive.google.com/file/d/1XFvQGVBeIYVQVUK8pXK6__FyZfBUgnMA/view?usp=sharing" target="_blank" class="text-cyan-400 underline hover:text-cyan-300">Saiba mais</a>.</p>
-    <button id="acceptCookies" class="bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors">Aceitar Termos</button>
+  <div id="cookieConsent" class="fixed bottom-0 left-0 w-full bg-[#1A261A] text-slate-200 border-t border-slate-800 p-4 shadow-2xl z-50 flex flex-col sm:flex-row justify-between items-center gap-4 hidden">
+    <p class="text-xs text-center sm:text-left">Este portal utiliza cookies para garantir o funcionamento técnico e a segurança institucional. Ao continuar navegando, você declara estar ciente do nosso <a href="https://drive.google.com/file/d/1XFvQGVBeIYVQVUK8pXK6__FyZfBUgnMA/view?usp=sharing" target="_blank" class="text-[#C5A059] underline font-medium hover:text-[#b08e4f]">Termo de Privacidade</a>.</p>
+    <button id="acceptCookies" class="bg-[#C5A059] hover:bg-[#b08e4f] text-slate-950 text-xs font-bold px-4 py-2 rounded-lg transition-colors whitespace-nowrap">Aceitar Diretrizes</button>
   </div>
 
-  <footer class="bg-slate-900 text-slate-400 text-xs border-t border-slate-800 py-6 px-4 mt-20">
+  <footer class="bg-[#1A261A] text-slate-400 text-xs border-t border-slate-800 py-6 px-4 mt-auto">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
       
       <div class="flex items-center gap-4 text-left w-full md:w-auto">
-        <img src="imagens/logotjba.png" alt="Logotipo TJBA" class="h-10 w-auto object-contain flex-shrink-0 filter grayscale opacity-60">
+        <img src="imagens/logotjba.png" alt="Logotipo TJBA" class="h-10 w-auto object-contain flex-shrink-0 filter grayscale opacity-40">
         <div class="text-[11px] leading-relaxed">
           <p class="font-bold text-slate-200">Cartório de Registro de Imóveis, Hipotecas, Títulos e Documentos da Circunscrição de Amargosa</p>
-          <p>Estado da Bahia • Corregedoria das Comarcas do Interior (CCI)</p>
-          <p class="mt-0.5">Fone: (75) 98323-7595 • E-mail: <span class="text-slate-300">riamargosa@gmail.com</span></p>
+          <p>Comarca de Amargosa • Estado da Bahia • Corregedoria das Comarcas do Interior (CCI)</p>
+          <p class="mt-0.5">Contato: (75) 98323-7595 • Correio Eletrônico: <span class="text-slate-300">riamargosa@gmail.com</span></p>
         </div>
       </div>
 
       <div class="text-center md:text-right text-[11px] w-full md:w-auto flex flex-col gap-1">
-        <p>© 2026 • Responsável: <strong class="text-slate-200">André Navarro Perez</strong> (Oficial Registrador)</p>
-        <p><a href="https://drive.google.com/file/d/1XFvQGVBeIYVQVUK8pXK6__FyZfBUgnMA/view?usp=sharing" target="_blank" class="text-cyan-400 hover:underline">Termo de Privacidade & Proteção de Dados</a></p>
+        <p>© 2026 • Oficial Registrador Titular: <strong class="text-slate-200">André Navarro Perez</strong></p>
+        <p><a href="https://drive.google.com/file/d/1XFvQGVBeIYVQVUK8pXK6__FyZfBUgnMA/view?usp=sharing" target="_blank" class="text-[#C5A059] hover:underline">Termo de Privacidade & Proteção de Dados (LGPD)</a></p>
       </div>
 
     </div>
   </footer>
 
   <script>
-    // Gerenciador de Consentimento de Cookies (LGPD)
     document.addEventListener("DOMContentLoaded", function() {
       const consentBanner = document.getElementById("cookieConsent");
       const acceptBtn = document.getElementById("acceptCookies");
