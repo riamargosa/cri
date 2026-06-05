@@ -124,7 +124,7 @@
       </a>
 
       <button onclick="abrirModal('modalDN')" class="bg-white text-left border border-slate-200 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-[#2A3B2A] transition-all flex flex-col items-start group focus:outline-none">
-        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all">
+        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-4 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all">
           <span class="material-symbols-outlined !text-xl">folder_open</span>
         </div>
         <h3 class="text-xs font-bold text-slate-900 group-hover:text-[#2A3B2A] transition-colors">Documentos Necessários</h3>
@@ -132,8 +132,8 @@
         <span class="text-[11px] font-bold text-[#2A3B2A] mt-auto">Acessar Serviço &rarr;</span>
       </button>
 
-      <button onclick="abrirModal('modalRQ')" class="bg-white text-left border border-slate-200 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-[#2A3B2A] transition-all flex flex-col items-start group focus:outline-none">
-        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all">
+      <button onclick="abrirListaRequerimentos()" class="bg-white text-left border border-slate-200 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-[#2A3B2A] transition-all flex flex-col items-start group focus:outline-none">
+        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-4 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all">
           <span class="material-symbols-outlined !text-xl">assignment</span>
         </div>
         <h3 class="text-xs font-bold text-slate-900 group-hover:text-[#2A3B2A] transition-colors">Requerimentos</h3>
@@ -186,7 +186,7 @@
         <span class="text-[11px] font-bold text-[#2A3B2A] mt-auto">Acessar Serviço &rarr;</span>
       </a>
 
-      <a href="https://mapa.onr.org.br/" target="_blank" class="bg-white border border-slate-200 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-[#2A3B2A] transition-all flex flex-col items-start group">
+      <a href="https://mapa.onr.org.br/" target="_blank" class="bg-transparent text-white hover:bg-white/10 text-xs font-bold px-4 py-2.5 rounded-lg border border-white/30 transition-colors">
         <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all">
           <span class="material-symbols-outlined !text-xl">map</span>
         </div>
@@ -268,19 +268,50 @@
         <button onclick="fecharModal('modalDN')" class="text-slate-400 hover:text-white text-2xl font-bold leading-none">&times;</button>
       </div>
       <div class="p-4 flex-grow bg-slate-100 flex justify-center items-center">
-        <iframe src="https://drive.google.com/embeddedfolderview?id=174cDNoQLnQ6D2j4L0Lk1EzYKabPSwjPp#list" class="w-full h-[60vh] border-0 rounded-lg shadow-inner"></iframe>
+        <iframe src="https://drive.google.com/embeddedfolderview?id=174cDNoQLnQ6D2j4L0Lk1EzYKabPSwjPp#list" class="w-full h-[60vh] border-0 rounded-lg shadow-inner bg-white"></iframe>
       </div>
     </div>
   </div>
 
-  <div id="modalRQ" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden justify-center items-center p-4">
-    <div class="bg-white rounded-xl shadow-2xl w-full max-w-2xl overflow-hidden relative flex flex-col max-h-[90vh]">
-      <div class="bg-[#2A3B2A] text-white p-4 flex justify-between items-center">
-        <h3 class="text-xs font-bold uppercase tracking-wider">Modelos de Requerimentos Oficiais</h3>
-        <button onclick="fecharModal('modalRQ')" class="text-slate-400 hover:text-white text-2xl font-bold leading-none">&times;</button>
+  <div id="modalLista" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-40 hidden justify-center items-center p-4">
+    <div class="bg-white rounded-xl shadow-2xl w-full max-w-xl overflow-hidden transform transition-all border border-slate-200 h-auto flex flex-col">
+      
+      <div class="bg-[#1A261A] text-white px-5 py-4 flex justify-between items-center flex-shrink-0">
+        <h3 class="font-bold text-xs uppercase tracking-wider flex items-center gap-2">
+          <span class="material-symbols-outlined text-[#C5A059] !text-sm">folder_open</span>
+          Modelos de Requerimentos Oficiais
+        </h3>
+        <button onclick="fecharModal('modalLista')" class="text-slate-400 hover:text-white text-2xl font-semibold leading-none">&times;</button>
       </div>
-      <div class="p-4 flex-grow bg-slate-100 flex justify-center items-center">
-        <iframe src="https://drive.google.com/embeddedfolderview?id=1edqbXJXY_zr5107Y_nCBjYnhB1y74Bzs#list" class="w-full h-[60vh] border-0 rounded-lg shadow-inner"></iframe>
+
+      <div class="p-4 bg-slate-50 max-h-[70vh] overflow-y-auto flex-grow">
+        <div class="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-sm">
+          
+          <div class="grid grid-cols-3 bg-slate-50 border-b border-slate-200 px-4 py-2 text-[10px] font-bold uppercase tracking-wider text-slate-400">
+            <div class="col-span-2">Título do Documento</div>
+            <div class="text-right">Modificação</div>
+          </div>
+
+          <div class="divide-y divide-slate-100 text-xs">
+            
+            <div onclick="abrirPdfDireto('1ip5cAHGATRHZMSYGZ0T4nCZl0juXlHW9')" class="grid grid-cols-3 px-4 py-3 items-center hover:bg-slate-50 cursor-pointer transition-colors group">
+              <div class="col-span-2 flex items-center gap-3">
+                <span class="material-symbols-outlined text-red-500 !text-xl flex-shrink-0">picture_as_pdf</span>
+                <span class="font-medium text-slate-700 group-hover:text-[#3A4B3A] underline decoration-transparent group-hover:decoration-[#3A4B3A] truncate">Requerimento Padrão.pdf</span>
+              </div>
+              <div class="text-right text-slate-400 font-medium">05:18</div>
+            </div>
+
+            <div onclick="abrirPdfDireto('1mDgheDnNUmS0bVqKLI9oaJ3KRCj8xtHP')" class="grid grid-cols-3 px-4 py-3 items-center hover:bg-slate-50 cursor-pointer transition-colors group">
+              <div class="col-span-2 flex items-center gap-3">
+                <span class="material-symbols-outlined text-red-500 !text-xl flex-shrink-0">picture_as_pdf</span>
+                <span class="font-medium text-slate-700 group-hover:text-[#3A4B3A] underline decoration-transparent group-hover:decoration-[#3A4B3A] truncate">Requerimento para Buscas e Certidões.pdf</span>
+              </div>
+              <div class="text-right text-slate-400 font-medium">05:13</div>
+            </div>
+
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -292,7 +323,6 @@
 
   <footer class="bg-slate-900 text-slate-400 text-xs border-t border-slate-800 py-6 px-6 mt-auto">
     <div class="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-      
       <div class="flex items-center gap-4 text-left w-full md:w-auto">
         <img src="imagens/logotjba.png" alt="Logotipo TJBA" class="h-10 w-auto object-contain flex-shrink-0 filter grayscale opacity-60">
         <div class="text-[11px] leading-relaxed">
@@ -301,17 +331,14 @@
           <p class="mt-0.5">Fone: (75) 98323-7595 • E-mail: <span class="text-slate-300">riamargosa@gmail.com</span></p>
         </div>
       </div>
-
       <div class="text-center md:text-right text-[11px] w-full md:w-auto flex flex-col gap-1">
-        <p>© 2026 • Responsável: <strong class="text-slate-200">André Navarro Perez</strong> (Oficial Registrador)</p>
+        <p>© 2026 • Responsável: <strong class="text-slate-200">André Navarro Perez</strong></p>
         <p><a href="https://drive.google.com/file/d/1XFvQGVBeIYVQVUK8pXK6__FyZfBUgnMA/view?usp=sharing" target="_blank" class="text-cyan-400 hover:underline">Termo de Privacidade & Proteção de Dados</a></p>
       </div>
-
     </div>
   </footer>
 
   <script>
-    // Gerenciador de Consentimento de Cookies
     document.addEventListener("DOMContentLoaded", function() {
       const consentBanner = document.getElementById("cookieConsent");
       const acceptBtn = document.getElementById("acceptCookies");
@@ -326,7 +353,6 @@
       });
     });
 
-    // Funções Operacionais dos Modais
     function abrirModal(modalId) {
       const modal = document.getElementById(modalId);
       modal.classList.remove('hidden');
@@ -341,7 +367,19 @@
       document.body.classList.remove('overflow-hidden');
     }
 
-    // Fechamento de segurança clicando no pano de fundo
+    function abrirListaRequerimentos() {
+      const modal = document.getElementById("modalLista");
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+      document.body.classList.add("overflow-hidden");
+    }
+
+    // CORREÇÃO CRÍTICA EXECUTADA: Variável alinhada com precisão absoluta para disparar os PDFs individuais sem erro
+    function abrirPdfDireto(idArquivoDrive) {
+      const urlDriveOficial = `https://drive.google.com/file/d/${idArquivoDrive}/view?usp=sharing`;
+      window.open(urlDriveOficial, '_blank'); 
+    }
+
     window.onclick = function(event) {
       if (event.target.classList.contains('backdrop-blur-sm')) {
         event.target.classList.remove('flex');
