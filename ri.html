@@ -18,6 +18,12 @@
     h1, h2, h3, h4, .font-title {
       font-family: 'Montserrat', sans-serif;
     }
+    /* Efeito de gradiente para o fundo da Hero Section utilizando o Verde Oliva */
+    .bg-hero-oliva {
+      background-image: linear-gradient(rgba(42, 59, 42, 0.92), rgba(26, 38, 26, 0.96)), url('imagens/fv.png');
+      background-size: cover;
+      background-position: center;
+    }
   </style>
 </head>
 <body class="bg-[#F1F6F0] text-slate-800 flex flex-col min-h-screen">
@@ -186,7 +192,7 @@
         <span class="text-[11px] font-bold text-[#2A3B2A] mt-auto">Acessar Serviço &rarr;</span>
       </a>
 
-      <a href="https://mapa.onr.org.br/" target="_blank" class="bg-transparent text-white hover:bg-white/10 text-xs font-bold px-4 py-2.5 rounded-lg border border-white/30 transition-colors">
+      <a href="https://mapa.onr.org.br/" target="_blank" class="bg-white border border-slate-200 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-[#2A3B2A] transition-all flex flex-col items-start group">
         <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all">
           <span class="material-symbols-outlined !text-xl">map</span>
         </div>
@@ -374,7 +380,6 @@
       document.body.classList.add("overflow-hidden");
     }
 
-    // CORREÇÃO CRÍTICA EXECUTADA: Variável alinhada com precisão absoluta para disparar os PDFs individuais sem erro
     function abrirPdfDireto(idArquivoDrive) {
       const urlDriveOficial = `https://drive.google.com/file/d/${idArquivoDrive}/view?usp=sharing`;
       window.open(urlDriveOficial, '_blank'); 
