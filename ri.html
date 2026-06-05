@@ -18,12 +18,11 @@
     h1, h2, h3, h4, .font-title {
       font-family: 'Montserrat', sans-serif;
     }
-    /* Efeito de gradiente para o fundo da Hero Section utilizando o Verde Oliva */
-    .bg-hero-oliva {
-      background-image: linear-gradient(rgba(42, 59, 42, 0.92), rgba(26, 38, 26, 0.96)), url('imagens/fv.png');
-      background-size: cover;
-      background-position: center;
-    }
+    /* Classes de estilização para o conteúdo textual dinâmico que vem do Drive */
+    .conteudo-dinamico p { margin-bottom: 1rem; line-height: 1.6; }
+    .conteudo-dinamico ul { list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1rem; }
+    .conteudo-dinamico ol { list-style-type: decimal; margin-left: 1.5rem; margin-bottom: 1rem; }
+    .conteudo-dinamico li { margin-bottom: 0.25rem; }
   </style>
 </head>
 <body class="bg-[#F1F6F0] text-slate-800 flex flex-col min-h-screen">
@@ -60,59 +59,27 @@
     <nav class="bg-[#2A3B2A] text-white w-full">
       <div class="max-w-[1440px] mx-auto px-6">
         <ul class="flex flex-row items-center justify-start gap-1 py-1">
-          <li>
-            <a href="index.html" class="block px-4 py-3 text-sm font-semibold hover:text-[#C5A059] transition-colors">Início</a>
-          </li>
-          <li>
-            <a href="https://www.tjba.jus.br/extrajudicial/tabelas-de-custas/" target="_blank" class="block px-4 py-3 text-sm font-semibold hover:text-[#C5A059] transition-colors">Tabelas e Taxas</a>
-          </li>
+          <li><a href="index.html" class="block px-4 py-3 text-sm font-semibold hover:text-[#C5A059] transition-colors">Início</a></li>
+          <li><a href="https://www.tjba.jus.br/extrajudicial/tabelas-de-custas/" target="_blank" class="block px-4 py-3 text-sm font-semibold hover:text-[#C5A059] transition-colors">Tabelas e Taxas</a></li>
           
           <li class="relative group">
             <button class="flex items-center gap-1 px-4 py-3 text-sm font-semibold hover:text-[#C5A059] transition-colors focus:outline-none">
-              Legislação 
-              <svg class="w-4 h-4 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              Legislação <svg class="w-4 h-4 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
             <ul class="absolute left-0 hidden group-hover:block bg-[#1A261A] text-slate-200 w-72 rounded-b-lg shadow-xl py-2 border-t-2 border-[#C5A059] z-50">
               <li><a href="https://www.planalto.gov.br/ccivil_03/leis/l6015compilada.htm" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Lei de Registros Públicos (LRP)</a></li>
               <li><a href="https://www.cnj.jus.br/wp-content/uploads/2023/09/codigo-nacional-de-normas-da-corregedoria-nacional-de-justica-v6b-31-08-2023-1.pdf" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Código Nacional de Normas – CNJ</a></li>
               <li><a href="https://www.tjba.jus.br/extrajudicial/wp-content/uploads/2023/09/CNP-2023-Codigo-de-Normas-e-Procedimentos-dos-Servicos-Notariais-de-Registro-do-Estado-da-Bahia.pdf" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Código de Normas – TJ Bahia</a></li>
-              <li><a href="https://www.planalto.gov.br/ccivil_03/leis/L6766compilado.htm" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Lei do Parcelamento do Solo</a></li>
-              <li><a href="https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14711.htm" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Marco Legal das Garantias</a></li>
-              <li><a href="https://www.planalto.gov.br/ccivil_03/leis/L4591compilado.htm" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Incorporação Imobiliária</a></li>
-              <li><a href="https://www.planalto.gov.br/ccivil_03/decreto/2002/D4449compilado.htm" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Regulamentação Georreferenciamento</a></li>
-              <li><a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2017/lei/l13465.htm" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Regularização Fundiária – REURB</a></li>
-              <li class="border-t border-slate-700 my-1"></li>
-              <li><a href="http://leismunicipa.is/14r45" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] text-[#C5A059] hover:text-white transition-colors">Plano Diretor de Amargosa (LC 40/23)</a></li>
             </ul>
           </li>
-
-          <li class="relative group">
-            <button class="flex items-center gap-1 px-4 py-3 text-sm font-semibold hover:text-[#C5A059] transition-colors focus:outline-none">
-              Links Úteis 
-              <svg class="w-4 h-4 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-            </button>
-            <ul class="absolute left-0 hidden group-hover:block bg-[#1A261A] text-slate-200 w-72 rounded-b-lg shadow-xl py-2 border-t-2 border-[#C5A059] z-50">
-              <li><a href="https://www.registrodeimoveis.org.br/" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">ONR – Registro de Imóveis do Brasil</a></li>
-              <li><a href="https://onrtdpj.org.br/" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">IRTDPJBrasil – Títulos, Documentos e PJ</a></li>
-              <li><a href="https://www.ibge.gov.br/estatisticas/economicas/precos-e-custos/9270-sistema-nacional-de-pesquisa-de-custos-e-indices-da-construcao-civil.html" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Tabela SINAPI (Custo de Construção)</a></li>
-              <li><a href="https://www.ba.gov.br/juceb/" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">JUCEB – Junta Comercial da Bahia</a></li>
-              <li><a href="https://www.tjba.jus.br/" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Portal do TJBA</a></li>
-            </ul>
-          </li>
-
-          <li>
-            <a href="https://www.cnj.jus.br/corregedoria/justica_aberta/?" target="_blank" class="block px-4 py-3 text-sm font-semibold hover:text-[#C5A059] transition-colors">Transparência</a>
-          </li>
-          <li>
-            <a href="#" class="block px-4 py-3 text-sm font-semibold hover:text-[#C5A059] transition-colors">Fale Conosco</a>
-          </li>
+          <li><a href="https://www.cnj.jus.br/corregedoria/justica_aberta/?" target="_blank" class="block px-4 py-3 text-sm font-semibold hover:text-[#C5A059] transition-colors">Transparência</a></li>
+          <li><a href="#" class="block px-4 py-3 text-sm font-semibold hover:text-[#C5A059] transition-colors">Fale Conosco</a></li>
         </ul>
       </div>
     </nav>
   </header>
 
   <main class="max-w-7xl mx-auto px-6 py-10 flex-grow w-full">
-    
     <div class="text-center mb-10">
       <h2 class="text-xl md:text-2xl font-bold uppercase tracking-tight text-[#2A3B2A]">Serviços Disponíveis para o Registro de Imóveis</h2>
       <p class="text-xs md:text-sm text-slate-500 mt-1 max-w-2xl mx-auto">Selecione a opção desejada para instruções operacionais e emissões eletrônicas diretas.</p>
@@ -121,144 +88,112 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
       
       <a href="https://ridigital.org.br/CertidaoDigital/frmPedidosCertidao.aspx?from=menu&digital=1" target="_blank" class="bg-white border border-slate-200 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-[#2A3B2A] transition-all flex flex-col items-start group">
-        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all">
-          <span class="material-symbols-outlined !text-xl">description</span>
-        </div>
+        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all"><span class="material-symbols-outlined !text-xl">description</span></div>
         <h3 class="text-xs font-bold text-slate-900 group-hover:text-[#2A3B2A] transition-colors">Certidão Digital</h3>
         <p class="text-[11px] text-slate-400 mt-1 leading-tight mb-3">Solicite e emita online.</p>
         <span class="text-[11px] font-bold text-[#2A3B2A] mt-auto">Acessar Serviço &rarr;</span>
       </a>
 
-      <button onclick="abrirModal('modalDN')" class="bg-white text-left border border-slate-200 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-[#2A3B2A] transition-all flex flex-col items-start group focus:outline-none">
-        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-4 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all">
-          <span class="material-symbols-outlined !text-xl">folder_open</span>
-        </div>
+      <button onclick="abrirListaDinamicaDN()" class="bg-white text-left border border-slate-200 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-[#2A3B2A] transition-all flex flex-col items-start group focus:outline-none">
+        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-4 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all"><span class="material-symbols-outlined !text-xl">folder_open</span></div>
         <h3 class="text-xs font-bold text-slate-900 group-hover:text-[#2A3B2A] transition-colors">Documentos Necessários</h3>
         <p class="text-[11px] text-slate-400 mt-1 leading-tight mb-3">Consulte os requisitos do ato.</p>
         <span class="text-[11px] font-bold text-[#2A3B2A] mt-auto">Acessar Serviço &rarr;</span>
       </button>
 
       <button onclick="abrirListaRequerimentos()" class="bg-white text-left border border-slate-200 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-[#2A3B2A] transition-all flex flex-col items-start group focus:outline-none">
-        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-4 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all">
-          <span class="material-symbols-outlined !text-xl">assignment</span>
-        </div>
+        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-4 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all"><span class="material-symbols-outlined !text-xl">assignment</span></div>
         <h3 class="text-xs font-bold text-slate-900 group-hover:text-[#2A3B2A] transition-colors">Requerimentos</h3>
         <p class="text-[11px] text-slate-400 mt-1 leading-tight mb-3">Modelos e formulários oficiais.</p>
         <span class="text-[11px] font-bold text-[#2A3B2A] mt-auto">Acessar Serviço &rarr;</span>
       </button>
 
       <a href="https://ridigital.org.br/eProtocolo/DefaultAC.aspx" target="_blank" class="bg-white border border-slate-200 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-[#2A3B2A] transition-all flex flex-col items-start group">
-        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all">
-          <span class="material-symbols-outlined !text-xl">devices</span>
-        </div>
+        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all"><span class="material-symbols-outlined !text-xl">devices</span></div>
         <h3 class="text-xs font-bold text-slate-900 group-hover:text-[#2A3B2A] transition-colors">E-Protocolo</h3>
         <p class="text-[11px] text-slate-400 mt-1 leading-tight mb-3">Envio de títulos digitais.</p>
         <span class="text-[11px] font-bold text-[#2A3B2A] mt-auto">Acessar Serviço &rarr;</span>
       </a>
 
       <div class="bg-white border border-slate-200 p-4 rounded-xl shadow-sm flex flex-col items-start group">
-        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3">
-          <span class="material-symbols-outlined !text-xl">holiday_village</span>
-        </div>
+        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3"><span class="material-symbols-outlined !text-xl">holiday_village</span></div>
         <h3 class="text-xs font-bold text-slate-900">Consulta Loteamentos</h3>
         <p class="text-[11px] text-slate-400 mt-1 leading-tight mb-3">Verificação de regularidade de áreas.</p>
         <span class="text-[11px] font-semibold text-slate-300 mt-auto">Módulo Interno</span>
       </div>
 
       <div class="bg-white border border-slate-200 p-4 rounded-xl shadow-sm flex flex-col items-start group">
-        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3">
-          <span class="material-symbols-outlined !text-xl">gavel</span>
-        </div>
+        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3"><span class="material-symbols-outlined !text-xl">gavel</span></div>
         <h3 class="text-xs font-bold text-slate-900">Usucapião Extrajudicial</h3>
         <p class="text-[11px] text-slate-400 mt-1 leading-tight mb-3">Regularização direta em cartório.</p>
         <span class="text-[11px] font-semibold text-slate-300 mt-auto">Módulo Interno</span>
       </div>
 
       <a href="https://ridigital.org.br/VisualizarMatricula/DefaultVM.aspx?from=menu" target="_blank" class="bg-white border border-slate-200 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-[#2A3B2A] transition-all flex flex-col items-start group">
-        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all">
-          <span class="material-symbols-outlined !text-xl">visibility</span>
-        </div>
+        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all"><span class="material-symbols-outlined !text-xl">visibility</span></div>
         <h3 class="text-xs font-bold text-slate-900 group-hover:text-[#2A3B2A] transition-colors">Visualização de Matrícula</h3>
         <p class="text-[11px] text-slate-400 mt-1 leading-tight mb-3">Consulta jurídica online rápida.</p>
         <span class="text-[11px] font-bold text-[#2A3B2A] mt-auto">Acessar Serviço &rarr;</span>
       </a>
 
       <a href="https://ridigital.org.br/CE/DefaultCE.aspx" target="_blank" class="bg-white border border-slate-200 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-[#2A3B2A] transition-all flex flex-col items-start group">
-        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all">
-          <span class="material-symbols-outlined !text-xl">search_insights</span>
-        </div>
+        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all"><span class="material-symbols-outlined !text-xl">search_insights</span></div>
         <h3 class="text-xs font-bold text-slate-900 group-hover:text-[#2A3B2A] transition-colors">Pesquisa Qualificada</h3>
         <p class="text-[11px] text-slate-400 mt-1 leading-tight mb-3">Busca minuciosa de patrimônio.</p>
         <span class="text-[11px] font-bold text-[#2A3B2A] mt-auto">Acessar Serviço &rarr;</span>
       </a>
 
       <a href="https://mapa.onr.org.br/" target="_blank" class="bg-white border border-slate-200 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-[#2A3B2A] transition-all flex flex-col items-start group">
-        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all">
-          <span class="material-symbols-outlined !text-xl">map</span>
-        </div>
+        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all"><span class="material-symbols-outlined !text-xl">map</span></div>
         <h3 class="text-xs font-bold text-slate-900 group-hover:text-[#2A3B2A] transition-colors">Mapa do Registro</h3>
         <p class="text-[11px] text-slate-400 mt-1 leading-tight mb-3">Geolocalização de perímetros imobiliários.</p>
         <span class="text-[11px] font-bold text-[#2A3B2A] mt-auto">Acessar Serviço &rarr;</span>
       </a>
 
       <a href="https://www.registrodeimoveis.org.br/diario-registral" target="_blank" class="bg-white border border-slate-200 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-[#2A3B2A] transition-all flex flex-col items-start group">
-        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all">
-          <span class="material-symbols-outlined !text-xl">campaign</span>
-        </div>
+        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all"><span class="material-symbols-outlined !text-xl">campaign</span></div>
         <h3 class="text-xs font-bold text-slate-900 group-hover:text-[#2A3B2A] transition-colors">Edital Eletrônico</h3>
         <p class="text-[11px] text-slate-400 mt-1 leading-tight mb-3">Diário eletrônico e transparência legal.</p>
         <span class="text-[11px] font-bold text-[#2A3B2A] mt-auto">Acessar Serviço &rarr;</span>
       </a>
 
       <a href="https://amargosa.saatri.com.br/Certidao/Emitir?Pint_TipoCertidao=2&Pbol_ComMenuEsquerdo=true" target="_blank" class="bg-white border border-slate-200 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-[#2A3B2A] transition-all flex flex-col items-start group">
-        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all">
-          <span class="material-symbols-outlined !text-xl">request_quote</span>
-        </div>
+        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all"><span class="material-symbols-outlined !text-xl">request_quote</span></div>
         <h3 class="text-xs font-bold text-slate-900 group-hover:text-[#2A3B2A] transition-colors">Certidão Negativa IPTU</h3>
         <p class="text-[11px] text-slate-400 mt-1 leading-tight mb-3">Aferição de regularidade fiscal municipal.</p>
         <span class="text-[11px] font-bold text-[#2A3B2A] mt-auto">Acessar Serviço &rarr;</span>
       </a>
 
       <a href="https://amargosa.1doc.com.br/b.php?pg=o/central_servicos&tab=categoria&filter=01JG4MYPBGY7B5BDP79EA7FW3Z" target="_blank" class="bg-white border border-slate-200 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-[#2A3B2A] transition-all flex flex-col items-start group">
-        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all">
-          <span class="material-symbols-outlined !text-xl">domain</span>
-        </div>
+        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all"><span class="material-symbols-outlined !text-xl">domain</span></div>
         <h3 class="text-xs font-bold text-slate-900 group-hover:text-[#2A3B2A] transition-colors">Certidões Municipais</h3>
         <p class="text-[11px] text-slate-400 mt-1 leading-tight mb-3">Requerimentos públicos via central 1Doc.</p>
         <span class="text-[11px] font-bold text-[#2A3B2A] mt-auto">Acessar Serviço &rarr;</span>
       </a>
 
       <a href="https://sncr.serpro.gov.br/ccir/emissao?windowId=a98" target="_blank" class="bg-white border border-slate-200 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-[#2A3B2A] transition-all flex flex-col items-start group">
-        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all">
-          <span class="material-symbols-outlined !text-xl">agriculture</span>
-        </div>
+        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all"><span class="material-symbols-outlined !text-xl">agriculture</span></div>
         <h3 class="text-xs font-bold text-slate-900 group-hover:text-[#2A3B2A] transition-colors">Imóveis Rurais CCIR</h3>
         <p class="text-[11px] text-slate-400 mt-1 leading-tight mb-3">Emissão do Certificado do INCRA.</p>
         <span class="text-[11px] font-bold text-[#2A3B2A] mt-auto">Acessar Serviço &rarr;</span>
       </a>
 
       <a href="https://solucoes.receita.fazenda.gov.br/Servicos/certidaointernet/ITR/EmitirPGFN" target="_blank" class="bg-white border border-slate-200 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-[#2A3B2A] transition-all flex flex-col items-start group">
-        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all">
-          <span class="material-symbols-outlined !text-xl">landscape</span>
-        </div>
+        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all"><span class="material-symbols-outlined !text-xl">landscape</span></div>
         <h3 class="text-xs font-bold text-slate-900 group-hover:text-[#2A3B2A] transition-colors">Imóveis Rurais ITR</h3>
         <p class="text-[11px] text-slate-400 mt-1 leading-tight mb-3">Imposto Territorial Rural Federal.</p>
         <span class="text-[11px] font-bold text-[#2A3B2A] mt-auto">Acessar Serviço &rarr;</span>
       </a>
 
       <a href="https://ridigital.org.br/LoginGeral.aspx?from=mre" target="_blank" class="bg-white border border-slate-200 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-[#2A3B2A] transition-all flex flex-col items-start group">
-        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all">
-          <span class="material-symbols-outlined !text-xl">layers</span>
-        </div>
+        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all"><span class="material-symbols-outlined !text-xl">layers</span></div>
         <h3 class="text-xs font-bold text-slate-900 group-hover:text-[#2A3B2A] transition-colors">Mosaico Cadastral</h3>
         <p class="text-[11px] text-slate-400 mt-1 leading-tight mb-3">Acesso restrito integrado RI Digital.</p>
         <span class="text-[11px] font-bold text-[#2A3B2A] mt-auto">Acessar Serviço &rarr;</span>
       </a>
 
       <a href="https://indisponibilidade.onr.org.br/home/relatoriogratuito" target="_blank" class="bg-white border border-slate-200 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-[#2A3B2A] transition-all flex flex-col items-start group">
-        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all">
-          <span class="material-symbols-outlined !text-xl">block</span>
-        </div>
+        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all"><span class="material-symbols-outlined !text-xl">block</span></div>
         <h3 class="text-xs font-bold text-slate-900 group-hover:text-[#2A3B2A] transition-colors">Indisponibilidade</h3>
         <p class="text-[11px] text-slate-400 mt-1 leading-tight mb-3">Consulta à base de restrições do ONR.</p>
         <span class="text-[11px] font-bold text-[#2A3B2A] mt-auto">Acessar Serviço &rarr;</span>
@@ -268,20 +203,28 @@
   </main>
 
   <div id="modalDN" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden justify-center items-center p-4">
-    <div class="bg-white rounded-xl shadow-2xl w-full max-w-2xl overflow-hidden relative flex flex-col max-h-[90vh]">
+    <div class="bg-white rounded-xl shadow-2xl w-full max-w-xl overflow-hidden transform transition-all border border-slate-200 h-auto flex flex-col">
       <div class="bg-[#2A3B2A] text-white p-4 flex justify-between items-center">
-        <h3 class="text-xs font-bold uppercase tracking-wider">Documentos Necessários por Ato</h3>
+        <h3 class="text-xs font-bold uppercase tracking-wider flex items-center gap-2">
+          <span class="material-symbols-outlined text-[#C5A059] !text-sm">folder_open</span>
+          Documentos Necessários por Ato
+        </h3>
         <button onclick="fecharModal('modalDN')" class="text-slate-400 hover:text-white text-2xl font-bold leading-none">&times;</button>
       </div>
-      <div class="p-4 flex-grow bg-slate-100 flex justify-center items-center">
-        <iframe src="https://drive.google.com/embeddedfolderview?id=174cDNoQLnQ6D2j4L0Lk1EzYKabPSwjPp#list" class="w-full h-[60vh] border-0 rounded-lg shadow-inner bg-white"></iframe>
+      <div class="p-4 bg-slate-50 max-h-[70vh] overflow-y-auto flex-grow">
+        <div class="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-sm">
+          <div class="grid grid-cols-3 bg-slate-50 border-b border-slate-200 px-4 py-2 text-[10px] font-bold uppercase tracking-wider text-slate-400">
+            <div class="col-span-2">Título do Checklist</div>
+            <div class="text-right">Modificação</div>
+          </div>
+          <div id="tabelaDNConteudo" class="divide-y divide-slate-100 text-xs"></div>
+        </div>
       </div>
     </div>
   </div>
 
   <div id="modalLista" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-40 hidden justify-center items-center p-4">
     <div class="bg-white rounded-xl shadow-2xl w-full max-w-xl overflow-hidden transform transition-all border border-slate-200 h-auto flex flex-col">
-      
       <div class="bg-[#1A261A] text-white px-5 py-4 flex justify-between items-center flex-shrink-0">
         <h3 class="font-bold text-xs uppercase tracking-wider flex items-center gap-2">
           <span class="material-symbols-outlined text-[#C5A059] !text-sm">folder_open</span>
@@ -289,17 +232,13 @@
         </h3>
         <button onclick="fecharModal('modalLista')" class="text-slate-400 hover:text-white text-2xl font-semibold leading-none">&times;</button>
       </div>
-
       <div class="p-4 bg-slate-50 max-h-[70vh] overflow-y-auto flex-grow">
         <div class="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-sm">
-          
           <div class="grid grid-cols-3 bg-slate-50 border-b border-slate-200 px-4 py-2 text-[10px] font-bold uppercase tracking-wider text-slate-400">
             <div class="col-span-2">Título do Documento</div>
             <div class="text-right">Modificação</div>
           </div>
-
           <div class="divide-y divide-slate-100 text-xs">
-            
             <div onclick="abrirPdfDireto('1ip5cAHGATRHZMSYGZ0T4nCZl0juXlHW9')" class="grid grid-cols-3 px-4 py-3 items-center hover:bg-slate-50 cursor-pointer transition-colors group">
               <div class="col-span-2 flex items-center gap-3">
                 <span class="material-symbols-outlined text-red-500 !text-xl flex-shrink-0">picture_as_pdf</span>
@@ -307,7 +246,6 @@
               </div>
               <div class="text-right text-slate-400 font-medium">05:18</div>
             </div>
-
             <div onclick="abrirPdfDireto('1mDgheDnNUmS0bVqKLI9oaJ3KRCj8xtHP')" class="grid grid-cols-3 px-4 py-3 items-center hover:bg-slate-50 cursor-pointer transition-colors group">
               <div class="col-span-2 flex items-center gap-3">
                 <span class="material-symbols-outlined text-red-500 !text-xl flex-shrink-0">picture_as_pdf</span>
@@ -315,9 +253,26 @@
               </div>
               <div class="text-right text-slate-400 font-medium">05:13</div>
             </div>
-
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modalTextoDN" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden justify-center items-center p-4">
+    <div class="bg-white rounded-xl shadow-2xl w-full max-w-2xl h-[80vh] overflow-hidden transform transition-all border border-slate-300 flex flex-col">
+      <div class="bg-[#1A261A] text-white px-5 py-4 flex justify-between items-center flex-shrink-0 border-b border-slate-800">
+        <h3 class="font-bold text-xs uppercase tracking-wider flex items-center gap-2">
+          <span class="material-symbols-outlined text-[#C5A059] !text-sm font-bold">article</span>
+          <span id="textoDNTitulo">Nome do Documento</span>
+        </h3>
+        <button onclick="fecharModal('modalTextoDN')" class="text-slate-400 hover:text-white text-2xl font-semibold leading-none">&times;</button>
+      </div>
+      <div id="textoDNConteudo" class="conteudo-dinamico p-8 overflow-y-auto flex-grow bg-white text-justify text-xs text-slate-700 font-normal">
+        </div>
+      <div class="bg-slate-50 px-5 py-3 flex justify-between items-center border-t border-slate-200 flex-shrink-0">
+        <button onclick="voltarParaListaDN()" class="bg-transparent hover:bg-slate-200 text-slate-700 border border-slate-300 text-xs font-bold px-4 py-2 rounded-lg transition-all">Voltar para a Lista</button>
+        <button onclick="fecharModal('modalTextoDN')" class="bg-[#2A3B2A] hover:bg-[#1A261A] text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors">Fechar Janela</button>
       </div>
     </div>
   </div>
@@ -327,24 +282,10 @@
     <button id="acceptCookies" class="bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors">Aceitar Termos</button>
   </div>
 
-  <footer class="bg-slate-900 text-slate-400 text-xs border-t border-slate-800 py-6 px-6 mt-auto">
-    <div class="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-      <div class="flex items-center gap-4 text-left w-full md:w-auto">
-        <img src="imagens/logotjba.png" alt="Logotipo TJBA" class="h-10 w-auto object-contain flex-shrink-0 filter grayscale opacity-60">
-        <div class="text-[11px] leading-relaxed">
-          <p class="font-bold text-slate-200">Cartório de Registro de Imóveis, Hipotecas, Títulos e Documentos da Circunscrição de Amargosa</p>
-          <p>Estado da Bahia • Corregedoria das Comarcas do Interior (CCI)</p>
-          <p class="mt-0.5">Fone: (75) 98323-7595 • E-mail: <span class="text-slate-300">riamargosa@gmail.com</span></p>
-        </div>
-      </div>
-      <div class="text-center md:text-right text-[11px] w-full md:w-auto flex flex-col gap-1">
-        <p>© 2026 • Responsável: <strong class="text-slate-200">André Navarro Perez</strong></p>
-        <p><a href="https://drive.google.com/file/d/1XFvQGVBeIYVQVUK8pXK6__FyZfBUgnMA/view?usp=sharing" target="_blank" class="text-cyan-400 hover:underline">Termo de Privacidade & Proteção de Dados</a></p>
-      </div>
-    </div>
-  </footer>
-
   <script>
+    // CORREÇÃO EFETUADA: Nova URL de implantação ativa injetada com sucesso!
+    const urlApiAppsScript = "https://script.google.com/macros/s/AKfycbzzMoZiMRr3W6SJgt6qp-n4k4s_G0BCKW9xdAgFGFqGIClC2klhePRfeO8-ClUWZi8DVw/exec";
+
     document.addEventListener("DOMContentLoaded", function() {
       const consentBanner = document.getElementById("cookieConsent");
       const acceptBtn = document.getElementById("acceptCookies");
@@ -373,6 +314,7 @@
       document.body.classList.remove('overflow-hidden');
     }
 
+    // Fluxo Requerimentos Original - Mantido 100% Intacto e Perfeito
     function abrirListaRequerimentos() {
       const modal = document.getElementById("modalLista");
       modal.classList.remove("hidden");
@@ -383,6 +325,80 @@
     function abrirPdfDireto(idArquivoDrive) {
       const urlDriveOficial = `https://drive.google.com/file/d/${idArquivoDrive}/view?usp=sharing`;
       window.open(urlDriveOficial, '_blank'); 
+    }
+
+    // SISTEMA INTEGRADOR REATIVO: Varre a pasta de Documentos Necessários e constrói a tabela
+    function abrirListaDinamicaDN() {
+      abrirModal("modalDN");
+      const container = document.getElementById("tabelaDNConteudo");
+      
+      container.innerHTML = `
+        <div class="p-6 text-center text-slate-400 flex flex-col items-center justify-center gap-2 col-span-3">
+          <svg class="w-5 h-5 animate-spin text-[#2A3B2A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 8H17"></path></svg>
+          <span>Sincronizando com a pasta oficial do Drive...</span>
+        </div>
+      `;
+
+      // Requisição à API do Apps Script apontando para a pasta DN
+      fetch(`${urlApiAppsScript}?action=listFiles&folderId=174cDNoQLnQ6D2j4L0Lk1EzYKabPSwjPp`)
+        .then(res => res.json())
+        .then(arquivos => {
+          container.innerHTML = "";
+          if (arquivos.erro || arquivos.length === 0) {
+            container.innerHTML = `<div class="p-4 text-center text-slate-400">Nenhum checklist localizado no Drive atualmente.</div>`;
+            return;
+          }
+          arquivos.forEach(arq => {
+            const linha = document.createElement("div");
+            linha.className = "grid grid-cols-3 px-4 py-3 items-center hover:bg-slate-50 cursor-pointer transition-colors group";
+            linha.setAttribute("onclick", `carregarConteudoTexto('${arq.id}', '${arq.nome}')`);
+            linha.innerHTML = `
+              <div class="col-span-2 flex items-center gap-3">
+                <span class="material-symbols-outlined text-red-500 !text-xl flex-shrink-0">article</span>
+                <span class="font-medium text-slate-700 group-hover:text-[#2A3B2A] underline decoration-transparent group-hover:decoration-[#2A3B2A] truncate">${arq.nome}</span>
+              </div>
+              <div class="text-right text-slate-400 font-medium">${arq.data}</div>
+            `;
+            container.appendChild(linha);
+          });
+        })
+        .catch(() => {
+          container.innerHTML = `<div class="p-4 text-center text-red-500 font-medium">Erro ao conectar com a pasta do Google Drive. Verifique se realizou os passos de consentimento manual.</div>`;
+        });
+    }
+
+    // Coleta o conteúdo textual do arquivo e transpõe para o Pop-up interno
+    function carregarConteudoTexto(fileId, titulo) {
+      fecharModal("modalDN");
+      document.getElementById("textoDNTitulo").textContent = titulo;
+      const conteudoBox = document.getElementById("textoDNConteudo");
+      
+      conteudoBox.innerHTML = `
+        <div class="h-full flex flex-col items-center justify-center text-center text-slate-400 p-12 gap-2">
+          <svg class="w-6 h-6 animate-spin text-[#2A3B2A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 8H17"></path></svg>
+          <span>Carregando o conteúdo de texto do documento...</span>
+        </div>
+      `;
+      abrirModal("modalTextoDN");
+
+      // Puxa o HTML formatado de dentro do Documento Google
+      fetch(`${urlApiAppsScript}?action=getFileContent&fileId=${fileId}`)
+        .then(res => res.json())
+        .then(data => {
+          if (data.erro) {
+            conteudoBox.innerHTML = `<p class="text-amber-600 font-medium bg-amber-50 p-3 rounded border border-amber-200">⚠️ Erro de Leitura: Certifique-se de que os arquivos salvos dentro da sua pasta do Drive foram criados no formato <b>Documento Google</b> (Google Docs) e não como PDFs protegidos ou imagens escaneadas, para permitir a extração limpa do texto.</p>`;
+          } else {
+            conteudoBox.innerHTML = data.conteudo;
+          }
+        })
+        .catch(() => {
+          conteudoBox.innerHTML = `<p class="text-red-500 font-bold">Falha crítica de comunicação com o servidor.</p>`;
+        });
+    }
+
+    function voltarParaListaDN() {
+      fecharModal("modalTextoDN");
+      abrirModal("modalDN");
     }
 
     window.onclick = function(event) {
