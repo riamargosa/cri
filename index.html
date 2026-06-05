@@ -141,7 +141,6 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-        
         <div onclick="window.location.href='ri.html'" class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all cursor-pointer group flex flex-col justify-between">
           <div>
             <div class="bg-slate-50 w-16 h-16 rounded-lg flex items-center justify-center mb-4 group-hover:bg-[#3A4B3A]/10 transition-colors">
@@ -177,7 +176,6 @@
           </div>
           <span class="text-xs font-bold text-slate-900 mt-4 flex items-center gap-1 group-hover:text-[#C5A059]">Acessar Especialidade →</span>
         </div>
-
       </div>
     </section>
 
@@ -188,7 +186,6 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        
         <div class="bg-slate-50 rounded-lg p-5 border border-slate-100">
           <div class="flex items-center gap-2 mb-3">
             <span class="bg-[#3A4B3A] text-white font-bold text-[10px] uppercase px-2 py-0.5 rounded">Imóveis</span>
@@ -214,7 +211,6 @@
             <li class="flex items-start gap-2"><strong class="text-slate-700">3. Certidão de Fé Pública:</strong> Finalizado o ato, emite-se a certidão atestando o recebimento ou a recusa jurídica.</li>
           </ul>
         </div>
-
       </div>
     </section>
 
@@ -228,7 +224,6 @@
         <a href="https://onrtdpj.org.br/" target="_blank" class="bg-transparent text-white hover:bg-white/10 text-xs font-bold px-4 py-2.5 rounded-lg border border-white/30 transition-colors">Acessar RTDPJBrasil (RTD/PJ)</a>
       </div>
     </section>
-
   </main>
   
   <div id="cookieConsent" class="fixed bottom-0 left-0 w-full bg-[#1A261A] text-slate-200 border-t border-slate-800 p-4 shadow-2xl z-50 flex flex-col sm:flex-row justify-between items-center gap-4 hidden">
@@ -238,7 +233,6 @@
 
   <footer class="bg-[#1A261A] text-slate-400 text-xs border-t border-slate-800 py-6 px-4 mt-auto">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-      
       <div class="flex items-center gap-4 text-left w-full md:w-auto">
         <img src="imagens/logotjba.png" alt="Logotipo TJBA" class="h-10 w-auto object-contain flex-shrink-0 filter grayscale opacity-40">
         <div class="text-[11px] leading-relaxed">
@@ -247,12 +241,10 @@
           <p class="mt-0.5">Contato: (75) 98323-7595 • Correio Eletrônico: <span class="text-slate-300">riamargosa@gmail.com</span></p>
         </div>
       </div>
-
       <div class="text-center md:text-right text-[11px] w-full md:w-auto flex flex-col gap-1">
         <p>© 2026 • Oficial Registrador Titular: <strong class="text-slate-200">André Navarro Perez</strong></p>
         <p><a href="https://drive.google.com/file/d/1XFvQGVBeIYVQVUK8pXK6__FyZfBUgnMA/view?usp=sharing" target="_blank" class="text-[#C5A059] hover:underline">Termo de Privacidade & Proteção de Dados (LGPD)</a></p>
       </div>
-
     </div>
   </footer>
 
@@ -281,38 +273,442 @@
       const numero = input.value.trim();
 
       if (numero === "") {
-        exibirModalStatus("⚠️ Por favor, informe um número de protocolo válido para efetuar a varredura.", "alert");
+        exibirModalStatus("⚠️ Por favor, informe um número de protocolo válido para efectuar a varredura.", "alert");
         return;
       }
 
-      exibirModalStatus("🔄 Aguarde!", "loading");
+      exibirModalStatus("🔄 Conectando ao banco de dados. Esta operação pode demorar alguns minutos. Aguarde!", "loading");
 
-      const urlAcessoScript = "https://script.google.com/macros/s/AKfycbxjrJDLg3TZzKckqtN-AYe0ccFhqJYlZuXDfqA6t2wl-9PRojz78GRPDsFWBz-BTGTO/exec";
+      // URL de produção ativa do Cartório
+      const urlAcessoScript = "<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cartório de Registro de Imóveis, RTD e RCPJ de Amargosa/BA</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    h1, h2, h3, h4, .font-title {
+      font-family: 'Montserrat', sans-serif;
+    }
+    /* Efeito de gradiente para o fundo da Hero Section utilizando o Verde Oliva */
+    .bg-hero-oliva {
+      background-image: linear-gradient(rgba(42, 59, 42, 0.92), rgba(26, 38, 26, 0.96)), url('imagens/fv.png');
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
+</head>
+<body class="bg-[#F4F5F4] text-slate-800 flex flex-col min-h-screen">
+
+  <header class="bg-white border-b border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center gap-4">
+      
+      <div class="flex items-center gap-4 w-full md:w-auto">
+        <img src="imagens/ritdpj.png" alt="Logotipo Cartório" class="h-14 w-auto object-contain">
+        <div class="border-l-2 border-slate-300 pl-4">
+          <h1 class="text-sm font-bold uppercase tracking-wider text-slate-900">Ofício de Registro de Imóveis</h1>
+          <p class="text-xs text-slate-500 font-semibold">Títulos e Documentos e Civil de Pessoas Jurídicas</p>
+          <p class="text-[11px] text-slate-400 mt-0.5">Rua Moreira Coelho, 183 - Centro - Amargosa/BA</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-6 w-full md:w-auto justify-between md:justify-end">
+        <div class="text-left md:text-right hidden sm:block">
+          <p class="text-xs font-medium text-slate-700">Atendimento Presencial</p>
+          <p class="text-[11px] text-slate-500">Segunda a Sexta • 08:00h às 14:00h</p>
+        </div>
+        
+        <a href="https://wa.me/5575983237595" target="_blank" class="flex items-center gap-2 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-4 py-2 rounded-lg transition-all">
+          <img src="imagens/wapp.png" alt="WhatsApp" class="w-5 h-5">
+          <div class="text-left">
+            <p class="text-[10px] uppercase font-bold text-emerald-600 tracking-wider">Fale Conosco</p>
+            <p class="text-xs font-bold text-emerald-800">(75) 98189-1987</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <nav class="bg-[#2A3B2A] text-white">
+      <div class="max-w-7xl mx-auto px-4">
+        <ul class="flex flex-wrap items-center justify-start py-1">
+          <li>
+            <a href="#" class="block px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors">Início</a>
+          </li>
+          <li>
+            <a href="https://www.tjba.jus.br/extrajudicial/tabelas-de-custas/" target="_blank" class="block px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors">Tabelas e Taxas</a>
+          </li>
+          
+          <li class="relative group">
+            <button class="flex items-center gap-1 px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors focus:outline-none">
+              Legislação 
+              <svg class="w-4 h-4 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <ul class="absolute left-0 hidden group-hover:block bg-[#1A261A] text-slate-200 w-72 rounded-b-lg shadow-xl py-2 border-t-2 border-[#C5A059] z-50">
+              <li><a href="https://www.planalto.gov.br/ccivil_03/leis/l6015compilada.htm" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Lei de Registros Públicos (LRP)</a></li>
+              <li><a href="https://www.cnj.jus.br/wp-content/uploads/2023/09/codigo-nacional-de-normas-da-corregedoria-nacional-de-justica-v6b-31-08-2023-1.pdf" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Código Nacional de Normas – CNJ</a></li>
+              <li><a href="https://www.tjba.jus.br/extrajudicial/wp-content/uploads/2023/09/CNP-2023-Codigo-de-Normas-e-Procedimentos-dos-Servicos-Notariais-de-Registro-do-Estado-da-Bahia.pdf" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Código de Normas – TJ Bahia</a></li>
+              <li><a href="https://www.planalto.gov.br/ccivil_03/leis/L6766compilado.htm" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Lei do Parcelamento do Solo</a></li>
+              <li><a href="https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14711.htm" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Marco Legal das Garantias</a></li>
+              <li><a href="https://www.planalto.gov.br/ccivil_03/leis/L4591compilado.htm" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Incorporação Imobiliária</a></li>
+              <li><a href="https://www.planalto.gov.br/ccivil_03/decreto/2002/D4449compilado.htm" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Regulamentação Georreferenciamento</a></li>
+              <li><a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2017/lei/l13465.htm" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Regularização Fundiária – REURB</a></li>
+              <li class="border-t border-slate-700 my-1"></li>
+              <li><a href="http://leismunicipa.is/14r45" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] text-[#C5A059] hover:text-white transition-colors">Plano Diretor de Amargosa (LC 40/23)</a></li>
+            </ul>
+          </li>
+
+          <li class="relative group">
+            <button class="flex items-center gap-1 px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors focus:outline-none">
+              Links Úteis 
+              <svg class="w-4 h-4 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <ul class="absolute left-0 hidden group-hover:block bg-[#1A261A] text-slate-200 w-72 rounded-b-lg shadow-xl py-2 border-t-2 border-[#C5A059] z-50">
+              <li><a href="https://www.registrodeimoveis.org.br/" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">ONR – Registro de Imóveis do Brasil</a></li>
+              <li><a href="https://onrtdpj.org.br/" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">IRTDPJBrasil – Títulos, Documentos e PJ</a></li>
+              <li><a href="https://www.ibge.gov.br/estatisticas/economicas/precos-e-custos/9270-sistema-nacional-de-pesquisa-de-custos-e-indices-da-construcao-civil.html" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Tabela SINAPI (Custo de Construção)</a></li>
+              <li><a href="https://www.ba.gov.br/juceb/" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">JUCEB – Junta Comercial da Bahia</a></li>
+              <li><a href="https://www.tjba.jus.br/" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Portal do TJBA</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="https://www.cnj.jus.br/corregedoria/justica_aberta/?" target="_blank" class="block px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors">Transparência</a>
+          </li>
+          <li>
+            <a href="#" class="block px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors">Fale Conosco</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="bg-hero-oliva text-white py-10 px-4 text-center shadow-inner relative">
+      <div class="max-w-4xl mx-auto">
+        <span class="bg-[#C5A059]/20 text-[#C5A059] text-xs uppercase font-bold tracking-widest px-3 py-1 rounded-full border border-[#C5A059]/40">Plataforma Digital Oficial</span>
+        <h2 class="text-2xl md:text-4xl font-bold mt-4 mb-3 tracking-tight">Segurança jurídica e inovação digital para o seu patrimônio e seus negócios.</h2>
+        <p class="text-sm md:text-base text-slate-300 max-w-2xl mx-auto mb-8 font-light">Consulte procedimentos, legislações ou acesse atos extrajudiciais com total clareza.</p>
+        
+        <div class="bg-white p-2 rounded-xl shadow-2xl max-w-md mx-auto flex flex-col sm:flex-row gap-2 justify-between items-center w-full">
+          <div class="flex items-center gap-2 px-3 py-2 text-slate-400 flex-grow w-full">
+            <svg class="w-5 h-5 fill-none stroke-current flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            <input type="text" id="protocoloInput" placeholder="Digite o protocolo (Ex: 4852)" class="w-full text-sm text-slate-800 placeholder-slate-400 focus:outline-none font-medium">
+          </div>
+          <button onclick="buscarStatusProtocolo()" class="bg-[#3A4B3A] hover:bg-[#2A3B2A] text-white font-semibold text-sm px-6 py-3 rounded-lg transition-colors whitespace-nowrap w-full sm:w-auto">Consultar</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="max-w-7xl mx-auto px-4 mt-6">
+    <a href="https://www.tjba.jus.br/corregedoria/area-legal-amargosa-e-a-4a-comarca-a-receber-projeto-da-cci/" target="_blank" class="block overflow-hidden rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+      <img src="imagens/Amargosa Reurb7.png" class="w-full h-[230px] object-cover" alt="Regularização Fundiária Amargosa">
+    </a>
+  </div>
+
+  <main class="max-w-7xl mx-auto px-4 mt-12 flex-grow w-full mb-16">
+
+    <section class="mb-16">
+      <div class="text-center mb-8">
+        <h3 class="text-xl font-bold tracking-tight text-slate-900 uppercase">Especialidades Registrais</h3>
+        <p class="text-xs text-slate-500 mt-1">Selecione a competência correspondente ao seu ato para instruções e serviços</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div onclick="window.location.href='ri.html'" class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all cursor-pointer group flex flex-col justify-between">
+          <div>
+            <div class="bg-slate-50 w-16 h-16 rounded-lg flex items-center justify-center mb-4 group-hover:bg-[#3A4B3A]/10 transition-colors">
+              <img src="https://ridigital.org.br/assets/img/servicos-icones/certidao-codhab.svg" alt="Registro de Imóveis" class="w-10 h-10">
+            </div>
+            <h4 class="text-base font-bold text-slate-900 group-hover:text-[#3A4B3A] transition-colors">Registro de Imóveis</h4>
+            <p class="text-xs text-[#C5A059] mt-2 font-semibold">Proteja a propriedade do seu imóvel.</p>
+            <p class="text-[11px] text-slate-400 mt-3 leading-relaxed">Qualificação de Compra e Venda, Doações, Alienação Fiduciária, Georreferenciamento (SIG-RI) e Regularização Fundiária (REURB).</p>
+          </div>
+          <span class="text-xs font-bold text-slate-900 mt-4 flex items-center gap-1 group-hover:text-[#C5A059]">Acessar Especialidade →</span>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all cursor-pointer group flex flex-col justify-between">
+          <div>
+            <div class="bg-slate-50 w-16 h-16 rounded-lg flex items-center justify-center mb-4 group-hover:bg-[#3A4B3A]/10 transition-colors">
+              <img src="https://ridigital.org.br/assets/img/servicos-icones/certidao-digital.svg" alt="Títulos e Documentos" class="w-10 h-10">
+            </div>
+            <h4 class="text-base font-bold text-slate-900 group-hover:text-[#3A4B3A] transition-colors">Títulos e Documentos</h4>
+            <p class="text-xs text-[#C5A059] mt-2 font-semibold">Garanta validade jurídica e eficácia contra terceiros.</p>
+            <p class="text-[11px] text-slate-400 mt-3 leading-relaxed">Notificações Extrajudiciais, registro de contratos de parceria, união estável e conservação perpétua de documentos importantes.</p>
+          </div>
+          <span class="text-xs font-bold text-slate-900 mt-4 flex items-center gap-1 group-hover:text-[#C5A059]">Acessar Especialidade →</span>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all cursor-pointer group flex flex-col justify-between">
+          <div>
+            <div class="bg-slate-50 w-16 h-16 rounded-lg flex items-center justify-center mb-4 group-hover:bg-[#3A4B3A]/10 transition-colors">
+              <img src="https://ridigital.org.br/assets/img/servicos-icones/regularizacao-fundiaria.svg" alt="Pessoa Jurídica" class="w-10 h-10">
+            </div>
+            <h4 class="text-base font-bold text-slate-900 group-hover:text-[#3A4B3A] transition-colors">Civil de Pessoas Jurídicas</h4>
+            <p class="text-xs text-[#C5A059] mt-2 font-semibold">Dê personalidade jurídica e regularize a sua organização.</p>
+            <p class="text-[11px] text-slate-400 mt-3 leading-relaxed">Inscrição e alterações de Associações, Sociedades Simples, Sindicatos, Entidades Filantrópicas e Fundações.</p>
+          </div>
+          <span class="text-xs font-bold text-slate-900 mt-4 flex items-center gap-1 group-hover:text-[#C5A059]">Acessar Especialidade →</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-16 bg-white border border-slate-200 rounded-xl p-6 max-w-6xl mx-auto shadow-sm">
+      <div class="mb-6">
+        <h3 class="text-lg font-bold text-slate-900">Guia Prático do Usuário</h3>
+        <p class="text-xs text-slate-500">Esclarecendo fluxos administrativos e legais de forma simplificada</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-slate-50 rounded-lg p-5 border border-slate-100">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="bg-[#3A4B3A] text-white font-bold text-[10px] uppercase px-2 py-0.5 rounded">Imóveis</span>
+            <h4 class="text-sm font-bold text-slate-900">Como registrar título obtido por REURB</h4>
+          </div>
+          <p class="text-xs text-slate-600 mb-4 leading-relaxed">A regularização depende do envio da Certidão de Regularização Fundiária (CRF) emitida de forma oficial pela Prefeitura Municipal.</p>
+          <ul class="space-y-2 text-[11px] text-slate-500">
+            <li class="flex items-start gap-2"><strong class="text-slate-700">1. Homologação Municipal:</strong> O município aprova o projeto urbanístico e expede a CRF.</li>
+            <li class="flex items-start gap-2"><strong class="text-slate-700">2. Qualificação Subjetiva:</strong> A certidão deve obrigatoriamente conter a qualificação completa dos beneficiários (Art. 41, Lei 13.465/17).</li>
+            <li class="flex items-start gap-2"><strong class="text-slate-700">3. Fólio Real:</strong> O cartório examina a legalidade e efetua a abertura da matrícula individual sem custos na REURB-S.</li>
+          </ul>
+        </div>
+
+        <div class="bg-slate-50 rounded-lg p-5 border border-slate-100">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="bg-[#3A4B3A] text-white font-bold text-[10px] uppercase px-2 py-0.5 rounded">Documentos</span>
+            <h4 class="text-sm font-bold text-slate-900">Como realizar uma Notificação Extrajudicial</h4>
+          </div>
+          <p class="text-xs text-slate-600 mb-4 leading-relaxed">Mecanismo oficial para constituir devedores em mora, solicitar desocupação de imóveis ou fazer cobranças formais.</p>
+          <ul class="space-y-2 text-[11px] text-slate-500">
+            <li class="flex items-start gap-2"><strong class="text-slate-700">1. Apresentação:</strong> O notificante apresenta o documento assinado em três vias perante o Oficial de RTD.</li>
+            <li class="flex items-start gap-2"><strong class="text-slate-700">2. Diligência Oficial:</strong> O escrevente desloca-se até o endereço indicado para colher a ciência do notificado.</li>
+            <li class="flex items-start gap-2"><strong class="text-slate-700">3. Certidão de Fé Pública:</strong> Finalizado o ato, emite-se a certidão atestando o recebimento ou a recusa jurídica.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-[#2A3B2A] text-white p-8 rounded-xl max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="max-w-xl">
+        <h4 class="text-lg font-bold">Solicite certidões e envie títulos online</h4>
+        <p class="text-xs text-slate-300 mt-1 leading-relaxed">Evite deslocamentos desnecessários ao balcão. Através dos operadores eletrônicos nacionais regulamentados pelo CNJ, você solicita serviços com total validade jurídica diretamente de sua residência ou escritório.</p>
+      </div>
+      <div class="flex flex-wrap gap-4 w-full md:w-auto justify-start md:justify-end">
+        <a href="https://www.registrodeimoveis.org.br/" target="_blank" class="bg-transparent text-white hover:bg-white/10 text-xs font-bold px-4 py-2.5 rounded-lg border border-white/30 transition-colors">Acessar SAEC (Imóveis)</a>
+        <a href="https://onrtdpj.org.br/" target="_blank" class="bg-transparent text-white hover:bg-white/10 text-xs font-bold px-4 py-2.5 rounded-lg border border-white/30 transition-colors">Acessar RTDPJBrasil (RTD/PJ)</a>
+      </div>
+    </section>
+  </main>
+  
+  <div id="cookieConsent" class="fixed bottom-0 left-0 w-full bg-[#1A261A] text-slate-200 border-t border-slate-800 p-4 shadow-2xl z-50 flex flex-col sm:flex-row justify-between items-center gap-4 hidden">
+    <p class="text-xs text-center sm:text-left">Este portal utiliza cookies para garantir o funcionamento técnico e a segurança institucional. Ao continuar navegando, você declara estar ciente do nosso <a href="https://drive.google.com/file/d/1XFvQGVBeIYVQVUK8pXK6__FyZfBUgnMA/view?usp=sharing" target="_blank" class="text-[#C5A059] underline font-medium hover:text-[#b08e4f]">Termo de Privacidade</a>.</p>
+    <button id="acceptCookies" class="bg-[#C5A059] hover:bg-[#b08e4f] text-slate-950 text-xs font-bold px-4 py-2 rounded-lg transition-colors whitespace-nowrap">Aceitar Diretrizes</button>
+  </div>
+
+  <footer class="bg-[#1A261A] text-slate-400 text-xs border-t border-slate-800 py-6 px-4 mt-auto">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="flex items-center gap-4 text-left w-full md:w-auto">
+        <img src="imagens/logotjba.png" alt="Logotipo TJBA" class="h-10 w-auto object-contain flex-shrink-0 filter grayscale opacity-40">
+        <div class="text-[11px] leading-relaxed">
+          <p class="font-bold text-slate-200">Cartório de Registro de Imóveis, Hipotecas, Títulos e Documentos da Circunscrição de Amargosa</p>
+          <p>Comarca de Amargosa • Estado da Bahia • Corregedoria das Comarcas do Interior (CCI)</p>
+          <p class="mt-0.5">Contato: (75) 98323-7595 • Correio Eletrônico: <span class="text-slate-300">riamargosa@gmail.com</span></p>
+        </div>
+      </div>
+      <div class="text-center md:text-right text-[11px] w-full md:w-auto flex flex-col gap-1">
+        <p>© 2026 • Oficial Registrador Titular: <strong class="text-slate-200">André Navarro Perez</strong></p>
+        <p><a href="https://drive.google.com/file/d/1XFvQGVBeIYVQVUK8pXK6__FyZfBUgnMA/view?usp=sharing" target="_blank" class="text-[#C5A059] hover:underline">Termo de Privacidade & Proteção de Dados (LGPD)</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="protocoloModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden justify-center items-center p-4">
+    <div class="bg-white rounded-xl shadow-2xl w-full max-w-md overflow-hidden transform transition-all border border-slate-200">
+      <div class="bg-[#1A261A] text-white px-5 py-4 flex justify-between items-center">
+        <h3 class="font-bold text-xs uppercase tracking-wider flex items-center gap-2">
+          <svg class="w-4 h-4 text-[#C5A059]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 114 0m-6 9l2 2 4-4"></path></svg>
+          Situação do Protocolo
+        </h3>
+        <button onclick="fecharProtocoloModal()" class="text-slate-400 hover:text-white text-2xl font-semibold leading-none">&times;</button>
+      </div>
+      <div class="p-6 text-center">
+        <div id="modalIconContainer" class="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4"></div>
+        <p id="modalMensagem" class="text-slate-700 font-medium text-base leading-relaxed"></p>
+      </div>
+      <div class="bg-slate-50 px-5 py-3 flex justify-end border-t border-slate-100">
+        <button onclick="fecharProtocoloModal()" class="bg-[#2A3B2A] hover:bg-[#1A261A] text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors">Fechar Janela</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function buscarStatusProtocolo() {
+      const input = document.getElementById("protocoloInput");
+      const numero = input.value.trim();
+
+      if (numero === "") {
+        exibirModalStatus("⚠️ Por favor, informe um número de protocolo válido para efectuar a varredura.", "alert");
+        return;
+      }
+
+      exibirModalStatus("🔄 Conectando ao servidor de arquivos do Google... Aguarde.", "loading");
+
+      // URL de produção ativa do Cartório
+      const urlAcessoScript = "https://script.google.com/macros/s/AKfycby-nSfjya6gEiNUhpU3mZEULKLPcU-i4zGXSAvabcyDZRoOkX9X5iuciA_bx-LXp5ov/exec";
+
+      // Engenharia de recepção modificada para interceptar HTML de erro do próprio Google antes do crash do JSON
       fetch(`${urlAcessoScript}?protocolo=${numero}`)
-        .then(response => response.json())
-        .then(data => {
-          const statusClean = data.status ? data.status.trim().toLowerCase() : "";
+        .then(response => {
+          if (!response.ok) throw new Error("Erro de resposta na rede HTTP.");
+          return response.text(); 
+        })
+        .then(textoPuro => {
+          try {
+            // Se for um JSON válido vindo do Apps Script, processa normalmente
+            const data = JSON.parse(textoPuro);
+            const statusClean = data.status ? data.status.trim().toLowerCase() : "";
 
-          if (statusClean === "nao_pago" || statusClean.includes("pagamento")) {
-            exibirModalStatus(`Protocolo ${numero}:<br><span class="font-bold text-red-600 text-lg block mt-1">Situação: Aguardando Pagamento de Custas.</span>`, "alert");
-          } else if (statusClean === "analise" || statusClean.includes("em analise")) {
-            exibirModalStatus(`Protocolo ${numero}:<br><span class="font-bold text-blue-600 text-lg block mt-1">Situação: Em análise.</span>`, "info");
-          } else if (statusClean === "nota" || statusClean.includes("devolutiva")) {
-            exibirModalStatus(`Protocolo ${numero}:<br><span class="font-bold text-amber-600 text-lg block mt-1">Situação: Aguardando cumprimento de Nota Devolutiva.</span>`, "warning");
-          } else if (statusClean === "usucapiao" || statusClean.includes("andamento")) {
-            exibirModalStatus(`Protocolo ${numero}:<br><span class="font-bold text-indigo-600 text-lg block mt-1">Situação: Procedimento em andamento.</span>`, "process");
-          } else if (statusClean === "finalizado") {
-            exibirModalStatus(`Protocolo ${numero}:<br><span class="font-bold text-emerald-600 text-lg block mt-1">Situação: Finalizado.</span><br><span class="text-xs text-slate-500 mt-2 block font-normal">Entre em contato com o cartório.</span>`, "success");
-          } else if (statusClean === "erro") {
-            exibirModalStatus(`❌ Erro retornado pelo Google Script:<br><span class="text-sm text-red-500 block mt-1 font-normal">${data.msg || "Erro desconhecido."}</span>`, "alert");
-          } else {
-            exibirModalStatus(`Protocolo ${numero}:<br><span class="font-bold text-slate-800 text-lg block mt-1">Situação: ${data.status}</span>`, "info");
+            if (statusClean === "nao_pago" || statusClean.includes("pagamento")) {
+              exibirModalStatus(`Protocolo ${numero}:<br><span class="font-bold text-red-600 text-lg block mt-1">Situação: Aguardando Pagamento de Custas.</span>`, "alert");
+            } else if (statusClean === "analise" || statusClean.includes("em analise")) {
+              exibirModalStatus(`Protocolo ${numero}:<br><span class="font-bold text-blue-600 text-lg block mt-1">Situação: Em análise.</span>`, "info");
+            } else if (statusClean === "nota" || statusClean.includes("devolutiva")) {
+              exibirModalStatus(`Protocolo ${numero}:<br><span class="font-bold text-amber-600 text-lg block mt-1">Situação: Aguardando cumprimento de Nota Devolutiva.</span>`, "warning");
+            } else if (statusClean === "usucapiao" || statusClean.includes("andamento")) {
+              exibirModalStatus(`Protocolo ${numero}:<br><span class="font-bold text-indigo-600 text-lg block mt-1">Situação: Procedimento em andamento.</span>`, "process");
+            } else if (statusClean === "finalizado") {
+              exibirModalStatus(`Protocolo ${numero}:<br><span class="font-bold text-emerald-600 text-lg block mt-1">Situação: Finalizado.</span>`, "success");
+            } else if (statusClean === "nao_localizado" || statusClean.includes("localizado")) {
+              exibirModalStatus(`Protocolo ${numero}:<br><span class="font-bold text-red-500 text-lg block mt-1">Protocolo não localizado.</span><br><span class="text-xs text-slate-500 mt-2 block font-normal">Entre em contato com o cartório.</span>`, "alert");
+            } else if (statusClean === "erro") {
+              exibirModalStatus(`❌ Erro no Google Script:<br><span class="text-sm text-red-500 block mt-1 font-normal">${data.msg || "Erro desconhecido."}</span>`, "alert");
+            } else {
+              exibirModalStatus(`Protocolo ${numero}:<br><span class="font-bold text-slate-800 text-lg block mt-1">Situação: ${data.status}</span>`, "info");
+            }
+          } catch(err) {
+            // Se cair aqui, o Google Script retornou uma página HTML de erro (Geralmente por falta de permissão na implantação)
+            if (textoPuro.includes("script-error") || textoPuro.includes("Authorization")) {
+              exibirModalStatus("❌ Erro de Autorização/Permissão no Google.<br><span class='text-xs text-slate-500 font-normal block mt-2 leading-relaxed text-left bg-slate-50 p-2 rounded border border-slate-200'>Certifique-se de que a implantação do Apps Script foi configurada com acesso para 'Qualquer pessoa' (Anyone) e que a conta do cartório autorizou a execução do código de varredura.</span>", "alert");
+            } else {
+              exibirModalStatus("❌ Erro de Sintaxe de Código Interno no Script.<br><span class='text-xs text-slate-500 font-normal block mt-2 leading-relaxed text-left bg-slate-50 p-2 rounded border border-slate-200'>O Google Script tentou varrer as pastas mas travou por erro de digitação interno ou ID de pasta inválido. Substitua o código do painel do Google pelo fornecido no Passo 1 anterior.</span>", "alert");
+            }
           }
         })
         .catch(error => {
           console.error("Erro na busca nominal:", error);
-          exibirModalStatus("❌ Falha de comunicação. Verifique se a URL do Apps Script foi implantada e colada perfeitamente no código.", "alert");
+          exibirModalStatus("❌ Falha crítica de comunicação na rede. Verifique a URL do Apps Script.", "alert");
+        });
+    }
+
+    function exibirModalStatus(mensagem, tipo) {
+      const modal = document.getElementById("protocoloModal");
+      const msgCorpo = document.getElementById("modalMensagem");
+      const iconBox = document.getElementById("modalIconContainer");
+      
+      msgCorpo.innerHTML = mensagem;
+      
+      if (tipo === "alert") {
+        iconBox.className = "w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 bg-red-50 text-red-500";
+        iconBox.innerHTML = '<svg class="w-8 h-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>';
+      } else if (tipo === "loading") {
+        iconBox.className = "w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 bg-slate-100 text-slate-500";
+        iconBox.innerHTML = '<svg class="w-8 h-8 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 8H17"></path></svg>';
+      } else if (tipo === "info") {
+        iconBox.className = "w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 bg-blue-50 text-blue-500";
+        iconBox.innerHTML = '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>';
+      } else if (tipo === "warning") {
+        iconBox.className = "w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 bg-amber-50 text-amber-500";
+        iconBox.innerHTML = '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>';
+      } else if (tipo === "process") {
+        iconBox.className = "w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 bg-indigo-50 text-indigo-500";
+        iconBox.innerHTML = '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>';
+      } else {
+        iconBox.className = "w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 bg-emerald-50 text-emerald-500";
+        iconBox.innerHTML = '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>';
+      }
+
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    }
+
+    function fecharProtocoloModal() {
+      const modal = document.getElementById("protocoloModal");
+      modal.classList.remove("flex");
+      modal.classList.add("hidden");
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      const consentBanner = document.getElementById("cookieConsent");
+      const acceptBtn = document.getElementById("acceptCookies");
+
+      if (!localStorage.getItem("cookiesAccepted")) {
+        consentBanner.classList.remove("hidden");
+      }
+
+      acceptBtn.addEventListener("click", function() {
+        localStorage.setItem("cookiesAccepted", "true");
+        consentBanner.classList.add("hidden");
+      });
+
+      document.getElementById("protocoloInput").addEventListener("keypress", function(e) {
+        if (e.key === "Enter") {
+          buscarStatusProtocolo();
+        }
+      });
+    });
+  </script>
+</body>
+</html>";
+
+      // Engenharia de recepção modificada para interceptar HTML de erro do próprio Google antes do crash do JSON
+      fetch(`${urlAcessoScript}?protocolo=${numero}`)
+        .then(response => {
+          if (!response.ok) throw new Error("Erro de resposta na rede HTTP.");
+          return response.text(); 
+        })
+        .then(textoPuro => {
+          try {
+            // Se for um JSON válido vindo do Apps Script, processa normalmente
+            const data = JSON.parse(textoPuro);
+            const statusClean = data.status ? data.status.trim().toLowerCase() : "";
+
+            if (statusClean === "nao_pago" || statusClean.includes("pagamento")) {
+              exibirModalStatus(`Protocolo ${numero}:<br><span class="font-bold text-red-600 text-lg block mt-1">Situação: Aguardando Pagamento de Custas.</span>`, "alert");
+            } else if (statusClean === "analise" || statusClean.includes("em analise")) {
+              exibirModalStatus(`Protocolo ${numero}:<br><span class="font-bold text-blue-600 text-lg block mt-1">Situação: Em análise.</span>`, "info");
+            } else if (statusClean === "nota" || statusClean.includes("devolutiva")) {
+              exibirModalStatus(`Protocolo ${numero}:<br><span class="font-bold text-amber-600 text-lg block mt-1">Situação: Aguardando cumprimento de Nota Devolutiva.</span>`, "warning");
+            } else if (statusClean === "usucapiao" || statusClean.includes("andamento")) {
+              exibirModalStatus(`Protocolo ${numero}:<br><span class="font-bold text-indigo-600 text-lg block mt-1">Situação: Procedimento em andamento.</span>`, "process");
+            } else if (statusClean === "finalizado") {
+              exibirModalStatus(`Protocolo ${numero}:<br><span class="font-bold text-emerald-600 text-lg block mt-1">Situação: Finalizado.</span>`, "success");
+            } else if (statusClean === "nao_localizado" || statusClean.includes("localizado")) {
+              exibirModalStatus(`Protocolo ${numero}:<br><span class="font-bold text-red-500 text-lg block mt-1">Protocolo não localizado.</span><br><span class="text-xs text-slate-500 mt-2 block font-normal">Entre em contato com o cartório.</span>`, "alert");
+            } else if (statusClean === "erro") {
+              exibirModalStatus(`❌ Erro no Google Script:<br><span class="text-sm text-red-500 block mt-1 font-normal">${data.msg || "Erro desconhecido."}</span>`, "alert");
+            } else {
+              exibirModalStatus(`Protocolo ${numero}:<br><span class="font-bold text-slate-800 text-lg block mt-1">Situação: ${data.status}</span>`, "info");
+            }
+          } catch(err) {
+            // Se cair aqui, o Google Script retornou uma página HTML de erro (Geralmente por falta de permissão na implantação)
+            if (textoPuro.includes("script-error") || textoPuro.includes("Authorization")) {
+              exibirModalStatus("❌ Erro de Autorização/Permissão no Google.<br><span class='text-xs text-slate-500 font-normal block mt-2 leading-relaxed text-left bg-slate-50 p-2 rounded border border-slate-200'>Certifique-se de que a implantação do Apps Script foi configurada com acesso para 'Qualquer pessoa' (Anyone) e que a conta do cartório autorizou a execução do código de varredura.</span>", "alert");
+            } else {
+              exibirModalStatus("❌ Erro de Sintaxe de Código Interno no Script.<br><span class='text-xs text-slate-500 font-normal block mt-2 leading-relaxed text-left bg-slate-50 p-2 rounded border border-slate-200'>O Google Script tentou varrer as pastas mas travou por erro de digitação interno ou ID de pasta inválido. Substitua o código do painel do Google pelo fornecido no Passo 1 anterior.</span>", "alert");
+            }
+          }
+        })
+        .catch(error => {
+          console.error("Erro na busca nominal:", error);
+          exibirModalStatus("❌ Falha crítica de comunicação na rede. Verifique a URL do Apps Script.", "alert");
         });
     }
 
