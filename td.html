@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cartório de Registro de Imóveis de Amargosa/BA</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,0,0&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    h1, h2, h3, h4, .font-title {
+      font-family: 'Montserrat', sans-serif;
+    }
+    /* Classes de estilização para o conteúdo textual dinâmico que vem do Drive */
+    .conteudo-dinamico p { margin-bottom: 1rem; line-height: 1.6; }
+    .conteudo-dinamico ul { list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1rem; }
+    .conteudo-dinamico ol { list-style-type: decimal; margin-left: 1.5rem; margin-bottom: 1rem; }
+    .conteudo-dinamico li { margin-bottom: 0.25rem; }
+  </style>
+</head>
+<body class="bg-[#F1F6F0] text-slate-800 flex flex-col min-h-screen">
+
+  <header class="bg-white border-b border-slate-200 w-full">
+    <div class="max-w-[1440px] mx-auto px-6 py-3 flex flex-row justify-between items-center gap-4">
+      
+      <div class="flex items-center gap-4">
+        <img src="imagens/ritdpj.png" alt="Logotipo Cartório" class="h-12 w-auto object-contain">
+        <div class="border-l-2 border-slate-300 pl-4">
+          <h1 class="text-sm md:text-base font-bold uppercase tracking-wider text-slate-900 leading-tight">Ofício de Registro de Imóveis</h1>
+          <p class="text-xs text-slate-600 font-semibold leading-tight">Títulos e Documentos e Civil de Pessoas Jurídicas</p>
+          <p class="text-[11px] text-slate-400 mt-0.5">Rua Moreira Coelho, 183 - Centro - Amargosa/BA</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-6">
+        <div class="text-right hidden md:block leading-tight">
+          <p class="text-xs font-bold text-slate-700">Atendimento Presencial</p>
+          <p class="text-[11px] text-slate-500 mt-0.5">Segunda a Sexta • 08:00h às 14:00h</p>
+        </div>
+        
+        <a href="https://wa.me/5575983237595" target="_blank" class="flex items-center gap-3 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-4 py-1.5 rounded-xl transition-all shadow-sm">
+          <img src="imagens/wapp.png" alt="WhatsApp" class="w-6 h-6 object-contain">
+          <div class="text-left leading-tight">
+            <p class="text-[9px] uppercase font-bold text-emerald-600 tracking-wider">Suporte Digital</p>
+            <p class="text-xs font-bold text-emerald-800">(75) 98323-7595</p>
+          </div>
+        </a>
+      </div>
+
+    </div>
+
+    <nav class="bg-[#2A3B2A] text-white w-full">
+      <div class="max-w-[1440px] mx-auto px-6">
+        <ul class="flex flex-row items-center justify-start gap-1 py-1">
+          <a href="https://riamargosa.eu.org/index.html" target="_blank" class="block px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors">Início</a>
+          <li><a href="https://www.tjba.jus.br/extrajudicial/tabelas-de-custas/" target="_blank" class="block px-4 py-3 text-sm font-semibold hover:text-[#C5A059] transition-colors">Tabelas e Taxas</a></li>
+          
+		  <li class="relative group">
+            <button class="flex items-center gap-1 px-4 py-3 text-sm font-semibold hover:text-[#C5A059] transition-colors focus:outline-none">
+              Serviços <svg class="w-4 h-4 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <ul class="absolute left-0 hidden group-hover:block bg-[#1A261A] text-slate-200 w-72 rounded-b-lg shadow-xl py-2 border-t-2 border-[#C5A059] z-50">
+              <li><a href="https://www.planalto.gov.br/ccivil_03/leis/l6015compilada.htm" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Lei de Registros Públicos (LRP)</a></li>
+              <li><a href="https://www.cnj.jus.br/wp-content/uploads/2023/09/codigo-nacional-de-normas-da-corregedoria-nacional-de-justica-v6b-31-08-2023-1.pdf" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Código Nacional de Normas – CNJ</a></li>
+              <li><a href="https://www.tjba.jus.br/extrajudicial/wp-content/uploads/2023/09/CNP-2023-Codigo-de-Normas-e-Procedimentos-dos-Servicos-Notariais-de-Registro-do-Estado-da-Bahia.pdf" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Código de Normas – TJ Bahia</a></li>
+            </ul>
+          </li>
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+          <li class="relative group">
+            <button class="flex items-center gap-1 px-4 py-3 text-sm font-semibold hover:text-[#C5A059] transition-colors focus:outline-none">
+              Legislação <svg class="w-4 h-4 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <ul class="absolute left-0 hidden group-hover:block bg-[#1A261A] text-slate-200 w-72 rounded-b-lg shadow-xl py-2 border-t-2 border-[#C5A059] z-50">
+              <li><a href="https://www.planalto.gov.br/ccivil_03/leis/l6015compilada.htm" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Lei de Registros Públicos (LRP)</a></li>
+              <li><a href="https://www.cnj.jus.br/wp-content/uploads/2023/09/codigo-nacional-de-normas-da-corregedoria-nacional-de-justica-v6b-31-08-2023-1.pdf" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Código Nacional de Normas – CNJ</a></li>
+              <li><a href="https://www.tjba.jus.br/extrajudicial/wp-content/uploads/2023/09/CNP-2023-Codigo-de-Normas-e-Procedimentos-dos-Servicos-Notariais-de-Registro-do-Estado-da-Bahia.pdf" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Código de Normas – TJ Bahia</a></li>
+            </ul>
+          </li>
+          
+		  <li><a href="https://www.cnj.jus.br/corregedoria/justica_aberta/?" target="_blank" class="block px-4 py-3 text-sm font-semibold hover:text-[#C5A059] transition-colors">Transparência</a></li>
+          <li><a href="#" class="block px-4 py-3 text-sm font-semibold hover:text-[#C5A059] transition-colors">Fale Conosco</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 py-10 flex-grow w-full">
+    <div class="text-center mb-10">
+      <h2 class="text-xl md:text-2xl font-bold uppercase tracking-tight text-[#2A3B2A]">Serviços Disponíveis para o Registro de Títulos e Documentos</h2>
+      <p class="text-xs md:text-sm text-slate-500 mt-1 max-w-2xl mx-auto">Selecione a opção desejada para instruções operacionais e emissões eletrônicas diretas.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+      
+       
+
+      <a href="https://www.rtdbrasil.org.br/" target="_blank" class="bg-white border border-slate-200 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-[#2A3B2A] transition-all flex flex-col items-start group">
+        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all"><span class="material-symbols-outlined !text-xl">devices</span></div>
+        <h3 class="text-xs font-bold text-slate-900 group-hover:text-[#2A3B2A] transition-colors">E-Protocolo</h3>
+        <p class="text-[11px] text-slate-400 mt-1 leading-tight mb-3">Envio de títulos digitais.</p>
+        <span class="text-[11px] font-bold text-[#2A3B2A] mt-auto">Acessar Serviço &rarr;</span>
+      </a>
+	  
+	  <a href="https://www.rtdbrasil.org.br/" target="_blank" class="bg-white border border-slate-200 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-[#2A3B2A] transition-all flex flex-col items-start group">
+        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all"><span class="material-symbols-outlined !text-xl">devices</span></div>
+        <h3 class="text-xs font-bold text-slate-900 group-hover:text-[#2A3B2A] transition-colors">Certidões</h3>
+        <p class="text-[11px] text-slate-400 mt-1 leading-tight mb-3">Solicitação de Certidões pela Central</p>
+        <span class="text-[11px] font-bold text-[#2A3B2A] mt-auto">Acessar Serviço &rarr;</span>
+      </a>
+
+      <a href="https://www.rtdbrasil.org.br/" target="_blank" class="bg-white border border-slate-200 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-[#2A3B2A] transition-all flex flex-col items-start group">
+        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all"><span class="material-symbols-outlined !text-xl">shield</span></div>
+        <h3 class="text-xs font-bold text-slate-900 group-hover:text-[#2A3B2A] transition-colors">Registro para Eficácia Contra Terceiros</h3>
+        <p class="text-[11px] text-slate-400 mt-1 leading-tight mb-3">Inscrição legal de títulos e documentos (LRP, arts. 127 e 129).</p>
+        <span class="text-[11px] font-bold text-[#2A3B2A] mt-auto">Acessar Central &rarr;</span>
+      </a>
+
+      <a href="https://www.rtdbrasil.org.br/" target="_blank" class="bg-white border border-slate-200 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-[#2A3B2A] transition-all flex flex-col items-start group">
+        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all"><span class="material-symbols-outlined !text-xl">archive</span></div>
+        <h3 class="text-xs font-bold text-slate-900 group-hover:text-[#2A3B2A] transition-colors">Registro para Mera Conservação</h3>
+        <p class="text-[11px] text-slate-400 mt-1 leading-tight mb-3">Registro para provar existência, fixar data e conservação perpétua.</p>
+        <span class="text-[11px] font-bold text-[#2A3B2A] mt-auto">Acessar Central &rarr;</span>
+      </a>
+
+      <a href="https://www.rtdbrasil.org.br/" target="_blank" class="bg-white border border-slate-200 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-[#2A3B2A] transition-all flex flex-col items-start group">
+        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all"><span class="material-symbols-outlined !text-xl">chat_bubble</span></div>
+        <h3 class="text-xs font-bold text-slate-900 group-hover:text-[#2A3B2A] transition-colors">Notificações Extrajudiciais</h3>
+        <p class="text-[11px] text-slate-400 mt-1 leading-tight mb-3">Entrega oficial de avisos e denúncias para constituição em mora.</p>
+        <span class="text-[11px] font-bold text-[#2A3B2A] mt-auto">Acessar Central &rarr;</span>
+      </a>
+
+      <a href="https://www.rtdbrasil.org.br/" target="_blank" class="bg-white border border-slate-200 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-[#2A3B2A] transition-all flex flex-col items-start group">
+        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all"><span class="material-symbols-outlined !text-xl">directions_car</span></div>
+        <h3 class="text-xs font-bold text-slate-900 group-hover:text-[#2A3B2A] transition-colors">Alienação Fiduciária de Móveis</h3>
+        <p class="text-[11px] text-slate-400 mt-1 leading-tight mb-3">Garantias de bens móveis, busca, apreensão e consolidação.</p>
+        <span class="text-[11px] font-bold text-[#2A3B2A] mt-auto">Acessar Central &rarr;</span>
+      </a>
+	  
+
+      <a href="https://www.rtdbrasil.org.br/" target="_blank" class="bg-white border border-slate-200 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-[#2A3B2A] transition-all flex flex-col items-start group">
+        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all"><span class="material-symbols-outlined !text-xl">hub</span></div>
+        <h3 class="text-xs font-bold text-slate-900 group-hover:text-[#2A3B2A] transition-colors">Central RTDPJ Brasil</h3>
+        <p class="text-[11px] text-slate-400 mt-1 leading-tight mb-3">Recepção de títulos, certidões digitais e desmaterialização de balcão.</p>
+        <span class="text-[11px] font-bold text-[#2A3B2A] mt-auto">Acessar Central &rarr;</span>
+      </a>
+
+       
+
+    </div>
+  </main>
+
+  <div id="modalDN" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden justify-center items-center p-4">
+    <div class="bg-white rounded-xl shadow-2xl w-full max-w-xl overflow-hidden transform transition-all border border-slate-200 h-auto flex flex-col">
+      <div class="bg-[#2A3B2A] text-white p-4 flex justify-between items-center">
+        <h3 class="text-xs font-bold uppercase tracking-wider flex items-center gap-2">
+          <span class="material-symbols-outlined text-[#C5A059] !text-sm">folder_open</span>
+          Documentos Necessários por Ato
+        </h3>
+        <button onclick="fecharModal('modalDN')" class="text-slate-400 hover:text-white text-2xl font-bold leading-none">&times;</button>
+      </div>
+      <div class="p-4 bg-slate-50 max-h-[70vh] overflow-y-auto flex-grow">
+        <div class="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-sm">
+          <div class="grid grid-cols-3 bg-slate-50 border-b border-slate-200 px-4 py-2 text-[10px] font-bold uppercase tracking-wider text-slate-400">
+            <div class="col-span-2">Título do Checklist</div>
+            <div class="text-right">Modificação</div>
+          </div>
+          <div id="tabelaDNConteudo" class="divide-y divide-slate-100 text-xs"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modalLista" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-40 hidden justify-center items-center p-4">
+    <div class="bg-white rounded-xl shadow-2xl w-full max-w-xl overflow-hidden transform transition-all border border-slate-200 h-auto flex flex-col">
+      <div class="bg-[#1A261A] text-white px-5 py-4 flex justify-between items-center flex-shrink-0">
+        <h3 class="font-bold text-xs uppercase tracking-wider flex items-center gap-2">
+          <span class="material-symbols-outlined text-[#C5A059] !text-sm">folder_open</span>
+          Modelos de Requerimentos Oficiais
+        </h3>
+        <button onclick="fecharModal('modalLista')" class="text-slate-400 hover:text-white text-2xl font-semibold leading-none">&times;</button>
+      </div>
+      <div class="p-4 bg-slate-50 max-h-[70vh] overflow-y-auto flex-grow">
+        <div class="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-sm">
+          <div class="grid grid-cols-3 bg-slate-50 border-b border-slate-200 px-4 py-2 text-[10px] font-bold uppercase tracking-wider text-slate-400">
+            <div class="col-span-2">Título do Documento</div>
+            <div class="text-right">Modificação</div>
+          </div>
+          <div class="divide-y divide-slate-100 text-xs">
+            <div onclick="abrirPdfDireto('1ip5cAHGATRHZMSYGZ0T4nCZl0juXlHW9')" class="grid grid-cols-3 px-4 py-3 items-center hover:bg-slate-50 cursor-pointer transition-colors group">
+              <div class="col-span-2 flex items-center gap-3">
+                <span class="material-symbols-outlined text-red-500 !text-xl flex-shrink-0">picture_as_pdf</span>
+                <span class="font-medium text-slate-700 group-hover:text-[#3A4B3A] underline decoration-transparent group-hover:decoration-[#3A4B3A] truncate">Requerimento Padrão.pdf</span>
+              </div>
+              <div class="text-right text-slate-400 font-medium">05:18</div>
+            </div>
+            <div onclick="abrirPdfDireto('1mDgheDnNUmS0bVqKLI9oaJ3KRCj8xtHP')" class="grid grid-cols-3 px-4 py-3 items-center hover:bg-slate-50 cursor-pointer transition-colors group">
+              <div class="col-span-2 flex items-center gap-3">
+                <span class="material-symbols-outlined text-red-500 !text-xl flex-shrink-0">picture_as_pdf</span>
+                <span class="font-medium text-slate-700 group-hover:text-[#3A4B3A] underline decoration-transparent group-hover:decoration-[#3A4B3A] truncate">Requerimento para Buscas e Certidões.pdf</span>
+              </div>
+              <div class="text-right text-slate-400 font-medium">05:13</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modalTextoDN" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden justify-center items-center p-4">
+    <div class="bg-white rounded-xl shadow-2xl w-full max-w-2xl h-[80vh] overflow-hidden transform transition-all border border-slate-300 flex flex-col">
+      <div class="bg-[#1A261A] text-white px-5 py-4 flex justify-between items-center flex-shrink-0 border-b border-slate-800">
+        <h3 class="font-bold text-xs uppercase tracking-wider flex items-center gap-2">
+          <span class="material-symbols-outlined text-[#C5A059] !text-sm font-bold">article</span>
+          <span id="textoDNTitulo">Nome do Documento</span>
+        </h3>
+        <button onclick="fecharModal('modalTextoDN')" class="text-slate-400 hover:text-white text-2xl font-semibold leading-none">&times;</button>
+      </div>
+      <div id="textoDNConteudo" class="conteudo-dinamico p-8 overflow-y-auto flex-grow bg-white text-justify text-xs text-slate-700 font-normal">
+        </div>
+      <div class="bg-slate-50 px-5 py-3 flex justify-between items-center border-t border-slate-200 flex-shrink-0">
+        <button onclick="voltarParaListaDN()" class="bg-transparent hover:bg-slate-200 text-slate-700 border border-slate-300 text-xs font-bold px-4 py-2 rounded-lg transition-all">Voltar para a Lista</button>
+        <button onclick="fecharModal('modalTextoDN')" class="bg-[#2A3B2A] hover:bg-[#1A261A] text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors">Fechar Janela</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="cookieConsent" class="fixed bottom-0 left-0 w-full bg-slate-900 text-slate-200 border-t border-slate-800 p-4 shadow-2xl z-50 flex flex-col sm:flex-row justify-between items-center gap-4 hidden">
+    <p class="text-xs text-center sm:text-left">Este site utiliza cookies para garantir a conformidade com a LGPD e otimizar a sua experiência de navigation. <a href="https://drive.google.com/file/d/1XFvQGVBeIYVQVUK8pXK6__FyZfBUgnMA/view?usp=sharing" target="_blank" class="text-cyan-400 underline hover:text-cyan-300">Saiba mais</a>.</p>
+    <button id="acceptCookies" class="bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors">Aceitar Termos</button>
+  </div>
+
+  <footer class="bg-slate-900 text-slate-400 text-xs border-t border-slate-800 py-6 px-6 mt-auto">
+    <div class="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="flex items-center gap-4 text-left w-full md:w-auto">
+        <img src="imagens/logotjba.png" alt="Logotipo TJBA" class="h-10 w-auto object-contain flex-shrink-0 filter grayscale opacity-60">
+        <div class="text-[11px] leading-relaxed">
+          <p class="font-bold text-slate-200">Cartório de Registro de Imóveis, Hipotecas, Títulos e Documentos da Circunscrição de Amargosa</p>
+          <p>Estado da Bahia • Corregedoria das Comarcas do Interior (CCI)</p>
+          <p class="mt-0.5">Fone: (75) 98323-7595 • E-mail: <span class="text-slate-300">riamargosa@gmail.com</span></p>
+        </div>
+      </div>
+      <div class="text-center md:text-right text-[11px] w-full md:w-auto flex flex-col gap-1">
+        <p>© 2026 • Responsável: <strong class="text-slate-200">André Navarro Perez</strong></p>
+        <p><a href="https://drive.google.com/file/d/1XFvQGVBeIYVQVUK8pXK6__FyZfBUgnMA/view?usp=sharing" target="_blank" class="text-cyan-400 hover:underline">Termo de Privacidade & Proteção de Dados</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const urlApiAppsScript = "https://script.google.com/macros/s/AKfycby7u1Qva0KVJCwC3CPhuVpkE9E9Sn5xUSKr7n73uXPEt67fABus0uc-ZnD2rVjxFMwwnA/exec";
+
+    document.addEventListener("DOMContentLoaded", function() {
+      const consentBanner = document.getElementById("cookieConsent");
+      const acceptBtn = document.getElementById("acceptCookies");
+
+      if (!localStorage.getItem("cookiesAccepted")) {
+        consentBanner.classList.remove("hidden");
+      }
+
+      acceptBtn.addEventListener("click", function() {
+        localStorage.setItem("cookiesAccepted", "true");
+        consentBanner.classList.add("hidden");
+      });
+    });
+
+    function abrirModal(modalId) {
+      const modal = document.getElementById(modalId);
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.classList.add('overflow-hidden');
+    }
+
+    function fecharModal(modalId) {
+      const modal = document.getElementById(modalId);
+      modal.classList.remove('flex');
+      modal.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    function abrirListaRequerimentos() {
+      const modal = document.getElementById("modalLista");
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+      document.body.classList.add("overflow-hidden");
+    }
+
+    function abrirPdfDireto(idArquivoDrive) {
+      const urlDriveOficial = `https://drive.google.com/file/d/${idArquivoDrive}/view?usp=sharing`;
+      window.open(urlDriveOficial, '_blank'); 
+    }
+
+    function abrirListaDinamicaDN() {
+      abrirModal("modalDN");
+      const container = document.getElementById("tabelaDNConteudo");
+      
+      container.innerHTML = `
+        <div class="p-6 text-center text-slate-400 flex flex-col items-center justify-center gap-2 col-span-3">
+          <svg class="w-5 h-5 animate-spin text-[#2A3B2A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 8H17"></path></svg>
+          <span>Sincronizando com a pasta oficial do Drive...</span>
+        </div>
+      `;
+
+      fetch(`${urlApiAppsScript}?action=listFiles&folderId=174cDNoQLnQ6D2j4L0Lk1EzYKabPSwjPp`)
+        .then(res => res.json())
+        .then(arquivos => {
+          container.innerHTML = "";
+          if (arquivos.erro || arquivos.length === 0) {
+            container.innerHTML = `<div class="p-4 text-center text-slate-400">Nenhum checklist localizado no Drive atualmente.</div>`;
+            return;
+          }
+          arquivos.forEach(arq => {
+            const linea = document.createElement("div");
+            linea.className = "grid grid-cols-3 px-4 py-3 items-center hover:bg-slate-50 cursor-pointer transition-colors group";
+            linea.setAttribute("onclick", `carregarConteudoTexto('${arq.id}', '${arq.nome}')`);
+            linea.innerHTML = `
+              <div class="col-span-2 flex items-center gap-3">
+                <span class="material-symbols-outlined text-red-500 !text-xl flex-shrink-0">article</span>
+                <span class="font-medium text-slate-700 group-hover:text-[#2A3B2A] underline decoration-transparent group-hover:decoration-[#2A3B2A] truncate">${arq.nome}</span>
+              </div>
+              <div class="text-right text-slate-400 font-medium">${arq.data}</div>
+            `;
+            container.appendChild(linea);
+          });
+        })
+        .catch(() => {
+          container.innerHTML = `<div class="p-4 text-center text-red-500 font-medium">Erro ao conectar com a pasta do Google Drive. Verifique se realizou os passos de consentimento manual.</div>`;
+        });
+    }
+
+    function carregarConteudoTexto(fileId, titulo) {
+      fecharModal("modalDN");
+      document.getElementById("textoDNTitulo").textContent = titulo;
+      const conteudoBox = document.getElementById("textoDNConteudo");
+      
+      conteudoBox.innerHTML = `
+        <div class="h-full flex flex-col items-center justify-center text-center text-slate-400 p-12 gap-2">
+          <svg class="w-6 h-6 animate-spin text-[#2A3B2A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 8H17"></path></svg>
+          <span>Carregando o conteúdo de texto do documento...</span>
+        </div>
+      `;
+      abrirModal("modalTextoDN");
+
+      fetch(`${urlApiAppsScript}?action=getFileContent&fileId=${fileId}`)
+        .then(res => res.json())
+        .then(data => {
+          if (data.erro) {
+            conteudoBox.innerHTML = `
+              <div class="bg-amber-50 border border-amber-200 p-4 rounded text-amber-800 space-y-2">
+                <p class="font-bold flex items-center gap-1"><span class="material-symbols-outlined text-amber-600">warning</span> Diagnóstico do Servidor do Drive:</p>
+                <p class="text-xs leading-relaxed">${data.msg}</p>
+              </div>`;
+          } else {
+            conteudoBox.innerHTML = data.conteudo;
+          }
+        })
+        .catch(() => {
+          conteudoBox.innerHTML = `<p class="text-red-500 font-bold">Falha crítica de comunicação com o servidor.</p>`;
+        });
+    }
+
+    function voltarParaListaDN() {
+      fecharModal("modalTextoDN");
+      abrirModal("modalDN");
+    }
+
+    window.onclick = function(event) {
+      if (event.target.classList.contains('backdrop-blur-sm')) {
+        event.target.classList.remove('flex');
+        event.target.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+      }
+    }
+  </script>
+
+</body>
+</html>
