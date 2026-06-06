@@ -1,464 +1,195 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Cartório de Registro de Imóveis de Amargosa/BA</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cartório de Registro de Imóveis, RTD e RCPJ de Amargosa/BA</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,0,0&display=swap" rel="stylesheet">
 
-    <style>
-        /* --- Reset Básico e Estilos Gerais --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            color: #fff;
-            background-image: url('imagens/fv.png');
-            min-height: 100vh;
-            padding-bottom: 60px; /* Espaço para o rodapé fixo */
-            position: relative; /* Essencial para posicionamento absoluto dentro do body */
-        }
-
-        /* --- Cabeçalho --- */
-        header {
-            display: flex;
-            align-items: flex-start; /* Alinha o conteúdo ao topo */
-            padding: 2px;
-            background-color: white;
-            position: relative; /* Para posicionar o WhatsApp em relação ao header */
-        }
-
-        header img {
-            width: 90pt;
-            height: 40pt;
-        }
-
-        .header-text {
-            margin-left: 15px;
-            color: black;
-        }
-
-        .header-text h1 {
-            font-family: 'Felix Titling', sans-serif;
-            font-weight: bold;
-            font-size: 12px;
-            margin-top: 1px;
-            margin-bottom: 0;
-            line-height: 20px;
-            color: black;
-        }
-
-        .whatsapp-container {
-            display: flex;
-            align-items: center;
-            position: absolute;
-            top: 12px;
-            right: 50px;
-        }
-
-        .whatsapp-logo {
-            width: 30px;
-            height: 30px;
-            margin-right: 10px;
-        }
-
-        .address, .whatsapp-text {
-            font-size: 11px;
-            font-family: Arial, sans-serif;
-            color: black;
-        }
-
-        /* --- Navegação --- */
-        nav {
-            background: #3A4B3A;
-            padding: 10px;
-            font-family: "Arial", sans-serif;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        nav ul li {
-            position: relative;
-            margin: 0 25px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #fff;
-            font-weight: bold;
-            font-size: 14px;
-            transition: color 0.3s ease;
-        }
-
-        nav ul li a:hover {
-            color: #ddd;
-        }
-
-        /* Dropdown Menu */
-        nav ul li ul {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: rgba(0, 0, 0, 0.8);
-            list-style: none;
-            padding: 15px;
-            font-size: 10px;
-            text-align: left;
-            line-height: 1.8;
-            min-width: 200px;
-            z-index: 100;
-        }
-
-        nav ul li:hover ul {
-            display: block;
-        }
-
-        nav ul li ul li a {
-            font-weight: normal;
-            font-size: 10px;
-            white-space: nowrap;
-            display: block;
-        }
-
-        /* --- Conteúdo Principal (Main) --- */
-        main {
-            padding: 20px;
-            position: relative; /* Mantém position: relative para aninhar elementos absolutos */
-            z-index: 1;
-        }
-
-        .banner_pj {
-            position: absolute;
-            left: 7px;
-            top: 10px;
-            z-index: 10;
-        }
-
-        .banner_pj img {
-            max-width: 148px;
-            height: auto;
-            display: block;
-            object-fit: cover;
-        }
-
-        .selecionar-cartorio {
-            font-family: "Felix Titling", sans-serif;
-            font-size: 20pt;
-            text-align: center;
-            margin-top: 25px;
-            position: absolute; /* Adicione ou certifique-se de que está aqui */
-            left: 600px; /* <--- Mude para 650px */
-            top: 10px; /* Você pode ajustar o 'top' para posicionar verticalmente */
-            color: #3A4B3A;
-            font-weight: bold;
-        }
-
-        /* Contêiner para os ícones icri_cd e icri_dn - usando Flexbox para alinhamento */
-        .icones-servicos-container {
-            position: absolute;
-            /* Ajustado top e left para posicioná-los abaixo do banner e do título, e garantir que estejam clicáveis */
-            top: 100px; /* Ajuste este valor para mover os ícones para baixo */
-            left: 180px; /* Ajuste este valor para mover os ícones horizontalmente */
-            display: flex;
-            gap: 15px;
-            z-index: 20; /* Aumenta o z-index para garantir que os ícones estejam acima de outros elementos */
-        }
-
-        .icone-servico {
-            width: 130px;
-            height: 130px;
-            /* Adicione uma cor de fundo temporária para depuração se precisar */
-            /* background-color: rgba(255, 0, 0, 0.2); */
-        }
-
-        .icone-servico img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-        
-        .icones-servicos-container2 {
-            position: absolute;
-            /* Ajustado top e left para posicioná-los abaixo do banner e do título, e garantir que estejam clicáveis */
-            top: 250px; /* Ajuste este valor para mover os ícones para baixo */
-            left: 180px; /* Ajuste este valor para mover os ícones horizontalmente */
-            display: flex;
-            gap: 15px;
-             
-        }
-
-        /* Estilos para os modais */
-        .modal {
-            display: none; /* Inicia oculto */
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            z-index: 1000;
-            justify-content: center; /* Para centralizar o conteúdo do modal */
-            align-items: center;
-        }
-
-        .modal-content {
-            background:#fff;
-            padding:20px;
-            border-radius:10px;
-            max-width:90%;
-            max-height:90%;
-            position:relative; /* Necessário para posicionar o botão fechar */
-            box-sizing: border-box; /* Garante que padding não estoure o tamanho */
-            display: flex; /* Permite centralizar o iframe se ele for menor */
-            flex-direction: column; /* Coloca o botão e o iframe em coluna */
-            overflow: hidden;
-        }
-
-        .close-button {
-            position:absolute;
-            top:10px;
-            right:15px;
-            cursor:pointer;
-            font-size:25px; /* Tamanho um pouco maior para visibilidade */
-            color:#333; /* Cor mais visível */
-            font-weight:bold; /* Mais destaque */
-            z-index:1001; /* Garante que fique acima do iframe */
-        }
-
-
-        /* --- Rodapé --- */
-        footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            font-size: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            line-height: 1.4;
-        }
-
-        .footer-left {
-            display: flex;
-            align-items: center;
-            text-align: left;
-            padding-top: 5px;
-        }
-
-        .footer-left p {
-            margin-top: 0;
-        }
-
-        .footer-right {
-            text-align: right;
-        }
-
-        .footer-logo {
-            width: 25pt;
-            height: 30pt;
-            margin-top: 0;
-            margin-right: 10px;
-        }
-
-        .privacy-link {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .privacy-link:hover {
-            text-decoration: underline;
-        }
-    </style>
-
-<script>
-    // Funções para abrir e fechar modais específicos
-    function abrirModal(modalId) {
-        document.getElementById(modalId).style.display = "flex";
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
     }
-    function fecharModal(modalId) {
-        document.getElementById(modalId).style.display = "none";
+    h1, h2, h3, h4, .font-title {
+      font-family: 'Montserrat', sans-serif;
     }
-</script>
-
+  </style>
 </head>
-<body>
-    <header>
-        <img src="imagens/ritdpj.png" alt="Logotipo Cartório">
-        <div class="header-text">
-            <h1>Cartório de Registro de Imóveis de Amargosa/BA</h1>
-            <p class="address">Rua Moreira Coelho, 183 - Centro - Amargosa/BA</p>
-            <p class="address">Horário de Atendimento: Das 8:00h às 14:00h</p>
-        </div>
-        <div class="whatsapp-container">
-            <a href="whatsapp://send?phone=+5575983237595" target="_blank">
-                <img src="imagens/wapp.png" alt="WhatsApp" class="whatsapp-logo">
-            </a>
-            <p class="whatsapp-text">(75) 98323-7595</p>
-        </div>
-    </header>
+<body class="bg-[#F4F5F4] text-slate-800 flex flex-col min-h-screen">
 
-    <nav>
-        <ul>
-            <li><a href="index.html">Início</a></li>
-            <li><a href="https://www.tjba.jus.br/extrajudicial/tabelas-de-custas/" target="_blank">Tabelas e Taxas</a></li>
-            <li><a href="#">Legislação</a>
-                <ul>
-                    <li><a href="https://www.planalto.gov.br/ccivil_03/leis/l6015compilada.htm#(%20*%20)" target="_blank">Lei de Registros Públicos</a></li>
-                    <li><a href="https://www.cnj.jus.br/wp-content/uploads/2023/09/codigo-nacional-de-normas-da-corregedoria-nacional-de-justica-v6b-31-08-2023-1.pdf" target="_blank">Código Nacional de Normas</a></li>
-                    <li><a href="https://www.tjba.jus.br/extrajudicial/wp-content/uploads/2023/09/CNP-2023-Codigo-de-Normas-e-Procedimentos-dos-Servicos-Notariais-de-Registro-do-Estado-da-Bahia.pdf" target="_blank">Código Normas TJ Bahia</a></li>
-                    <li><a href="https://www.tjba.jus.br/portal/wp-content/uploads/2019/02/Decretos-Suspens%C3%A3o-de-Expedientes-interior.pdf" target="_blank">Dec. Judiciario 92/2019 - Índices de Atualização</a></li>
-                    <li><a href="https://www.planalto.gov.br/ccivil_03/leis/L6766compilado.htm" target="_blank">Lei do Parcelamento do Solo</a></li>
-                    <li><a href="https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14711.htm" target="_blank">Marco Legal das Garantias</a></li>
-                    <li><a href="https://www.planalto.gov.br/ccivil_03/leis/L4591compilado.htm" target="_blank">Incorporação Imobiliária</a></li>
-                    <li><a href="https://www.planalto.gov.br/ccivil_03/decreto/2002/D4449compilado.htm" target="_blank">Georreferenciamento</a></li>
-                    <li><a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2017/lei/l13465.htm" target="_blank">Regularização Fundiária - REURB</a></li>
-                    <li><a href="http://leismunicipa.is/14r45" target="_blank">Plano Diretor Amargosa - LC nº 40/23</a></li>
-                </ul>
-            </li>
-            <li><a href="#">Links Úteis</a>
-                <ul>
-                    <li><a href="https://www.registrodeimoveis.org.br/" target="_blank">ONR - Registro de Imoveis do Brasil</a></li>
-                    <li><a href="https://onrtdpj.org.br/" target="_blank">ONR - Títulos e Documentos e Pessoas Jurídicas</a></li>
-                    <li><a href="https://www.ibge.gov.br/estatisticas/economicas/precos-e-custos/9270-sistema-nacional-de-pesquisa-de-custos-e-indices-da-construcao-civil.html" target="_blank">Tabela SINAPI - Valor m2 construção</a></li>
-                    <li><a href="https://www.ba.gov.br/juceb/" target="_blank">Junta Comercial do Estado da Bahia</a></li>
-                    <li><a href="https://www.tjba.jus.br/juceb/" target="_blank">Tribunal de Justiça do Estado da Bahia</a></li>
-                </ul>
-            </li>
-            <li><a href="https://www.cnj.jus.br/corregedoria/justica_aberta/?" target="_blank">Transparencia</a></li>
-            <li><a href="#">Fale conosco</a></li>
+  <header class="bg-white border-b border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center gap-4">
+      
+      <div class="flex items-center gap-4 w-full md:w-auto">
+        <img src="imagens/ritdpj.png" alt="Logotipo Cartório" class="h-14 w-auto object-contain">
+        <div class="border-l-2 border-slate-300 pl-4">
+          <h1 class="text-sm font-bold uppercase tracking-wider text-slate-900">Ofício de Registro de Imóveis</h1>
+          <p class="text-xs text-slate-500 font-semibold">Títulos e Documentos e Civil de Pessoas Jurídicas</p>
+          <p class="text-[11px] text-slate-400 mt-0.5">Rua Moreira Coelho, 183 - Centro - Amargosa/BA</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-6 w-full md:w-auto justify-between md:justify-end">
+        <div class="text-left md:text-right hidden sm:block">
+          <p class="text-xs font-medium text-slate-700">Atendimento Presencial</p>
+          <p class="text-[11px] text-slate-500">Segunda a Sexta • 08:00h às 14:00h</p>
+        </div>
+        
+        <a href="https://wa.me/5575983237595" target="_blank" class="flex items-center gap-2 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-4 py-2 rounded-lg transition-all">
+          <img src="imagens/wapp.png" alt="WhatsApp" class="w-5 h-5">
+          <div class="text-left">
+            <p class="text-[10px] uppercase font-bold text-emerald-600 tracking-wider">Fale Conosco</p>
+            <p class="text-xs font-bold text-emerald-800">(75) 98189-1987</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <nav class="bg-[#2A3B2A] text-white">
+      <div class="max-w-7xl mx-auto px-4">
+        <ul class="flex flex-wrap items-center justify-start py-1">
+          <li>
+            <a href="https://riamargosa.eu.org/index.html" class="block px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors">Início</a>
+          </li>
+		  
+		  <li class="relative group">
+            <button class="flex items-center gap-1 px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors focus:outline-none">
+              Serviços</a>
+              <svg class="w-4 h-4 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <ul class="absolute left-0 hidden group-hover:block bg-[#1A261A] text-slate-200 w-72 rounded-b-lg shadow-xl py-2 border-t-2 border-[#C5A059] z-50">
+              <li><a href="https://riamargosa.eu.org/ri.html" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Registro de Imóveis </a></li>
+              <li><a href="https://riamargosa.eu.org/td.html" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Titulos e Documentos</a></li>
+              <li><a href="https://riamargosa.eu.org/pj.html" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Pessoas Jurídicas</a></li>
+            </ul>
+          </li>
+		  
+          <li>
+            <a href="https://www.tjba.jus.br/extrajudicial/tabelas-de-custas/" target="_blank" class="block px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors">Tabelas e Taxas</a>
+          </li>
+          
+          <li class="relative group">
+            <button class="flex items-center gap-1 px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors focus:outline-none">
+              Legislação 
+              <svg class="w-4 h-4 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <ul class="absolute left-0 hidden group-hover:block bg-[#1A261A] text-slate-200 w-72 rounded-b-lg shadow-xl py-2 border-t-2 border-[#C5A059] z-50">
+              <li><a href="https://www.planalto.gov.br/ccivil_03/leis/l6015compilada.htm" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Lei de Registros Públicos (LRP)</a></li>
+              <li><a href="https://www.cnj.jus.br/wp-content/uploads/2023/09/codigo-nacional-de-normas-da-corregedoria-nacional-de-justica-v6b-31-08-2023-1.pdf" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Código Nacional de Normas – CNJ</a></li>
+              <li><a href="https://www.tjba.jus.br/extrajudicial/wp-content/uploads/2023/09/CNP-2023-Codigo-de-Normas-e-Procedimentos-dos-Servicos-Notariais-de-Registro-do-Estado-da-Bahia.pdf" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Código de Normas – TJ Bahia</a></li>
+            </ul>
+          </li>
+
+          <li class="relative group">
+            <button class="flex items-center gap-1 px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors focus:outline-none">
+              Links Úteis 
+              <svg class="w-4 h-4 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <ul class="absolute left-0 hidden group-hover:block bg-[#1A261A] text-slate-200 w-72 rounded-b-lg shadow-xl py-2 border-t-2 border-[#C5A059] z-50">
+              <li><a href="https://www.registrodeimoveis.org.br/" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">ONR – Registro de Imóveis do Brasil</a></li>
+              <li><a href="https://onrtdpj.org.br/" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">IRTDPJBrasil – Títulos, Documentos e PJ</a></li>
+              <li><a href="https://www.tjba.jus.br/" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Portal do TJBA</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="https://www.cnj.jus.br/corregedoria/justica_aberta/?" target="_blank" class="block px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors">Transparência</a>
+          </li>
+		  
+		  <a href="#" class="block px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors">Fale Conosco</a>
         </ul>
+      </div>
     </nav>
+  </header>
 
-    <main>
-        <div class="banner_pj">
-            <img src="imagens/banner_pj.png" alt="Banner Registro de Imóveis">
+  <main class="max-w-7xl mx-auto px-6 py-10 flex-grow w-full">
+    <div class="text-center mb-10">
+      <h2 class="text-xl md:text-2xl font-bold uppercase tracking-tight text-[#2A3B2A]">Serviços Disponíveis para o Registro de Pessoas Jurídicas</h2>
+      <p class="text-xs md:text-sm text-slate-500 mt-1 max-w-2xl mx-auto">Selecione a opção desejada para instruções operacionais e emissões eletrônicas diretas.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+
+      <a href="https://www.rtdbrasil.org.br/" target="_blank" class="bg-white border border-slate-200 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-[#2A3B2A] transition-all flex flex-col items-start group">
+        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all">
+          <span class="material-symbols-outlined !text-xl">domain</span>
         </div>
-        <p class="selecionar-cartorio">Serviços Disponíveis</p>
-
-        <div class="icones-servicos-container">
-            <div class="icone-servico">
-                <a href="https://ridigital.org.br/CertidaoDigital/frmPedidosCertidao.aspx?from=menu&digital=1" target="_blank">
-                    <img src="imagens/icpj_pc.png" alt="Ícone Certidão Digital">
-                </a>
-            </div>
-
-            <div class="icone-servico">
-                <a href="javascript:void(0);" onclick="abrirModal('modalDN')">
-                    <img src="imagens/icpj_dn.png" alt="Ícone Documentos Necessários">
-                </a>
-            </div>
-            <div id="modalDN" class="modal">
-                <div class="modal-content">
-                    <span class="close-button" onclick="fecharModal('modalDN')">&times;</span>
-                    <iframe src="https://drive.google.com/embeddedfolderview?id=174cDNoQLnQ6D2j4L0Lk1EzYKabPSwjPp#list"
-                        width="450px" height="calc(600px - 30px)" frameborder="0" style="margin-top: 20px;">
-                    </iframe>
-                </div>
-            </div>
-
-            <div class="icone-servico">
-                <a href="javascript:void(0);" onclick="abrirModal('modalRQ')">
-                    <img src="imagens/icpj_rq.png" alt="Ícone Requerimentos">
-                </a>
-            </div>
-            <div id="modalRQ" class="modal">
-                <div class="modal-content">
-                    <span class="close-button" onclick="fecharModal('modalRQ')">&times;</span>
-                    <iframe src="https://drive.google.com/embeddedfolderview?id=1edqbXJXY_zr5107Y_nCBjYnhB1y74Bzs#list"
-                        width="450px" height="calc(600px - 30px)" frameborder="0" style="margin-top: 20px;">
-                    </iframe>
-                </div>
-            </div>
-
-            <div class="icone-servico">
-                <a href="https://ridigital.org.br/eProtocolo/DefaultAC.aspx" target="_blank">
-                    <img src="imagens/icri_ep.png" alt="Ícone E-Prot">
-                </a>
-            </div>
-            <div class="icone-servico">
-                <img src="imagens/icri_cl.png" alt="Ícone Dúvidas e Notificações">
-            </div>
-            <div class="icone-servico">
-                <img src="imagens/icri_ue.png" alt="Ícone Dúvidas e Notificações">
-            </div>
-            <div class="icone-servico">
-                <a href="https://ridigital.org.br/VisualizarMatricula/DefaultVM.aspx?from=menu" target="_blank">
-                    <img src="imagens/icri_vm.png" alt="Ícone Visualizar Matriculas">
-                </a>
-            </div>
-            <div class="icone-servico">
-                <a href="https://ridigital.org.br/CE/DefaultCE.aspx" target="_blank">
-                    <img src="imagens/icri_pq.png" alt="Ícone Pesquisa Qualificada">
-                </a>
-            </div>
+        <h3 class="text-xs font-bold text-slate-900 group-hover:text-[#2A3B2A] transition-colors">Registro de Atos Constitutivos</h3>
+        <p class="text-[11px] text-slate-400 mt-1 leading-tight mb-3">Inscrição de contratos, estatutos de sociedades simples, limitadas unipessoais, associações, partidos e fundações.</p>
+        <span class="text-[11px] font-bold text-[#2A3B2A] mt-auto">Acessar Serviço &rarr;</span>
+      </a>
+      
+      <a href="https://www.rtdbrasil.org.br/" target="_blank" class="bg-white border border-slate-200 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-[#2A3B2A] transition-all flex flex-col items-start group">
+        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all">
+          <span class="material-symbols-outlined !text-xl">edit_note</span>
         </div>
+        <h3 class="text-xs font-bold text-slate-900 group-hover:text-[#2A3B2A] transition-colors">Averbações de Alterações</h3>
+        <p class="text-[11px] text-slate-400 mt-1 leading-tight mb-3">Averbação de atos supervenientes na inscrição original, como mudanças de diretoria, sede e extinção da pessoa jurídica.</p>
+        <span class="text-[11px] font-bold text-[#2A3B2A] mt-auto">Acessar Serviço &rarr;</span>
+      </a>
 
-        <div class="icones-servicos-container2">
-            <div class="icone-servico">
-                <a href="https://mapa.onr.org.br/" target="_blank">
-                    <img src="imagens/icri_mr.png" alt="Ícone Certidão Digital">
-                </a>
-            </div>
-            <div class="icone-servico">
-                <a href="https://www.registrodeimoveis.org.br/diario-registral" target="_blank">
-                    <img src="imagens/icri_ee.png" alt="Ícone Edital Eletronico">
-                </a>
-            </div>
-            <div class="icone-servico">
-                <a href="https://amargosa.saatri.com.br/Certidao/Emitir?Pint_TipoCertidao=2&Pbol_ComMenuEsquerdo=true" target="_blank">
-                    <img src="imagens/icri_ip.png" alt="Ícone Certidão IPTU">
-                </a>
-            </div>
-            <div class="icone-servico">
-                <a href="https://amargosa.1doc.com.br/b.php?pg=o/central_servicos&tab=categoria&filter=01JG4MYPBGY7B5BDP79EA7FW3Z" target="_blank">
-                    <img src="imagens/icri_cm.png" alt="Ícone Certidões Municipais">
-                </a>
-            </div>
-            <div class="icone-servico">
-                <a href="https://sncr.serpro.gov.br/ccir/emissao?windowId=a98" target="_blank">
-                    <img src="imagens/icri_cc.png" alt="Ícone Certidões Municipais">
-                </a>
-            </div>
-            <div class="icone-servico">
-                <a href="https://solucoes.receita.fazenda.gov.br/Servicos/certidaointernet/ITR/EmitirPGFN" target="_blank">
-                    <img src="imagens/icri_ci.png" alt="Ícone Certidões Municipais">
-                </a>
-            </div>
-            <div class="icone-servico">
-                <a href="https://ridigital.org.br/LoginGeral.aspx?from=mre" target="_blank">
-                    <img src="imagens/icri_mr.png" alt="Ícone Certidões Municipais">
-                </a>
-            </div>
-            <div class="icone-servico">
-                <a href="https://indisponibilidade.onr.org.br/home/relatoriogratuito" target="_blank">
-                    <img src="imagens/icri_ib.png" alt="Ícone Certidões Municipais">
-                </a>
-            </div>
+      <a href="https://www.rtdbrasil.org.br/" target="_blank" class="bg-white border border-slate-200 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-[#2A3B2A] transition-all flex flex-col items-start group">
+        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all">
+          <span class="material-symbols-outlined !text-xl">menu_book</span>
         </div>
-    </main>
+        <h3 class="text-xs font-bold text-slate-900 group-hover:text-[#2A3B2A] transition-colors">Autenticação de Livros</h3>
+        <p class="text-[11px] text-slate-400 mt-1 leading-tight mb-3">Autenticação de livros contábeis obrigatórios ou facultativos com rigorosa fiscalização de sequência numérica.</p>
+        <span class="text-[11px] font-bold text-[#2A3B2A] mt-auto">Acessar Serviço &rarr;</span>
+      </a>
 
-    <footer>
-        <div class="footer-left">
-            <img src="imagens/logotjba.png" alt="Logotipo TJBA" class="footer-logo">
-            Cartório de Registro de Imóveis, Hipotecas, Títulos e documentos da Circunscrição de Amargosa - Estado da Bahia.
-            <br>Rua Moreira Coelho, 183 - Centro - Amargosa/BA - Fone (75) 98323.7595 - Email: riamargosa@gmail.com.
-            <br>© 2025 por André Perez.</br>
+      <a href="https://www.rtdbrasil.org.br/" target="_blank" class="bg-white border border-slate-200 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-[#2A3B2A] transition-all flex flex-col items-start group">
+        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all">
+          <span class="material-symbols-outlined !text-xl">workspace_premium</span>
         </div>
-        <div class="footer-right">
-            <a href="https://drive.google.com/file/d/1XFvQGVBeIYVQVUK8pXK6__FyZfBUgnMA/view?usp=sharing"
-                target="_blank" class="privacy-link">Termo de Privacidade</a>
+        <h3 class="text-xs font-bold text-slate-900 group-hover:text-[#2A3B2A] transition-colors">Fornecimento de Certidões</h3>
+        <p class="text-[11px] text-slate-400 mt-1 leading-tight mb-3">Emissão física e digital de certidões de todos os atos arquivados e praticados, garantindo publicidade oficial.</p>
+        <span class="text-[11px] font-bold text-[#2A3B2A] mt-auto">Acessar Serviço &rarr;</span>
+      </a>
+
+    </div>
+  </main>
+  
+  <div id="cookieConsent" class="fixed bottom-0 left-0 w-full bg-[#1A261A] text-slate-200 border-t border-slate-800 p-4 shadow-2xl z-50 flex flex-col sm:flex-row justify-between items-center gap-4 hidden">
+    <p class="text-xs text-center sm:text-left">Este portal utiliza cookies para garantir o funcionamento técnico e a segurança institucional. Ao continuar navegando, você declara estar ciente do nosso <a href="https://drive.google.com/file/d/1XFvQGVBeIYVQVUK8pXK6__FyZfBUgnMA/view?usp=sharing" target="_blank" class="text-[#C5A059] underline font-medium hover:text-[#b08e4f]">Termo de Privacidade</a>.</p>
+    <button id="acceptCookies" class="bg-[#C5A059] hover:bg-[#b08e4f] text-slate-950 text-xs font-bold px-4 py-2 rounded-lg transition-colors whitespace-nowrap">Aceitar Diretrizes</button>
+  </div>
+
+  <footer class="bg-[#1A261A] text-slate-400 text-xs border-t border-slate-800 py-6 px-4 mt-auto">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="flex items-center gap-4 text-left w-full md:w-auto">
+        <img src="imagens/logotjba.png" alt="Logotipo TJBA" class="h-10 w-auto object-contain flex-shrink-0 filter grayscale opacity-40">
+        <div class="text-[11px] leading-relaxed">
+          <p class="font-bold text-slate-200">Cartório de Registro de Imóveis, Hipotecas, Títulos e Documentos da Circunscrição de Amargosa</p>
+          <p>Comarca de Amargosa • Estado da Bahia • Corregedoria das Comarcas do Interior (CCI)</p>
+          <p class="mt-0.5">Contato: (75) 98189-1987 • Correio Eletrônico: <span class="text-slate-300">riamargosa@gmail.com</span></p>
         </div>
-    </footer>
+      </div>
+      <div class="text-center md:text-right text-[11px] w-full md:w-auto flex flex-col gap-1">
+        <p>© 2026 • Oficial Registrador Titular: <strong class="text-slate-200">André Navarro Perez</strong></p>
+        <p><a href="https://drive.google.com/file/d/1XFvQGVBeIYVQVUK8pXK6__FyZfBUgnMA/view?usp=sharing" target="_blank" class="text-[#C5A059] hover:underline">Termo de Privacidade & Proteção de Dados (LGPD)</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const consentBanner = document.getElementById("cookieConsent");
+      const acceptBtn = document.getElementById("acceptCookies");
+
+      if (!localStorage.getItem("cookiesAccepted")) {
+        consentBanner.classList.remove("hidden");
+      }
+
+      acceptBtn.addEventListener("click", function() {
+        localStorage.setItem("cookiesAccepted", "true");
+        consentBanner.classList.add("hidden");
+      });
+    });
+  </script>
 </body>
 </html>
