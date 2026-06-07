@@ -167,7 +167,7 @@
 
         <div class="bg-white p-2 rounded-2xl border border-slate-200 shadow-sm overflow-hidden h-[315px]">
           <iframe 
-            src="https://maps.google.com/maps?q=Rua%20Moreira%20Coelho,%20183,%20Centro,%20Amargosa%20-%20BA&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m4!2s-13.0305!3s-39.6631!4m5!3sRua+Moreira+Coelho,+183+-+Centro,+Amargosa+-+BA,+45300-000!3m2!1d-13.03079!2d-39.66299" 
             class="w-full h-full border-0 rounded-xl bg-slate-100" 
             allowfullscreen="" 
             loading="lazy" 
@@ -203,8 +203,8 @@
   </footer>
 
   <script>
-    // Usando o link correto do seu Novo Script independente que criámos
-    const urlApiAppsScript = "https://script.google.com/macros/s/AKfycby7u1Qva0KVJCwC3CPhuVpkE9E9Sn5xUSKr7n73uXPEt67fABus0uc-ZnD2rVjxFMwwnA/exec";
+    // URL sincronizada com a API do seu Google Apps Script (a mesma que configuramos anteriormente)
+    const urlApiAppsScript = "https://script.google.com/macros/s/AKfycbzNiWCfPYFuc-4MtusZnxKluDKuE7wqnqm2WnTLjxyeTR9s8ikN0rlAFbWVGaZigPgY2g/exec";
 
     document.addEventListener("DOMContentLoaded", function() {
       const consentBanner = document.getElementById("cookieConsent");
@@ -219,16 +219,19 @@
         consentBanner.classList.add("hidden");
       });
 
+      // DISPARADOR DO FORMULÁRIO: Intercepta o clique e despacha via POST para o Google Script
       const form = document.getElementById("formContato");
       const btnEnviar = document.getElementById("btnEnviar");
       const btnTexto = document.getElementById("btnTexto");
 
       form.addEventListener("submit", function(event) {
-        event.preventDefault();
+        event.preventDefault(); // Impede o recarregamento bruto da página
 
+        // Altera o estado do botão para feedback visual do usuário
         btnEnviar.disabled = true;
         btnTexto.innerText = "Transmitindo mensagem...";
 
+        // Compacta os campos preenchidos em formato estruturado
         const pacoteDados = {
           nome: document.getElementById("nome").value,
           email: document.getElementById("email").value,
@@ -237,23 +240,24 @@
           mensagem: document.getElementById("mensagem").value
         };
 
-        // CORREÇÃO: Enviamos como string pura no corpo com cabeçalho text/plain para contornar
-        // com total segurança os bloqueios de redirecionamento CORS do motor do Apps Script
+        // Faz o envio assíncrono para o servidor da Google
         fetch(urlApiAppsScript, {
           method: "POST",
-          mode: "no-cors",
-          headers: { "Content-Type": "text/plain" },
+          mode: "no-cors", // Evita bloqueios de política de segurança de navegadores locais
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(pacoteDados)
         })
         .then(() => {
-          alert("✓ Sucesso! Sua mensagem de contato foi transmitida com sucesso para o e-mail oficial do Cartório.");
-          form.reset();
+          // Exibe o alerta institucional de sucesso ao usuário
+          alert("✓ Sucesso! Sua mensagem foi transmitida com sucesso para o e-mail oficial do Cartório de Amargosa.");
+          form.reset(); // Limpa todos os campos digitados
         })
         .catch((erro) => {
           console.error("Erro de envio:", erro);
-          alert("⚠️ Ocorreu uma inconsistência ao processar o envio. Por favor, certifique-se de que executou a função 'forcarAutorizacao' no painel do script.");
+          alert("⚠️ Ocorreu uma inconsistência na rede ao enviar a mensagem. Por favor, tente novamente ou use o nosso WhatsApp.");
         })
         .finally(() => {
+          // Restaura o botão oficial do balcão digital
           btnEnviar.disabled = false;
           btnTexto.innerText = "Transmitir Mensagem Oficial";
         });
