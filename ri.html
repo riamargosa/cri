@@ -60,12 +60,12 @@
       <div class="max-w-7xl mx-auto px-4">
         <ul class="flex flex-wrap items-center justify-start py-1">
           <li>
-            <a href="https://riamargosa.eu.org/index.html" class="block px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors">Início</a>
+            <a href="#" class="block px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors">Início</a>
           </li>
 		  
 		  <li class="relative group">
             <button class="flex items-center gap-1 px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors focus:outline-none">
-              Serviços</a>
+              Serviços
               <svg class="w-4 h-4 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
             <ul class="absolute left-0 hidden group-hover:block bg-[#1A261A] text-slate-200 w-72 rounded-b-lg shadow-xl py-2 border-t-2 border-[#C5A059] z-50">
@@ -74,12 +74,6 @@
               <li><a href="https://riamargosa.eu.org/pj.html" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Pessoas Jurídicas</a></li>
             </ul>
           </li>
-		  
-		  
-		  
-		  
-		  
-		  
 		  
           <li>
             <a href="https://www.tjba.jus.br/extrajudicial/tabel-de-custas/" target="_blank" class="block px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors">Tabelas e Taxas</a>
@@ -122,7 +116,7 @@
             <a href="https://www.cnj.jus.br/corregedoria/justica_aberta/?" target="_blank" class="block px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors">Transparência</a>
           </li>
           <li>
-            <a href="https://riamargosa.eu.org/faleconosco.html" class="block px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors">Fale Conosco</a>
+            <a href="#" class="block px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors">Fale Conosco</a>
           </li>
         </ul>
       </div>
@@ -319,10 +313,16 @@
         <button onclick="fecharModal('modalTextoDN')" class="text-slate-400 hover:text-white text-2xl font-semibold leading-none">&times;</button>
       </div>
       <div id="textoDNConteudo" class="conteudo-dinamico p-8 overflow-y-auto flex-grow bg-white text-justify text-xs text-slate-700 font-normal">
-        </div>
-      <div class="bg-slate-50 px-5 py-3 flex justify-between items-center border-t border-slate-200 flex-shrink-0">
+      </div>
+      <div class="bg-slate-50 px-5 py-3 flex flex-wrap justify-between items-center border-t border-slate-200 flex-shrink-0 gap-2">
         <button onclick="voltarParaListaDN()" class="bg-transparent hover:bg-slate-200 text-slate-700 border border-slate-300 text-xs font-bold px-4 py-2 rounded-lg transition-all">Voltar para a Lista</button>
-        <button onclick="fecharModal('modalTextoDN')" class="bg-[#2A3B2A] hover:bg-[#1A261A] text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors">Fechar Janela</button>
+        <div class="flex gap-2">
+          <button onclick="imprimirConteudoDN()" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors flex items-center gap-1.5 shadow-sm">
+            <span class="material-symbols-outlined !text-sm">print</span>
+            Imprimir
+          </button>
+          <button onclick="fecharModal('modalTextoDN')" class="bg-[#2A3B2A] hover:bg-[#1A261A] text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors">Fechar Janela</button>
+        </div>
       </div>
     </div>
   </div>
@@ -453,6 +453,107 @@
     function voltarParaListaDN() {
       fecharModal("modalTextoDN");
       abrirModal("modalDN");
+    }
+
+    // NOVA FUNÇÃO DE IMPRESSÃO DINÂMICA INTEGRADA
+    function imprimirConteudoDN() {
+      const titulo = document.getElementById("textoDNTitulo").textContent;
+      const conteudo = document.getElementById("textoDNConteudo").innerHTML;
+
+      // Abre uma aba invisível/temporária dedicada apenas para formatar a folha física
+      const janelaImpressao = window.open('', '_blank', 'width=800,height=600');
+
+      // Constrói o layout limpo da impressão com as demandas estipuladas
+      janelaImpressao.document.write(`
+        <!DOCTYPE html>
+        <html lang="pt-BR">
+        <head>
+          <meta charset="UTF-8">
+          <title>Imprimir - ${titulo}</title>
+          <style>
+            body {
+              font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+              color: #1e293b;
+              padding: 30px;
+              line-height: 1.6;
+              font-size: 13px;
+            }
+            .header {
+              text-align: center;
+              border-bottom: 2px solid #2A3B2A;
+              padding-bottom: 12px;
+              margin-bottom: 25px;
+            }
+            .header h1 {
+              font-size: 16px;
+              text-transform: uppercase;
+              color: #0f172a;
+              margin: 0 0 4px 0;
+              letter-spacing: 0.5px;
+            }
+            .header p {
+              font-size: 11px;
+              color: #64748b;
+              margin: 0;
+              font-weight: 500;
+            }
+            .doc-titulo {
+              font-size: 14px;
+              font-weight: bold;
+              margin-bottom: 20px;
+              color: #2A3B2A;
+              text-transform: uppercase;
+            }
+            /* Garante que listas e parágrafos do Google Docs sejam impressos perfeitamente */
+            .conteudo p { margin-bottom: 12px; text-align: justify; }
+            .conteudo ul { list-style-type: disc; margin-left: 20px; margin-bottom: 12px; }
+            .conteudo ol { list-style-type: decimal; margin-left: 20px; margin-bottom: 12px; }
+            .conteudo li { margin-bottom: 4px; }
+            
+            .alerta-footer {
+              margin-top: 40px;
+              border-top: 1px dashed #cbd5e1;
+              padding-top: 15px;
+              font-size: 11px;
+              font-style: italic;
+              color: #475569;
+              text-align: center;
+              line-height: 1.4;
+            }
+            @media print {
+              body { padding: 10px; }
+            }
+          </style>
+        </head>
+        <body>
+
+          <div class="header">
+            <h1>Cartório de Registro de Imóveis de Amargosa/BA</h1>
+            <p>Ofício de Registro de Imóveis, Títulos e Documentos e Civil de Pessoas Jurídicas</p>
+          </div>
+
+          <div class="doc-titulo">${titulo}</div>
+
+          <div class="conteudo">
+            ${conteudo}
+          </div>
+
+          <div class="alerta-footer">
+            <strong>Atenção:</strong> A qualificação registral poderá identificar a necessidade de apresentação de outros documentos.
+          </div>
+
+          <script>
+            // Executa a impressão e fecha a janela paralela automaticamente
+            window.onload = function() {
+              window.print();
+              setTimeout(function() { window.close(); }, 500);
+            };
+          <\/script>
+        </body>
+        </html>
+      `);
+
+      janelaImpressao.document.close();
     }
 
     window.onclick = function(event) {
