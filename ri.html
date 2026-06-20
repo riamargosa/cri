@@ -62,8 +62,8 @@
           <li>
             <a href="#" class="block px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors">Início</a>
           </li>
-		  
-		  <li class="relative group">
+          
+          <li class="relative group">
             <button class="flex items-center gap-1 px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors focus:outline-none">
               Serviços
               <svg class="w-4 h-4 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -74,7 +74,7 @@
               <li><a href="https://riamargosa.eu.org/pj.html" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Pessoas Jurídicas</a></li>
             </ul>
           </li>
-		  
+          
           <li>
             <a href="https://www.tjba.jus.br/extrajudicial/tabel-de-custas/" target="_blank" class="block px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors">Tabelas e Taxas</a>
           </li>
@@ -242,6 +242,13 @@
         <p class="text-[11px] text-slate-400 mt-1 leading-tight mb-3">Consulta à base de restrições do ONR.</p>
         <span class="text-[11px] font-bold text-[#2A3B2A] mt-auto">Acessar Serviço &rarr;</span>
       </a>
+      
+      <a href="https://drive.google.com/file/d/1EGu4bWgQxkIRO0_Xe7CpBi_HER9R28U-/view?usp=sharing" target="_blank" class="bg-white border border-slate-200 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-[#2A3B2A] transition-all flex flex-col items-start group">
+        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all"><span class="material-symbols-outlined !text-xl">home_work</span></div>
+        <h3 class="text-xs font-bold text-slate-900 group-hover:text-[#2A3B2A] transition-colors">REURB</h3>
+        <p class="text-[11px] text-slate-400 mt-1 leading-tight mb-3">Cartilha Reurb da CCI/TJBA.</p>
+        <span class="text-[11px] font-bold text-[#2A3B2A] mt-auto">Acessar Serviço &rarr;</span>
+      </a>
 
     </div>
   </main>
@@ -328,12 +335,11 @@
   </div>
 
   <div id="cookieConsent" class="fixed bottom-0 left-0 w-full bg-slate-900 text-slate-200 border-t border-slate-800 p-4 shadow-2xl z-50 flex flex-col sm:flex-row justify-between items-center gap-4 hidden">
-    <p class="text-xs text-center sm:text-left">Este site utiliza cookies para garantir a conformidade com a LGPD e otimizar a sua experiência de navigation. <a href="https://drive.google.com/file/d/1XFvQGVBeIYVQVUK8pXK6__FyZfBUgnMA/view?usp=sharing" target="_blank" class="text-cyan-400 underline hover:text-cyan-300">Saiba mais</a>.</p>
+    <p class="text-xs text-center sm:text-left">Este site utiliza cookies para garantir a conformidade com a LGPD e otimizar a sua experiência de navegação. <a href="https://drive.google.com/file/d/1XFvQGVBeIYVQVUK8pXK6__FyZfBUgnMA/view?usp=sharing" target="_blank" class="text-cyan-400 underline hover:text-cyan-300">Saiba mais</a>.</p>
     <button id="acceptCookies" class="bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors">Aceitar Termos</button>
   </div>
 
   <script>
-    // Configurado estritamente com o novo link fornecido por você!
     const urlApiAppsScript = "https://script.google.com/macros/s/AKfycbzJ5Is411XijmRMMGjQHEei6KKXuhF5Dh9-M4gqRGGgRDFOw8Mt1AgVFEmGwVKKc9cGFw/exec";
 
     document.addEventListener("DOMContentLoaded", function() {
@@ -364,7 +370,6 @@
       document.body.classList.remove('overflow-hidden');
     }
 
-    // Fluxo Requerimentos Original - Mantido 100% Intacto e Perfeito
     function abrirListaRequerimentos() {
       const modal = document.getElementById("modalLista");
       modal.classList.remove("hidden");
@@ -377,7 +382,6 @@
       window.open(urlDriveOficial, '_blank'); 
     }
 
-    // SISTEMA INTEGRADOR REATIVO: Varre a pasta de Documentos Necessários e constrói a tabela
     function abrirListaDinamicaDN() {
       abrirModal("modalDN");
       const container = document.getElementById("tabelaDNConteudo");
@@ -389,7 +393,6 @@
         </div>
       `;
 
-      // Requisição à API do Apps Script apontando para a pasta DN
       fetch(`${urlApiAppsScript}?action=listFiles&folderId=174cDNoQLnQ6D2j4L0Lk1EzYKabPSwjPp`)
         .then(res => res.json())
         .then(arquivos => {
@@ -417,7 +420,6 @@
         });
     }
 
-    // Coleta o conteúdo textual do arquivo e transpõe para o Pop-up interno
     function carregarConteudoTexto(fileId, titulo) {
       fecharModal("modalDN");
       document.getElementById("textoDNTitulo").textContent = titulo;
@@ -426,12 +428,11 @@
       conteudoBox.innerHTML = `
         <div class="h-full flex flex-col items-center justify-center text-center text-slate-400 p-12 gap-2">
           <svg class="w-6 h-6 animate-spin text-[#2A3B2A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 8H17"></path></svg>
-          <span>Carregando o conteúdo de texto do documento...</span>
+          <span>Carregando o conteúdo de text do documento...</span>
         </div>
       `;
       abrirModal("modalTextoDN");
 
-      // Puxa o HTML formatado de dentro do Documento Google
       fetch(`${urlApiAppsScript}?action=getFileContent&fileId=${fileId}`)
         .then(res => res.json())
         .then(data => {
@@ -455,15 +456,12 @@
       abrirModal("modalDN");
     }
 
-    // NOVA FUNÇÃO DE IMPRESSÃO DINÂMICA INTEGRADA
     function imprimirConteudoDN() {
       const titulo = document.getElementById("textoDNTitulo").textContent;
       const conteudo = document.getElementById("textoDNConteudo").innerHTML;
 
-      // Abre uma aba invisível/temporária dedicada apenas para formatar a folha física
       const janelaImpressao = window.open('', '_blank', 'width=800,height=600');
 
-      // Constrói o layout limpo da impressão com as demandas estipuladas
       janelaImpressao.document.write(`
         <!DOCTYPE html>
         <html lang="pt-BR">
@@ -504,7 +502,6 @@
               color: #2A3B2A;
               text-transform: uppercase;
             }
-            /* Garante que listas e parágrafos do Google Docs sejam impressos perfeitamente */
             .conteudo p { margin-bottom: 12px; text-align: justify; }
             .conteudo ul { list-style-type: disc; margin-left: 20px; margin-bottom: 12px; }
             .conteudo ol { list-style-type: decimal; margin-left: 20px; margin-bottom: 12px; }
@@ -543,7 +540,6 @@
           </div>
 
           <script>
-            // Executa a impressão e fecha a janela paralela automaticamente
             window.onload = function() {
               window.print();
               setTimeout(function() { window.close(); }, 500);
