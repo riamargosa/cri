@@ -18,7 +18,6 @@
     h1, h2, h3, h4, .font-title {
       font-family: 'Montserrat', sans-serif;
     }
-    /* Classes de estilização para o conteúdo textual dinâmico que vem do Drive */
     .conteudo-dinamico p { margin-bottom: 1rem; line-height: 1.6; }
     .conteudo-dinamico ul { list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1rem; }
     .conteudo-dinamico ol { list-style-type: decimal; margin-left: 1.5rem; margin-bottom: 1rem; }
@@ -59,9 +58,7 @@
     <nav class="bg-[#2A3B2A] text-white">
       <div class="max-w-7xl mx-auto px-4">
         <ul class="flex flex-wrap items-center justify-start py-1">
-          <li>
-            <a href="#" class="block px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors">Início</a>
-          </li>
+          <li><a href="#" class="block px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors">Início</a></li>
           
           <li class="relative group">
             <button class="flex items-center gap-1 px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors focus:outline-none">
@@ -75,9 +72,7 @@
             </ul>
           </li>
           
-          <li>
-            <a href="https://www.tjba.jus.br/extrajudicial/tabel-de-custas/" target="_blank" class="block px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors">Tabelas e Taxas</a>
-          </li>
+          <li><a href="https://www.tjba.jus.br/extrajudicial/tabel-de-custas/" target="_blank" class="block px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors">Tabelas e Taxas</a></li>
           
           <li class="relative group">
             <button class="flex items-center gap-1 px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors focus:outline-none">
@@ -112,12 +107,8 @@
             </ul>
           </li>
 
-          <li>
-            <a href="https://www.cnj.jus.br/corregedoria/justica_aberta/?" target="_blank" class="block px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors">Transparência</a>
-          </li>
-          <li>
-            <a href="#" class="block px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors">Fale Conosco</a>
-          </li>
+          <li><a href="https://www.cnj.jus.br/corregedoria/justica_aberta/?" target="_blank" class="block px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors">Transparência</a></li>
+          <li><a href="#" class="block px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors">Fale Conosco</a></li>
         </ul>
       </div>
     </nav>
@@ -159,12 +150,12 @@
         <span class="text-[11px] font-bold text-[#2A3B2A] mt-auto">Acessar Serviço &rarr;</span>
       </a>
 
-      <div class="bg-white border border-slate-200 p-4 rounded-xl shadow-sm flex flex-col items-start group">
-        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3"><span class="material-symbols-outlined !text-xl">holiday_village</span></div>
-        <h3 class="text-xs font-bold text-slate-900">Consulta Loteamentos</h3>
+      <button onclick="abrirModalLoteamentos()" class="bg-white text-left border border-slate-200 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-[#2A3B2A] transition-all flex flex-col items-start group focus:outline-none w-full">
+        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all"><span class="material-symbols-outlined !text-xl">holiday_village</span></div>
+        <h3 class="text-xs font-bold text-slate-900 group-hover:text-[#2A3B2A] transition-colors">Consulta Loteamentos</h3>
         <p class="text-[11px] text-slate-400 mt-1 leading-tight mb-3">Verificação de regularidade de áreas.</p>
-        <span class="text-[11px] font-semibold text-slate-300 mt-auto">Módulo Interno</span>
-      </div>
+        <span class="text-[11px] font-bold text-[#2A3B2A] mt-auto">Buscar Loteamento &rarr;</span>
+      </button>
 
       <div class="bg-white border border-slate-200 p-4 rounded-xl shadow-sm flex flex-col items-start group">
         <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3"><span class="material-symbols-outlined !text-xl">gavel</span></div>
@@ -274,6 +265,66 @@
     </div>
   </div>
 
+  <div id="modalLoteamentos" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden justify-center items-center p-4">
+    <div class="bg-white rounded-xl shadow-2xl w-full max-w-xl overflow-hidden transform transition-all border border-slate-200 h-auto flex flex-col">
+      <div class="bg-[#2A3B2A] text-white p-4 flex justify-between items-center">
+        <h3 class="text-xs font-bold uppercase tracking-wider flex items-center gap-2">
+          <span class="material-symbols-outlined text-[#C5A059] !text-sm">holiday_village</span>
+          Consulta e Busca de Loteamentos
+        </h3>
+        <button onclick="fecharModal('modalLoteamentos')" class="text-slate-400 hover:text-white text-2xl font-bold leading-none">&times;</button>
+      </div>
+      <div class="p-5 bg-slate-50 border-b border-slate-200">
+        <p class="text-xs text-slate-600 mb-2 font-medium">Insira o nome do Loteamento:</p>
+        <div class="flex gap-2">
+          <input type="text" id="inputNomeLoteamento" class="flex-grow border border-slate-300 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-[#2A3B2A] bg-white shadow-sm" placeholder="Ex: Central, Primavera...">
+          <button onclick="executarBuscaLoteamento()" class="bg-[#2A3B2A] hover:bg-[#1A261A] text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors shadow-sm flex items-center gap-1">
+            <span class="material-symbols-outlined !text-sm">search</span> Pesquisar
+          </button>
+        </div>
+      </div>
+      <div class="p-4 bg-white max-h-[50vh] overflow-y-auto flex-grow">
+        <div class="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-sm">
+          <div class="grid grid-cols-3 bg-slate-50 border-b border-slate-200 px-4 py-2 text-[10px] font-bold uppercase tracking-wider text-slate-400">
+            <div class="col-span-2">Resultado da Busca</div>
+            <div class="text-right">Localização / Origem</div>
+          </div>
+          <div id="tabelaLoteamentosConteudo" class="divide-y divide-slate-100 text-xs">
+            <div class="p-6 text-center text-slate-400 italic">Digite um termo acima para pesquisar nas bases do Drive.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modalStatusLoteamento" class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-50 hidden justify-center items-center p-4">
+    <div class="bg-white rounded-xl shadow-2xl w-full max-w-md overflow-hidden transform transition-all border border-slate-300 flex flex-col">
+      <div class="bg-[#1A261A] text-white px-5 py-4 flex justify-between items-center border-b border-slate-800">
+        <h3 class="font-bold text-xs uppercase tracking-wider flex items-center gap-2">
+          <span class="material-symbols-outlined text-[#C5A059] !text-sm font-bold">info</span>
+          Dados do Loteamento
+        </h3>
+        <button onclick="fecharModal('modalStatusLoteamento')" class="text-slate-400 hover:text-white text-2xl font-semibold leading-none">&times;</button>
+      </div>
+      <div class="p-6 bg-white space-y-4">
+        <div>
+          <label class="text-[10px] uppercase font-bold text-slate-400 tracking-wider block mb-0.5">Nome do Loteamento</label>
+          <p id="lblStatusNome" class="text-sm font-bold text-slate-800 leading-tight">Nome de Exemplo</p>
+        </div>
+        <div class="border-t border-slate-100 pt-3">
+          <label class="text-[10px] uppercase font-bold text-slate-400 tracking-wider block mb-1">Situação Jurídico-Registral</label>
+          <div id="boxStatusContainer" class="p-3 rounded-lg border flex flex-col gap-1">
+            <p id="lblStatusTexto" class="text-xs font-bold leading-tight">Status de Exemplo</p>
+            <p id="lblStatusSubtexto" class="text-[11px] text-red-600 font-medium italic hidden">Subtexto Informativo</p>
+          </div>
+        </div>
+      </div>
+      <div class="bg-slate-50 px-5 py-3 flex justify-end items-center border-t border-slate-200 gap-2">
+        <button onclick="fecharModal('modalStatusLoteamento')" class="bg-[#2A3B2A] hover:bg-[#1A261A] text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors shadow-sm">Fechar Janela</button>
+      </div>
+    </div>
+  </div>
+
   <div id="modalLista" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-40 hidden justify-center items-center p-4">
     <div class="bg-white rounded-xl shadow-2xl w-full max-w-xl overflow-hidden transform transition-all border border-slate-200 h-auto flex flex-col">
       <div class="bg-[#1A261A] text-white px-5 py-4 flex justify-between items-center flex-shrink-0">
@@ -325,8 +376,7 @@
         <button onclick="voltarParaListaDN()" class="bg-transparent hover:bg-slate-200 text-slate-700 border border-slate-300 text-xs font-bold px-4 py-2 rounded-lg transition-all">Voltar para a Lista</button>
         <div class="flex gap-2">
           <button onclick="imprimirConteudoDN()" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors flex items-center gap-1.5 shadow-sm">
-            <span class="material-symbols-outlined !text-sm">print</span>
-            Imprimir
+            <span class="material-symbols-outlined !text-sm">print</span>Imprimir
           </button>
           <button onclick="fecharModal('modalTextoDN')" class="bg-[#2A3B2A] hover:bg-[#1A261A] text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors">Fechar Janela</button>
         </div>
@@ -341,6 +391,10 @@
 
   <script>
     const urlApiAppsScript = "https://script.google.com/macros/s/AKfycbzJ5Is411XijmRMMGjQHEei6KKXuhF5Dh9-M4gqRGGgRDFOw8Mt1AgVFEmGwVKKc9cGFw/exec";
+    const urlApiLoteamentos = "https://script.google.com/macros/s/AKfycbw2WUziWKyD7Woo8aHL4OYkemSvnxfQdA--NB2ltkpvGgkAi_95YH_KZQnPqCblJ4VF2A/exec";
+
+    // Armazenamento global temporário para evitar quebras de sintaxe no onclick
+    let cacheLoteamentosBuscados = [];
 
     document.addEventListener("DOMContentLoaded", function() {
       const consentBanner = document.getElementById("cookieConsent");
@@ -353,6 +407,12 @@
       acceptBtn.addEventListener("click", function() {
         localStorage.setItem("cookiesAccepted", "true");
         consentBanner.classList.add("hidden");
+      });
+
+      document.getElementById("inputNomeLoteamento").addEventListener("keypress", function(e) {
+        if (e.key === "Enter") {
+          executarBuscaLoteamento();
+        }
       });
     });
 
@@ -382,6 +442,135 @@
       window.open(urlDriveOficial, '_blank'); 
     }
 
+    function abrirModalLoteamentos() {
+      abrirModal("modalLoteamentos");
+      document.getElementById("inputNomeLoteamento").value = "";
+      document.getElementById("tabelaLoteamentosConteudo").innerHTML = `
+        <div class="p-6 text-center text-slate-400 italic">Digite um termo acima para pesquisar nas bases do Drive.</div>
+      `;
+    }
+
+    // Função de renderização do modal adaptada para buscar a partir do cache indexado
+    function exibirMensagemStatusIndexado(index) {
+      const item = cacheLoteamentosBuscados[index];
+      if (!item) return;
+
+      document.getElementById("lblStatusNome").textContent = item.nome;
+      
+      const box = document.getElementById("boxStatusContainer");
+      const texto = document.getElementById("lblStatusTexto");
+      const subtexto = document.getElementById("lblStatusSubtexto");
+
+      box.className = "p-3 rounded-lg border flex flex-col gap-1 ";
+      subtexto.classList.add("hidden");
+
+      switch(item.situacaoCode) {
+        case "REGULARIZADO":
+          texto.textContent = "Situação: Regularizado.";
+          texto.className = "text-xs font-bold text-emerald-800";
+          box.classList.add("bg-emerald-50", "border-emerald-200");
+          break;
+          
+        case "AGUARDANDO_LOTEADOR":
+          texto.textContent = "Situação: Aguardando regularização pelo Loteador.";
+          texto.className = "text-xs font-bold text-amber-800";
+          subtexto.textContent = "Foram identificadas irregularidades neste Loteamento";
+          subtexto.classList.remove("hidden");
+          box.classList.add("bg-amber-50", "border-amber-200");
+          break;
+          
+        case "EM_ANALISE":
+          texto.textContent = "Situação: Em análise.";
+          texto.className = "text-xs font-bold text-blue-800";
+          box.classList.add("bg-blue-50", "border-blue-200");
+          break;
+          
+        case "EXIGENCIAS_LOTEADOR":
+          texto.textContent = "Situação: Aguardando o cumprimento de exigências pelo Loteador.";
+          texto.className = "text-xs font-bold text-red-800";
+          box.classList.add("bg-red-50", "border-red-200");
+          break;
+          
+        default:
+          texto.textContent = "Situação: Indeterminada. Consulte a qualificação registral.";
+          texto.className = "text-xs font-bold text-slate-800";
+          box.classList.add("bg-slate-50", "border-slate-200");
+      }
+
+      abrirModal("modalStatusLoteamento");
+    }
+
+    function verificarTipoSituacaoGrid(item) {
+      if (item.situacaoCode === 'REGULARIZADO') return 'text-emerald-700';
+      if (item.situacaoCode === 'AGUARDANDO_LOTEADOR') return 'text-amber-600';
+      if (item.situacaoCode === 'EM_ANALISE') return 'text-blue-600';
+      if (item.situacaoCode === 'EXIGENCIAS_LOTEADOR') return 'text-red-600';
+      return 'text-slate-500';
+    }
+
+    function executarBuscaLoteamento() {
+      const nomePesquisado = document.getElementById("inputNomeLoteamento").value.trim();
+      const container = document.getElementById("tabelaLoteamentosConteudo");
+
+      if (!nomePesquisado) {
+        container.innerHTML = `<div class="p-4 text-center text-amber-600 font-medium">Por favor, preencha o nome do loteamento para pesquisar.</div>`;
+        return;
+      }
+
+      container.innerHTML = `
+        <div class="p-6 text-center text-slate-400 flex flex-col items-center justify-center gap-2">
+          <svg class="w-5 h-5 animate-spin text-[#2A3B2A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 8H17"></path></svg>
+          <span>Consultando base de dados. Este procedimento pode demorar alguns minutos.</span>
+        </div>
+      `;
+
+      fetch(`${urlApiLoteamentos}?action=buscarLoteamentos&nome=${encodeURIComponent(nomePesquisado)}`, {
+        method: "GET",
+        redirect: "follow"
+      })
+      .then(res => {
+        if (!res.ok) throw new Error("Falha de comunicação.");
+        return res.json();
+      })
+      .then(resultados => {
+        container.innerHTML = "";
+        cacheLoteamentosBuscados = resultados; // Indexa a resposta vinda do Apps Script
+
+        if (resultados.erro) {
+          container.innerHTML = `<div class="p-4 text-center text-amber-600 font-medium">Erro interno: ${resultados.msg}</div>`;
+          return;
+        }
+        if (resultados.length === 0) {
+          container.innerHTML = `<div class="p-4 text-center text-slate-400">Nenhum loteamento ou protocolo correspondente localizado.</div>`;
+          return;
+        }
+        resultados.forEach((item, index) => {
+          const linea = document.createElement("div");
+          linea.className = "grid grid-cols-3 px-4 py-3 items-center hover:bg-slate-50 cursor-pointer transition-colors group";
+          
+          // Chama o status passando unicamente o índice numérico seguro
+          linea.setAttribute("onclick", `exibirMensagemStatusIndexado(${index})`);
+          
+          linea.innerHTML = `
+            <div class="col-span-2 flex items-center gap-3">
+              <span class="material-symbols-outlined text-[#2A3B2A] !text-xl flex-shrink-0">folder</span>
+              <span class="font-medium text-slate-700 group-hover:text-[#2A3B2A] underline decoration-transparent group-hover:decoration-[#2A3B2A] truncate">${item.nome}</span>
+            </div>
+            <div class="text-right text-xs font-semibold ${verificarTipoSituacaoGrid(item)}">${item.origem}</div>
+          `;
+          container.appendChild(linea);
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+        container.innerHTML = `
+          <div class="p-4 text-center text-red-500 font-medium space-y-1">
+            <p>Erro na comunicação externa.</p>
+            <p class="text-[10px] text-slate-400 font-normal">Verifique se o novo script de Loteamentos está publicado como "Qualquer pessoa" and com os acessos liberados.</p>
+          </div>`;
+      });
+    }
+
     function abrirListaDinamicaDN() {
       abrirModal("modalDN");
       const container = document.getElementById("tabelaDNConteudo");
@@ -393,31 +582,34 @@
         </div>
       `;
 
-      fetch(`${urlApiAppsScript}?action=listFiles&folderId=174cDNoQLnQ6D2j4L0Lk1EzYKabPSwjPp`)
-        .then(res => res.json())
-        .then(arquivos => {
-          container.innerHTML = "";
-          if (arquivos.erro || arquivos.length === 0) {
-            container.innerHTML = `<div class="p-4 text-center text-slate-400">Nenhum checklist localizado no Drive atualmente.</div>`;
-            return;
-          }
-          arquivos.forEach(arq => {
-            const linea = document.createElement("div");
-            linea.className = "grid grid-cols-3 px-4 py-3 items-center hover:bg-slate-50 cursor-pointer transition-colors group";
-            linea.setAttribute("onclick", `carregarConteudoTexto('${arq.id}', '${arq.nome}')`);
-            linea.innerHTML = `
-              <div class="col-span-2 flex items-center gap-3">
-                <span class="material-symbols-outlined text-red-500 !text-xl flex-shrink-0">article</span>
-                <span class="font-medium text-slate-700 group-hover:text-[#2A3B2A] underline decoration-transparent group-hover:decoration-[#2A3B2A] truncate">${arq.nome}</span>
-              </div>
-              <div class="text-right text-slate-400 font-medium">${arq.data}</div>
-            `;
-            container.appendChild(linea);
-          });
-        })
-        .catch(() => {
-          container.innerHTML = `<div class="p-4 text-center text-red-500 font-medium">Erro ao conectar com a pasta do Google Drive. Verifique se realizou os passos de consentimento manual.</div>`;
+      fetch(`${urlApiAppsScript}?action=listFiles&folderId=174cDNoQLnQ6D2j4L0Lk1EzYKabPSwjPp`, {
+        method: "GET",
+        redirect: "follow"
+      })
+      .then(res => res.json())
+      .then(arquivos => {
+        container.innerHTML = "";
+        if (arquivos.erro || arquivos.length === 0) {
+          container.innerHTML = `<div class="p-4 text-center text-slate-400">Nenhum checklist localizado no Drive atualmente.</div>`;
+          return;
+        }
+        arquivos.forEach(arq => {
+          const linea = document.createElement("div");
+          linea.className = "grid grid-cols-3 px-4 py-3 items-center hover:bg-slate-50 cursor-pointer transition-colors group";
+          linea.setAttribute("onclick", `carregarConteudoTexto('${arq.id}', '${arq.nome}')`);
+          linea.innerHTML = `
+            <div class="col-span-2 flex items-center gap-3">
+              <span class="material-symbols-outlined text-red-500 !text-xl flex-shrink-0">article</span>
+              <span class="font-medium text-slate-700 group-hover:text-[#2A3B2A] underline decoration-transparent group-hover:decoration-[#2A3B2A] truncate">${arq.nome}</span>
+            </div>
+            <div class="text-right text-slate-400 font-medium">${arq.data}</div>
+          `;
+          container.appendChild(linea);
         });
+      })
+      .catch(() => {
+        container.innerHTML = `<div class="p-4 text-center text-red-500 font-medium">Erro de acesso. Verifique sua conexão com a internet.</div>`;
+      });
     }
 
     function carregarConteudoTexto(fileId, titulo) {
@@ -428,27 +620,30 @@
       conteudoBox.innerHTML = `
         <div class="h-full flex flex-col items-center justify-center text-center text-slate-400 p-12 gap-2">
           <svg class="w-6 h-6 animate-spin text-[#2A3B2A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 8H17"></path></svg>
-          <span>Carregando o conteúdo de text do documento...</span>
+          <span>Carregando o conteúdo de texto do documento...</span>
         </div>
       `;
       abrirModal("modalTextoDN");
 
-      fetch(`${urlApiAppsScript}?action=getFileContent&fileId=${fileId}`)
-        .then(res => res.json())
-        .then(data => {
-          if (data.erro) {
-            conteudoBox.innerHTML = `
-              <div class="bg-amber-50 border border-amber-200 p-4 rounded text-amber-800 space-y-2">
-                <p class="font-bold flex items-center gap-1"><span class="material-symbols-outlined text-amber-600">warning</span> Diagnóstico do Servidor do Drive:</p>
-                <p class="text-xs leading-relaxed">${data.msg}</p>
-              </div>`;
-          } else {
-            conteudoBox.innerHTML = data.conteudo;
-          }
-        })
-        .catch(() => {
-          conteudoBox.innerHTML = `<p class="text-red-500 font-bold">Falha crítica de comunicação com o servidor.</p>`;
-        });
+      fetch(`${urlApiAppsScript}?action=getFileContent&fileId=${fileId}`, {
+        method: "GET",
+        redirect: "follow"
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.erro) {
+          conteudoBox.innerHTML = `
+            <div class="bg-amber-50 border border-amber-200 p-4 rounded text-amber-800 space-y-2">
+              <p class="font-bold flex items-center gap-1"><span class="material-symbols-outlined text-amber-600">warning</span> Diagnóstico do Servidor do Drive:</p>
+              <p class="text-xs leading-relaxed">${data.msg}</p>
+            </div>`;
+        } else {
+          conteudoBox.innerHTML = data.conteudo;
+        }
+      })
+      .catch(() => {
+        conteudoBox.innerHTML = `<p class="text-red-500 font-bold">Falha crítica de comunicação com o servidor.</p>`;
+      });
     }
 
     function voltarParaListaDN() {
@@ -456,6 +651,7 @@
       abrirModal("modalDN");
     }
 
+    // Processamento de Janela de Impressão nativa do Cartório
     function imprimirConteudoDN() {
       const titulo = document.getElementById("textoDNTitulo").textContent;
       const conteudo = document.getElementById("textoDNConteudo").innerHTML;
@@ -469,86 +665,35 @@
           <meta charset="UTF-8">
           <title>Imprimir - ${titulo}</title>
           <style>
-            body {
-              font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-              color: #1e293b;
-              padding: 30px;
-              line-height: 1.6;
-              font-size: 13px;
-            }
-            .header {
-              text-align: center;
-              border-bottom: 2px solid #2A3B2A;
-              padding-bottom: 12px;
-              margin-bottom: 25px;
-            }
-            .header h1 {
-              font-size: 16px;
-              text-transform: uppercase;
-              color: #0f172a;
-              margin: 0 0 4px 0;
-              letter-spacing: 0.5px;
-            }
-            .header p {
-              font-size: 11px;
-              color: #64748b;
-              margin: 0;
-              font-weight: 500;
-            }
-            .doc-titulo {
-              font-size: 14px;
-              font-weight: bold;
-              margin-bottom: 20px;
-              color: #2A3B2A;
-              text-transform: uppercase;
-            }
+            body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #1e293b; padding: 30px; line-height: 1.6; font-size: 13px; }
+            .header { text-align: center; border-bottom: 2px solid #2A3B2A; padding-bottom: 12px; margin-bottom: 25px; }
+            .header h1 { font-size: 16px; text-transform: uppercase; color: #0f172a; margin: 0 0 4px 0; letter-spacing: 0.5px; }
+            .header p { font-size: 11px; color: #64748b; margin: 0; font-weight: 500; }
+            .doc-titulo { font-size: 14px; font-weight: bold; margin-bottom: 20px; color: #2A3B2A; text-transform: uppercase; }
             .conteudo p { margin-bottom: 12px; text-align: justify; }
             .conteudo ul { list-style-type: disc; margin-left: 20px; margin-bottom: 12px; }
             .conteudo ol { list-style-type: decimal; margin-left: 20px; margin-bottom: 12px; }
             .conteudo li { margin-bottom: 4px; }
-            
-            .alerta-footer {
-              margin-top: 40px;
-              border-top: 1px dashed #cbd5e1;
-              padding-top: 15px;
-              font-size: 11px;
-              font-style: italic;
-              color: #475569;
-              text-align: center;
-              line-height: 1.4;
-            }
-            @media print {
-              body { padding: 10px; }
-            }
+            .alerta-footer { margin-top: 40px; border-top: 1px dashed #cbd5e1; padding-top: 15px; font-size: 11px; font-style: italic; color: #475569; text-align: center; line-height: 1.4; }
+            @media print { body { padding: 10px; } }
           </style>
         </head>
         <body>
-
           <div class="header">
             <h1>Cartório de Registro de Imóveis de Amargosa/BA</h1>
             <p>Ofício de Registro de Imóveis, Títulos e Documentos e Civil de Pessoas Jurídicas</p>
           </div>
-
           <div class="doc-titulo">${titulo}</div>
-
-          <div class="conteudo">
-            ${conteudo}
-          </div>
-
+          <div class="conteudo">${conteudo}</div>
           <div class="alerta-footer">
             <strong>Atenção:</strong> A qualificação registral poderá identificar a necessidade de apresentação de outros documentos.
           </div>
-
           <script>
-            window.onload = function() {
-              window.print();
-              setTimeout(function() { window.close(); }, 500);
-            };
+            window.onload = function() { window.print(); setTimeout(function() { window.close(); }, 500); };
           <\/script>
         </body>
         </html>
       `);
-
       janelaImpressao.document.close();
     }
 
@@ -560,6 +705,5 @@
       }
     }
   </script>
-
 </body>
 </html>
