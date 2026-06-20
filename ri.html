@@ -534,17 +534,26 @@
       })
       .then(resultados => {
         container.innerHTML = "";
-        cacheLoteamentosBuscados = resultados; // Indexa a resposta vinda do Apps Script
 
         if (resultados.erro) {
           container.innerHTML = `<div class="p-4 text-center text-amber-600 font-medium">Erro interno: ${resultados.msg}</div>`;
           return;
         }
-        if (resultados.length === 0) {
-          container.innerHTML = `<div class="p-4 text-center text-slate-400">Nenhum loteamento ou protocolo correspondente localizado.</div>`;
+
+        // CORREÇÃO E FILTRO DE SEGURANÇA: Isola e exibe estritamente itens vinculados a pastas que contenham a palavra "LOTEAMENTO"
+        const resultadosFiltrados = Array.isArray(resultados) ? resultados.filter(item => 
+          (item.origem && item.origem.toUpperCase().includes("LOTEAMENTO")) ||
+          (item.nome && item.nome.toUpperCase().includes("LOTEAMENTO"))
+        ) : [];
+
+        cacheLoteamentosBuscados = resultadosFiltrados; // Alimenta o cache apenas com a base limpa de loteamentos
+
+        if (resultadosFiltrados.length === 0) {
+          container.innerHTML = `<div class="p-4 text-center text-slate-400">Nenhum loteamento correspondente localizado nas pastas autorizadas de Loteamento.</div>`;
           return;
         }
-        resultados.forEach((item, index) => {
+
+        resultadosFiltrados.forEach((item, index) => {
           const linea = document.createElement("div");
           linea.className = "grid grid-cols-3 px-4 py-3 items-center hover:bg-slate-50 cursor-pointer transition-colors group";
           
