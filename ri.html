@@ -32,7 +32,7 @@
       <div class="flex items-center gap-4">
         <img src="imagens/ritdpj.png" alt="Logotipo Cartório" class="h-12 w-auto object-contain">
         <div class="border-l-2 border-slate-300 pl-4">
-          <h1 class="text-sm md:text-base font-bold uppercase tracking-wider text-slate-900 leading-tight">Ofício de Registro de Imóveis</h1>
+          <h1 class="text-sm md:text-base font-bold uppercase tracking-wider text-slate-900 craftsmanship leading-tight">Ofício de Registro de Imóveis</h1>
           <p class="text-xs text-slate-600 font-semibold leading-tight">Títulos e Documentos e Civil de Pessoas Jurídicas</p>
           <p class="text-[11px] text-slate-400 mt-0.5">Rua Moreira Coelho, 183 - Centro - Amargosa/BA</p>
         </div>
@@ -157,12 +157,12 @@
         <span class="text-[11px] font-bold text-[#2A3B2A] mt-auto">Buscar Loteamento &rarr;</span>
       </button>
 
-      <div class="bg-white border border-slate-200 p-4 rounded-xl shadow-sm flex flex-col items-start group">
-        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3"><span class="material-symbols-outlined !text-xl">gavel</span></div>
-        <h3 class="text-xs font-bold text-slate-900">Usucapião Extrajudicial</h3>
+      <button onclick="abrirModalUsucapiao()" class="bg-white text-left border border-slate-200 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-[#2A3B2A] transition-all flex flex-col items-start group focus:outline-none w-full">
+        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all"><span class="material-symbols-outlined !text-xl">gavel</span></div>
+        <h3 class="text-xs font-bold text-slate-900 group-hover:text-[#2A3B2A] transition-colors">Usucapião Extrajudicial</h3>
         <p class="text-[11px] text-slate-400 mt-1 leading-tight mb-3">Regularização direta em cartório.</p>
-        <span class="text-[11px] font-semibold text-slate-300 mt-auto">Módulo Interno</span>
-      </div>
+        <span class="text-[11px] font-bold text-[#2A3B2A] mt-auto">Consultar Andamento &rarr;</span>
+      </button>
 
       <a href="https://ridigital.org.br/VisualizarMatricula/DefaultVM.aspx?from=menu" target="_blank" class="bg-white border border-slate-200 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-[#2A3B2A] transition-all flex flex-col items-start group">
         <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all"><span class="material-symbols-outlined !text-xl">visibility</span></div>
@@ -325,6 +325,58 @@
     </div>
   </div>
 
+  <div id="modalUsucapiao" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden justify-center items-center p-4">
+    <div class="bg-white rounded-xl shadow-2xl w-full max-w-xl overflow-hidden transform transition-all border border-slate-200 h-auto flex flex-col">
+      <div class="bg-[#2A3B2A] text-white p-4 flex justify-between items-center">
+        <h3 class="text-xs font-bold uppercase tracking-wider flex items-center gap-2">
+          <span class="material-symbols-outlined text-[#C5A059] !text-sm">gavel</span>
+          Consulta de Usucapião Extrajudicial
+        </h3>
+        <button onclick="fecharModal('modalUsucapiao')" class="text-slate-400 hover:text-white text-2xl font-bold leading-none">&times;</button>
+      </div>
+      <div class="p-5 bg-slate-50 border-b border-slate-200">
+        <p class="text-xs text-slate-600 mb-2 font-medium">Insira o número do processo ou nome do requerente:</p>
+        <div class="flex gap-2">
+          <input type="text" id="inputNomeUsucapiao" class="flex-grow border border-slate-300 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-[#2A3B2A] bg-white shadow-sm" placeholder="Ex: Prot. 16883 ou Nome...">
+          <button onclick="executarBuscaUsucapiao()" class="bg-[#2A3B2A] hover:bg-[#1A261A] text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors shadow-sm flex items-center gap-1">
+            <span class="material-symbols-outlined !text-sm">search</span> Pesquisar
+          </button>
+        </div>
+      </div>
+      <div class="p-4 bg-white max-h-[50vh] overflow-y-auto flex-grow">
+        <div class="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-sm">
+          <div class="grid grid-cols-3 bg-slate-50 border-b border-slate-200 px-4 py-2 text-[10px] font-bold uppercase tracking-wider text-slate-400">
+            <div class="col-span-2">Processo / Interessado</div>
+            <div class="text-right">Localização / Origem</div>
+          </div>
+          <div id="tabelaUsucapiaoConteudo" class="divide-y divide-slate-100 text-xs">
+            <div class="p-6 text-center text-slate-400 italic">Digite um termo acima para realizar a varredura nas pastas.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modalStatusUsucapiao" class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-50 hidden justify-center items-center p-4">
+    <div class="bg-white rounded-xl shadow-2xl w-full max-w-md overflow-hidden transform transition-all border border-slate-200 flex flex-col">
+      <div class="bg-[#1A261A] text-white px-5 py-4 flex justify-between items-center">
+        <h3 class="font-bold text-xs uppercase tracking-wider flex items-center gap-2">
+          <span class="material-symbols-outlined text-[#C5A059] !text-sm">gavel</span>
+          Situação do Procedimento
+        </h3>
+        <button onclick="fecharModal('modalStatusUsucapiao')" class="text-slate-400 hover:text-white text-2xl font-semibold leading-none">&times;</button>
+      </div>
+      <div class="p-6 text-center">
+        <div id="modalUsucapiaoIconContainer" class="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4"></div>
+        <p id="lblStatusUsucapiaoNome" class="text-xs text-slate-400 uppercase font-bold tracking-wider mb-2"></p>
+        <p id="modalUsucapiaoMensagem" class="text-slate-700 font-medium text-base leading-relaxed"></p>
+      </div>
+      <div class="bg-slate-50 px-5 py-3 flex justify-end border-t border-slate-100">
+        <button onclick="fecharModal('modalStatusUsucapiao')" class="bg-[#2A3B2A] hover:bg-[#1A261A] text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors">Fechar Janela</button>
+      </div>
+    </div>
+  </div>
+
   <div id="modalLista" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-40 hidden justify-center items-center p-4">
     <div class="bg-white rounded-xl shadow-2xl w-full max-w-xl overflow-hidden transform transition-all border border-slate-200 h-auto flex flex-col">
       <div class="bg-[#1A261A] text-white px-5 py-4 flex justify-between items-center flex-shrink-0">
@@ -393,8 +445,9 @@
     const urlApiAppsScript = "https://script.google.com/macros/s/AKfycbzJ5Is411XijmRMMGjQHEei6KKXuhF5Dh9-M4gqRGGgRDFOw8Mt1AgVFEmGwVKKc9cGFw/exec";
     const urlApiLoteamentos = "https://script.google.com/macros/s/AKfycbw2WUziWKyD7Woo8aHL4OYkemSvnxfQdA--NB2ltkpvGgkAi_95YH_KZQnPqCblJ4VF2A/exec";
 
-    // Armazenamento global temporário para evitar quebras de sintaxe no onclick
+    // Armazenamento global temporário
     let cacheLoteamentosBuscados = [];
+    let cacheUsucapiaoBuscados = []; // ADAPTADO: Cache nominal para Usucapião
 
     document.addEventListener("DOMContentLoaded", function() {
       const consentBanner = document.getElementById("cookieConsent");
@@ -412,6 +465,13 @@
       document.getElementById("inputNomeLoteamento").addEventListener("keypress", function(e) {
         if (e.key === "Enter") {
           executarBuscaLoteamento();
+        }
+      });
+
+      // ADAPTADO: Listener para a tecla Enter no campo de busca do Usucapião
+      document.getElementById("inputNomeUsucapiao").addEventListener("keypress", function(e) {
+        if (e.key === "Enter") {
+          executarBuscaUsucapiao();
         }
       });
     });
@@ -450,7 +510,15 @@
       `;
     }
 
-    // Função de renderização do modal adaptada para buscar a partir do cache indexado
+    // ADAPTADO: Controle de abertura do painel de Usucapião
+    function abrirModalUsucapiao() {
+      abrirModal("modalUsucapiao");
+      document.getElementById("inputNomeUsucapiao").value = "";
+      document.getElementById("tabelaUsucapiaoConteudo").innerHTML = `
+        <div class="p-6 text-center text-slate-400 italic">Digite um termo acima para realizar a varredura nas pastas.</div>
+      `;
+    }
+
     function exibirMensagemStatusIndexado(index) {
       const item = cacheLoteamentosBuscados[index];
       if (!item) return;
@@ -500,11 +568,55 @@
       abrirModal("modalStatusLoteamento");
     }
 
+    // ADAPTADO: Função dinâmica para renderizar os status idênticos ao do primeiro arquivo
+    function exibirStatusUsucapiaoIndexado(index) {
+      const item = cacheUsucapiaoBuscados[index];
+      if (!item) return;
+
+      const nomeLabel = document.getElementById("lblStatusUsucapiaoNome");
+      const msgCorpo = document.getElementById("modalUsucapiaoMensagem");
+      const iconBox = document.getElementById("modalUsucapiaoIconContainer");
+
+      nomeLabel.textContent = item.nome;
+      
+      const statusClean = item.situacaoCode ? item.situacaoCode.trim().toLowerCase() : "";
+
+      if (statusClean === "nao_pago" || statusClean.includes("pagamento")) {
+        iconBox.className = "w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 bg-red-50 text-red-500";
+        iconBox.innerHTML = '<svg class="w-8 h-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>';
+        msgCorpo.innerHTML = `Processo Cadastrado:<br><span class="font-bold text-red-600 text-lg block mt-1">Situação: Aguardando Pagamento de Custas.</span>`;
+      } else if (statusClean === "analise" || statusClean.includes("em analise") || statusClean === "em_analise") {
+        iconBox.className = "w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 bg-blue-50 text-blue-500";
+        iconBox.innerHTML = '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>';
+        msgCorpo.innerHTML = `Processo Cadastrado:<br><span class="font-bold text-blue-600 text-lg block mt-1">Situação: Em análise.</span>`;
+      } else if (statusClean === "nota" || statusClean.includes("devolutiva") || statusClean === "exigencias_loteador") {
+        iconBox.className = "w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 bg-amber-50 text-amber-500";
+        iconBox.innerHTML = '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>';
+        msgCorpo.innerHTML = `Processo Cadastrado:<br><span class="font-bold text-amber-600 text-lg block mt-1">Situação: Aguardando cumprimento de Nota Devolutiva.</span>`;
+      } else if (statusClean === "usucapiao" || statusClean.includes("andamento") || statusClean === "aguardando_loteador") {
+        iconBox.className = "w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 bg-indigo-50 text-indigo-500";
+        iconBox.innerHTML = '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>';
+        msgCorpo.innerHTML = `Processo Cadastrado:<br><span class="font-bold text-indigo-600 text-lg block mt-1">Situação: Procedimento em andamento.</span>`;
+      } else if (statusClean === "finalizado" || statusClean === "regularizado") {
+        iconBox.className = "w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 bg-emerald-50 text-emerald-500";
+        iconBox.innerHTML = '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>';
+        msgCorpo.innerHTML = `Processo Cadastrado:<br><span class="font-bold text-emerald-600 text-lg block mt-1">Situação: Finalizado.</span>`;
+      } else {
+        iconBox.className = "w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 bg-blue-50 text-blue-500";
+        iconBox.innerHTML = '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>';
+        msgCorpo.innerHTML = `Processo Cadastrado:<br><span class="font-bold text-slate-800 text-lg block mt-1">Situação: ${item.situacaoCode || "Em processamento"}</span>`;
+      }
+
+      abrirModal("modalStatusUsucapiao");
+    }
+
     function verificarTipoSituacaoGrid(item) {
-      if (item.situacaoCode === 'REGULARIZADO') return 'text-emerald-700';
-      if (item.situacaoCode === 'AGUARDANDO_LOTEADOR') return 'text-amber-600';
-      if (item.situacaoCode === 'EM_ANALISE') return 'text-blue-600';
-      if (item.situacaoCode === 'EXIGENCIAS_LOTEADOR') return 'text-red-600';
+      const statusClean = item.situacaoCode ? item.situacaoCode.trim().toLowerCase() : "";
+      if (statusClean === 'regularizado' || statusClean === 'finalizado') return 'text-emerald-700';
+      if (statusClean === 'aguardando_loteador' || statusClean === 'usucapiao' || statusClean.includes('andamento')) return 'text-indigo-600';
+      if (statusClean === 'em_analise' || statusClean === 'analise') return 'text-blue-600';
+      if (statusClean === 'exigencias_loteador' || statusClean.includes('nota') || statusClean.includes('devolutiva')) return 'text-amber-600';
+      if (statusClean.includes('pagamento') || statusClean === 'nao_pago') return 'text-red-600';
       return 'text-slate-500';
     }
 
@@ -540,13 +652,12 @@
           return;
         }
 
-        // CORREÇÃO E FILTRO DE SEGURANÇA: Isola e exibe estritamente itens vinculados a pastas que contenham a palavra "LOTEAMENTO"
         const resultadosFiltrados = Array.isArray(resultados) ? resultados.filter(item => 
           (item.origem && item.origem.toUpperCase().includes("LOTEAMENTO")) ||
           (item.nome && item.nome.toUpperCase().includes("LOTEAMENTO"))
         ) : [];
 
-        cacheLoteamentosBuscados = resultadosFiltrados; // Alimenta o cache apenas com a base limpa de loteamentos
+        cacheLoteamentosBuscados = resultadosFiltrados;
 
         if (resultadosFiltrados.length === 0) {
           container.innerHTML = `<div class="p-4 text-center text-slate-400">Nenhum loteamento correspondente localizado nas pastas autorizadas de Loteamento.</div>`;
@@ -556,8 +667,6 @@
         resultadosFiltrados.forEach((item, index) => {
           const linea = document.createElement("div");
           linea.className = "grid grid-cols-3 px-4 py-3 items-center hover:bg-slate-50 cursor-pointer transition-colors group";
-          
-          // Chama o status passando unicamente o índice numérico seguro
           linea.setAttribute("onclick", `exibirMensagemStatusIndexado(${index})`);
           
           linea.innerHTML = `
@@ -575,8 +684,75 @@
         container.innerHTML = `
           <div class="p-4 text-center text-red-500 font-medium space-y-1">
             <p>Erro na comunicação externa.</p>
-            <p class="text-[10px] text-slate-400 font-normal">Verifique se o novo script de Loteamentos está publicado como "Qualquer pessoa" and com os acessos liberados.</p>
+            <p class="text-[10px] text-slate-400 font-normal">Verifique se o novo script de Loteamentos está publicado como "Qualquer pessoa" e com os acessos liberados.</p>
           </div>`;
+      });
+    }
+
+    // ADAPTADO: Varredura idêntica ao do loteamento, porém aplicando o isolamento por pasta "USU"
+    function executarBuscaUsucapiao() {
+      const nomePesquisado = document.getElementById("inputNomeUsucapiao").value.trim();
+      const container = document.getElementById("tabelaUsucapiaoConteudo");
+
+      if (!nomePesquisado) {
+        container.innerHTML = `<div class="p-4 text-center text-amber-600 font-medium">Por favor, preencha o termo para pesquisar.</div>`;
+        return;
+      }
+
+      container.innerHTML = `
+        <div class="p-6 text-center text-slate-400 flex flex-col items-center justify-center gap-2">
+          <svg class="w-5 h-5 animate-spin text-[#2A3B2A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 8H17"></path></svg>
+          <span>Efetuando varredura na base de Usucapião...</span>
+        </div>
+      `;
+
+      fetch(`${urlApiLoteamentos}?action=buscarLoteamentos&nome=${encodeURIComponent(nomePesquisado)}`, {
+        method: "GET",
+        redirect: "follow"
+      })
+      .then(res => {
+        if (!res.ok) throw new Error("Falha de comunicação.");
+        return res.json();
+      })
+      .then(resultados => {
+        container.innerHTML = "";
+
+        if (resultados.erro) {
+          container.innerHTML = `<div class="p-4 text-center text-amber-600 font-medium">Erro interno: ${resultados.msg}</div>`;
+          return;
+        }
+
+        // CRÍTICO: Filtra estritamente por pastas/itens que contenham a palavra "USU"
+        const resultadosFiltrados = Array.isArray(resultados) ? resultados.filter(item => 
+          (item.origem && item.origem.toUpperCase().includes("USU")) ||
+          (item.nome && item.nome.toUpperCase().includes("USU"))
+        ) : [];
+
+        cacheUsucapiaoBuscados = resultadosFiltrados;
+
+        if (resultadosFiltrados.length === 0) {
+          container.innerHTML = `<div class="p-4 text-center text-slate-400">Nenhum andamento correspondente localizado nas pastas autorizadas de Usucapião.</div>`;
+          return;
+        }
+
+        resultadosFiltrados.forEach((item, index) => {
+          const linea = document.createElement("div");
+          linea.className = "grid grid-cols-3 px-4 py-3 items-center hover:bg-slate-50 cursor-pointer transition-colors group";
+          linea.setAttribute("onclick", `exibirStatusUsucapiaoIndexado(${index})`);
+          
+          linea.innerHTML = `
+            <div class="col-span-2 flex items-center gap-3">
+              <span class="material-symbols-outlined text-[#2A3B2A] !text-xl flex-shrink-0">gavel</span>
+              <span class="font-medium text-slate-700 group-hover:text-[#2A3B2A] underline decoration-transparent group-hover:decoration-[#2A3B2A] truncate">${item.nome}</span>
+            </div>
+            <div class="text-right text-xs font-semibold ${verificarTipoSituacaoGrid(item)}">${item.origem}</div>
+          `;
+          container.appendChild(linea);
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+        container.innerHTML = `<div class="p-4 text-center text-red-500 font-medium">Falha crítica de comunicação na rede externa.</div>`;
       });
     }
 
@@ -660,7 +836,6 @@
       abrirModal("modalDN");
     }
 
-    // Processamento de Janela de Impressão nativa do Cartório
     function imprimirConteudoDN() {
       const titulo = document.getElementById("textoDNTitulo").textContent;
       const conteudo = document.getElementById("textoDNConteudo").innerHTML;
