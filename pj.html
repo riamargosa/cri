@@ -56,19 +56,19 @@
           <li>
             <a href="https://riamargosa.eu.org/index.html" class="block px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors">Início</a>
           </li>
-		  
-		  <li class="relative group">
+          
+          <li class="relative group">
             <button class="flex items-center gap-1 px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors focus:outline-none">
-              Serviços</a>
+              Serviços
               <svg class="w-4 h-4 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
             <ul class="absolute left-0 hidden group-hover:block bg-[#1A261A] text-slate-200 w-72 rounded-b-lg shadow-xl py-2 border-t-2 border-[#C5A059] z-50">
-              <li><a href="https://riamargosa.eu.org/ri.html" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Registro de Imóveis </a></li>
-              <li><a href="https://riamargosa.eu.org/td.html" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Titulos e Documentos</a></li>
-              <li><a href="https://riamargosa.eu.org/pj.html" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Pessoas Jurídicas</a></li>
+              <li><a href="https://riamargosa.eu.org/ri.html" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Registro de Imóveis </a></li>
+              <li><a href="https://riamargosa.eu.org/td.html" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Titulos e Documentos</a></li>
+              <li><a href="https://riamargosa.eu.org/pj.html" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Pessoas Jurídicas</a></li>
             </ul>
           </li>
-		  
+          
           <li>
             <a href="https://www.tjba.jus.br/extrajudicial/tabelas-de-custas/" target="_blank" class="block px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors">Tabelas e Taxas</a>
           </li>
@@ -100,8 +100,10 @@
           <li>
             <a href="https://www.cnj.jus.br/corregedoria/justica_aberta/?" target="_blank" class="block px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors">Transparência</a>
           </li>
-		  
-		  <a href="https://riamargosa.eu.org/faleconosco.html" class="block px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors">Fale Conosco</a>
+          
+          <li>
+            <a href="#" class="block px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors">Fale Conosco</a>
+          </li>
         </ul>
       </div>
     </nav>
@@ -114,6 +116,15 @@
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+
+      <button onclick="abrirListaRequerimentos()" class="bg-white text-left border border-slate-200 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-[#2A3B2A] transition-all flex flex-col items-start group focus:outline-none">
+        <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-4 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all">
+          <span class="material-symbols-outlined !text-xl">assignment</span>
+        </div>
+        <h3 class="text-xs font-bold text-slate-900 group-hover:text-[#2A3B2A] transition-colors">Requerimentos</h3>
+        <p class="text-[11px] text-slate-400 mt-1 leading-tight mb-3">Modelos e formulários oficiais para download e preenchimento.</p>
+        <span class="text-[11px] font-bold text-[#2A3B2A] mt-auto">Acessar Serviço &rarr;</span>
+      </button>
 
       <a href="https://www.rtdbrasil.org.br/" target="_blank" class="bg-white border border-slate-200 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-[#2A3B2A] transition-all flex flex-col items-start group">
         <div class="w-10 h-10 bg-[#F2F6F1] text-[#2A3B2A] rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#2A3B2A] group-hover:text-white transition-all">
@@ -154,6 +165,28 @@
     </div>
   </main>
   
+  <div id="modalLista" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden justify-center items-center p-4">
+    <div class="bg-white rounded-xl shadow-2xl w-full max-w-xl overflow-hidden transform transition-all border border-slate-200 h-auto flex flex-col">
+      <div class="bg-[#1A261A] text-white px-5 py-4 flex justify-between items-center flex-shrink-0">
+        <h3 class="font-bold text-xs uppercase tracking-wider flex items-center gap-2">
+          <span class="material-symbols-outlined text-[#C5A059] !text-sm">folder_open</span>
+          Modelos de Requerimentos Oficiais
+        </h3>
+        <button onclick="fecharModal('modalLista')" class="text-slate-400 hover:text-white text-2xl font-semibold leading-none">&times;</button>
+      </div>
+      <div class="p-4 bg-slate-50 max-h-[70vh] overflow-y-auto flex-grow">
+        <div class="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-sm">
+          <div class="grid grid-cols-3 bg-slate-50 border-b border-slate-200 px-4 py-2 text-[10px] font-bold uppercase tracking-wider text-slate-400">
+            <div class="col-span-2">Título do Documento</div>
+            <div class="text-right">Modificação</div>
+          </div>
+          <div id="tabelaRequerimentosConteudo" class="divide-y divide-slate-100 text-xs">
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div id="cookieConsent" class="fixed bottom-0 left-0 w-full bg-[#1A261A] text-slate-200 border-t border-slate-800 p-4 shadow-2xl z-50 flex flex-col sm:flex-row justify-between items-center gap-4 hidden">
     <p class="text-xs text-center sm:text-left">Este portal utiliza cookies para garantir o funcionamento técnico e a segurança institucional. Ao continuar navegando, você declara estar ciente do nosso <a href="https://drive.google.com/file/d/1XFvQGVBeIYVQVUK8pXK6__FyZfBUgnMA/view?usp=sharing" target="_blank" class="text-[#C5A059] underline font-medium hover:text-[#b08e4f]">Termo de Privacidade</a>.</p>
     <button id="acceptCookies" class="bg-[#C5A059] hover:bg-[#b08e4f] text-slate-950 text-xs font-bold px-4 py-2 rounded-lg transition-colors whitespace-nowrap">Aceitar Diretrizes</button>
@@ -177,6 +210,8 @@
   </footer>
 
   <script>
+    const urlApiAppsScript = "https://script.google.com/macros/s/AKfycbzJ5Is411XijmRMMGjQHEei6KKXuhF5Dh9-M4gqRGGgRDFOw8Mt1AgVFEmGwVKKc9cGFw/exec";
+
     document.addEventListener("DOMContentLoaded", function() {
       const consentBanner = document.getElementById("cookieConsent");
       const acceptBtn = document.getElementById("acceptCookies");
@@ -190,6 +225,78 @@
         consentBanner.classList.add("hidden");
       });
     });
+
+    function abrirModal(modalId) {
+      const modal = document.getElementById(modalId);
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.classList.add('overflow-hidden');
+    }
+
+    function fecharModal(modalId) {
+      const modal = document.getElementById(modalId);
+      modal.classList.remove('flex');
+      modal.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    function abrirPdfDireto(idArquivoDrive) {
+      const urlDriveOficial = `https://drive.google.com/file/d/${idArquivoDrive}/view?usp=sharing`;
+      window.open(urlDriveOficial, '_blank'); 
+    }
+
+    function abrirListaRequerimentos() {
+      abrirModal("modalLista");
+      const container = document.getElementById("tabelaRequerimentosConteudo");
+      
+      container.innerHTML = `
+        <div class="p-6 text-center text-slate-400 flex flex-col items-center justify-center gap-2 col-span-3">
+          <svg class="w-5 h-5 animate-spin text-[#2A3B2A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 8H17"></path>
+          </svg>
+          <span>Buscando requerimentos na nuvem...</span>
+        </div>
+      `;
+
+      fetch(`${urlApiAppsScript}?action=listFiles&folderId=1Bvzd8qJQHqGEy2VqvzRF5m4yqfVtnACG`, {
+        method: "GET",
+        redirect: "follow"
+      })
+      .then(res => res.json())
+      .then(arquivos => {
+        container.innerHTML = "";
+        
+        if (arquivos.erro || arquivos.length === 0) {
+          container.innerHTML = `<div class="p-4 text-center text-slate-400">Nenhum modelo de requerimento localizado na pasta atualmente.</div>`;
+          return;
+        }
+
+        arquivos.forEach(arq => {
+          const linha = document.createElement("div");
+          linha.className = "grid grid-cols-3 px-4 py-3 items-center hover:bg-slate-50 cursor-pointer transition-colors group";
+          linha.setAttribute("onclick", `abrirPdfDireto('${arq.id}')`);
+          linha.innerHTML = `
+            <div class="col-span-2 flex items-center gap-3">
+              <span class="material-symbols-outlined text-red-500 !text-xl flex-shrink-0">picture_as_pdf</span>
+              <span class="font-medium text-slate-700 group-hover:text-[#2A3B2A] underline decoration-transparent group-hover:decoration-[#2A3B2A] truncate">${arq.nome}</span>
+            </div>
+            <div class="text-right text-slate-400 font-medium">${arq.data || 'Disponível'}</div>
+          `;
+          container.appendChild(linha);
+        });
+      })
+      .catch(() => {
+        container.innerHTML = `<div class="p-4 text-center text-red-500 font-medium">Erro ao carregar a lista. Verifique sua conexão.</div>`;
+      });
+    }
+
+    window.onclick = function(event) {
+      if (event.target.classList.contains('backdrop-blur-sm')) {
+        event.target.classList.remove('flex');
+        event.target.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+      }
+    }
   </script>
 </body>
 </html>
