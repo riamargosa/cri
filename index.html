@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cartório de Registro de Imóveis, RTD e RCPJ de Amargosa/BA</title>
-  a
+  
   <script src="https://cdn.tailwindcss.com"></script>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +18,6 @@
     h1, h2, h3, h4, .font-title {
       font-family: 'Montserrat', sans-serif;
     }
-    /* Efeito de gradiente para o fundo da Hero Section utilizando o Verde Oliva */
     .bg-hero-oliva {
       background-image: linear-gradient(rgba(42, 59, 42, 0.92), rgba(26, 38, 26, 0.96)), url('imagens/fv.png');
       background-size: cover;
@@ -63,13 +62,13 @@
             <a href="#" class="block px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors">Início</a>
           </li>
           
-           <li class="relative group">
+          <li class="relative group">
             <button class="flex items-center gap-1 px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors focus:outline-none">
               Serviços
               <svg class="w-4 h-4 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
             <ul class="absolute left-0 hidden group-hover:block bg-[#1A261A] text-slate-200 w-72 rounded-b-lg shadow-xl py-2 border-t-2 border-[#C5A059] z-50">
-              <li><a href="https://riamargosa.eu.org/ri.html" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Registro de Imóveis </a></li>
+              <li><a href="https://riamargosa.eu.org/ri.html" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Registro de Imóveis</a></li>
               <li><a href="https://riamargosa.eu.org/td.html" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Titulos e Documentos</a></li>
               <li><a href="https://riamargosa.eu.org/pj.html" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">Pessoas Jurídicas</a></li>
             </ul>
@@ -115,6 +114,26 @@
           <li>
             <a href="https://www.cnj.jus.br/corregedoria/justica_aberta/?" target="_blank" class="block px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors">Transparência</a>
           </li>
+
+          <li class="relative group">
+            <button class="flex items-center gap-1 px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors focus:outline-none">
+              LGPD
+              <svg class="w-4 h-4 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <ul class="absolute left-0 hidden group-hover:block bg-[#1A261A] text-slate-200 w-80 rounded-b-lg shadow-xl py-2 border-t-2 border-[#C5A059] z-50">
+              <li>
+                <a href="https://heyzine.com/flip-book/0ff4d2580e.html#page/6" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">
+                  Compêndio de Regulamentação...
+                </a>
+              </li>
+              <li>
+                <a href="https://drive.google.com/file/d/1yW9Zx3GCgYFzdJ0acEcTnQHquHk9Hso0/view?usp=sharing" target="_blank" class="block px-4 py-2 text-xs hover:bg-[#2A3B2A] hover:text-white transition-colors">
+                  Formulário de Requisição - Titular de Dados
+                </a>
+              </li>
+            </ul>
+          </li>
+
           <li>
             <a href="https://riamargosa.eu.org/faleconosco.html" class="block px-4 py-3 text-sm font-medium hover:text-[#C5A059] transition-colors">Fale Conosco</a>
           </li>
@@ -133,7 +152,7 @@
             <svg class="w-5 h-5 fill-none stroke-current flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
             <input type="text" id="protocoloInput" placeholder="Digite o protocolo (Ex: Prot. 16883)" class="w-full text-sm text-slate-800 placeholder-slate-400 focus:outline-none font-medium">
           </div>
-          <button onclick="buscarStatusProtocolo()" class="bg-[#3A4B3A] hover:bg-[#2A3B2A] text-white font-semibold text-sm px-6 py-3 rounded-lg transition-colors whitespace-nowrap w-full sm:w-auto">Consultar</button>
+          <button onclick="buscarStatusProtocolo()" class="bg-[#3A4B3A] hover:bg-[#2A3B2A] text-[#ffffff] font-semibold text-sm px-6 py-3 rounded-lg transition-colors whitespace-nowrap w-full sm:w-auto">Consultar</button>
         </div>
       </div>
     </div>
@@ -154,7 +173,6 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-        
         <div onclick="window.location.href='ri.html'" class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all cursor-pointer group flex flex-col justify-between">
           <div>
             <div class="bg-slate-50 w-16 h-16 rounded-lg flex items-center justify-center mb-4 group-hover:bg-[#3A4B3A]/10 transition-colors">
@@ -162,12 +180,12 @@
             </div>
             <h4 class="text-base font-bold text-slate-900 group-hover:text-[#3A4B3A] transition-colors">Registro de Imóveis</h4>
             <p class="text-xs text-[#C5A059] mt-2 font-semibold">Proteja a propriedade do seu imóvel.</p>
-            <p class="text-[11px] text-slate-400 mt-3 leading-relaxed">Qualficação de Compra e Venda, Doações, Alienação Fiduciária, Georreferenciamento (SIG-RI) e Regularização Fundiária (REURB).</p>
+            <p class="text-[11px] text-slate-400 mt-3 leading-relaxed">Qualificação de Compra e Venda, Doações, Alienação Fiduciária, Georreferenciamento (SIG-RI) e Regularização Fundiária (REURB).</p>
           </div>
           <span class="text-xs font-bold text-slate-900 mt-4 flex items-center gap-1 group-hover:text-[#C5A059]">Acessar Especialidade →</span>
         </div>
 
-        <div onclick="window.location.href='td.html'" class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all cursor-pointer group flex flex-col justify-between">
+        <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all cursor-pointer group flex flex-col justify-between">
           <div>
             <div class="bg-slate-50 w-16 h-16 rounded-lg flex items-center justify-center mb-4 group-hover:bg-[#3A4B3A]/10 transition-colors">
               <img src="https://ridigital.org.br/assets/img/servicos-icones/certidao-digital.svg" alt="Títulos e Documentos" class="w-10 h-10">
@@ -179,7 +197,7 @@
           <span class="text-xs font-bold text-slate-900 mt-4 flex items-center gap-1 group-hover:text-[#C5A059]">Acessar Especialidade →</span>
         </div>
 
-        <div onclick="window.location.href='pj.html'" class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all cursor-pointer group flex flex-col justify-between">
+        <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all cursor-pointer group flex flex-col justify-between">
           <div>
             <div class="bg-slate-50 w-16 h-16 rounded-lg flex items-center justify-center mb-4 group-hover:bg-[#3A4B3A]/10 transition-colors">
               <img src="https://ridigital.org.br/assets/img/servicos-icones/regularizacao-fundiaria.svg" alt="Pessoa Jurídica" class="w-10 h-10">
@@ -190,7 +208,6 @@
           </div>
           <span class="text-xs font-bold text-slate-900 mt-4 flex items-center gap-1 group-hover:text-[#C5A059]">Acessar Especialidade →</span>
         </div>
-
       </div>
     </section>
 
@@ -221,7 +238,7 @@
           </div>
           <p class="text-xs text-slate-600 mb-4 leading-relaxed">Mecanismo oficial para constituir devedores em mora, solicitar desocupação de imóveis ou fazer cobranças formais.</p>
           <ul class="space-y-2 text-[11px] text-slate-500">
-            <li class="flex items-start gap-2"><strong class="text-slate-700">1. Presentation:</strong> O notificante apresenta o documento assinado em três vias perante o Oficial de RTD.</li>
+            <li class="flex items-start gap-2"><strong class="text-slate-700">1. Apresentação:</strong> O notificante apresenta o documento assinado em três vias perante o Oficial de RTD.</li>
             <li class="flex items-start gap-2"><strong class="text-slate-700">2. Diligência Oficial:</strong> O escrevente desloca-se até o endereço indicado para colher a ciência do notificado.</li>
             <li class="flex items-start gap-2"><strong class="text-slate-700">3. Certidão de Fé Pública:</strong> Finalizado o ato, emite-se a certidão atestando o recebimento ou a recusa jurídica.</li>
           </ul>
@@ -267,7 +284,7 @@
     <div class="bg-white rounded-xl shadow-2xl w-full max-w-md overflow-hidden transform transition-all border border-slate-200">
       <div class="bg-[#1A261A] text-white px-5 py-4 flex justify-between items-center">
         <h3 class="font-bold text-xs uppercase tracking-wider flex items-center gap-2">
-          <svg class="w-4 h-4 text-[#C5A059]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 114 0m-6 9l2 2 4-4"></path></svg>
+          <svg class="w-4 h-4 text-[#C5A059]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 114 0m-6 9l2 2 4-4"></path></svg>
           Situação do Protocolo
         </h3>
         <button onclick="fecharProtocoloModal()" class="text-slate-400 hover:text-white text-2xl font-semibold leading-none">&times;</button>
@@ -294,10 +311,8 @@
 
       exibirModalStatus("🔄 Conectando ao Banco de Dados... Aguarde.", "loading");
 
-      // CORRIGIDO: Atribuição limpa com a URL de produção oficial do seu Google Web App
       const urlAcessoScript = "https://script.google.com/macros/s/AKfycby-nSfjya6gEiNUhpU3mZEULKLPcU-i4zGXSAvabcyDZRoOkX9X5iuciA_bx-LXp5ov/exec";
 
-      // Requisição HTTP assíncrona blindada contra respostas inesperadas do servidor
       fetch(`${urlAcessoScript}?protocolo=${numero}`)
         .then(response => {
           if (!response.ok) throw new Error("Erro de resposta na rede HTTP.");
@@ -339,7 +354,6 @@
         });
     }
 
-    // Gerenciador visual estruturado para os status do modal
     function exibirModalStatus(mensagem, tipo) {
       const modal = document.getElementById("protocoloModal");
       const msgCorpo = document.getElementById("modalMensagem");
